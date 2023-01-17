@@ -9,8 +9,9 @@ Common files to run kartplattformen API applications in same OS process
 - clone repo
 - Make link to support config:\
   ln -snf kartplattformen_common sagendatabas\
-- Rename applications/repos to names following python standard:\
+- Backup old configuration if needed later:\
   mv sagendatabas sagendatabas_before_kartplattformen_common\
+- Rename applications/repos to names following python standard:\
   mv Sagenkarta-Rest-API sagenkarta_rest_api\
   mv Sagendatabas-ES-API sagendatabas_es_api\
   mv Sagendatabas-ES-API-advanced sagendatabas_es_api-advanced\
