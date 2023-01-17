@@ -1,12 +1,16 @@
 # kartplattformen_common
 Common files to run kartplattformen API applications in same OS process
 # Installation
-- main folder connected to OS process through for example wsgi
-  - manage.py
-  - kartplattformen_common
-  - other repos
+## Create file structure
+├── manage.py
+├── kartplattformen_common: main folder connected to OS process through for example wsgi
+│   ├── wsgi.py
+│   ├── settings.py
+│   ├── urls.py
+│   ├── secrets_env.py
+└── other repos
 ## Prepare installation with easy way of go back
-- clone repo
+- clone repo kartplattformen_common in main folder
 - Make link to support config:\
   ln -snf kartplattformen_common sagendatabas\
 - Backup old configuration if needed later:\
