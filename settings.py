@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 """
 
 import os
-import secrets_env
+from . import secrets_env
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -24,13 +24,13 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECRET_KEY = 'i889r8a3_s0coueb=fyt_c3aulr5tb$&o#u!f7o9t8yqr3plj^'
 # from django.core.management.utils import get_random_secret_key
 # get_random_secret_key()
-SECRET_KEY = secrets.key
+SECRET_KEY = secrets_env.key
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 #ALLOWED_HOSTS = ['*', u'127.0.0.1', u'localhost']
-ALLOWED_HOSTS = [secrets.allowed_host, u'127.0.0.1', u'localhost']
+ALLOWED_HOSTS = [secrets_env.allowed_host, u'127.0.0.1', u'localhost']
 
 # https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options:
 # 1. ALLOW-FROM is an obsolete directive that no longer works in modern browsers. Don't use it.
@@ -86,7 +86,6 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'corsheaders.middleware.CorsMiddleware',
-    'csp.middleware.CSPMiddleware',
 ]
 
 ROOT_URLCONF = 'sagendatabas.urls'
@@ -117,13 +116,13 @@ TEMPLATES = [
 
 DATABASES = {
     'default': {
-        'HOST': secrets.host,
+        'HOST': secrets_env.host,
         #'PORT': '3306',
-        'PORT': secrets.port,
-        'NAME': secrets.database,
+        'PORT': secrets_env.port,
+        'NAME': secrets_env.database,
         'ENGINE': 'django.db.backends.mysql',
-        'USER': secrets.user,
-        'PASSWORD': secrets.passord,
+        'USER': secrets_env.user,
+        'PASSWORD': secrets_env.passord,
         'OPTIONS': {
           'autocommit': False,
           #'ssl': True
