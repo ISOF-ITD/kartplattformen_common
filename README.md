@@ -2,7 +2,7 @@
 Common files to run kartplattformen API applications in same OS process
 # Installation
 ## Create file structure
-Example of file structure:
+Example of file structure:\
 ├── manage.py\: If needed copy manage.py here from manage.py in this repo\
 ├── kartplattformen_common: main folder connected to OS process through for example wsgi\
 ├── "FOLDER NAME IN WSGI CONFIG PATH": If needed make this a link to kartplattformen_common\
