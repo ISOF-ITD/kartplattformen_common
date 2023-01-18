@@ -61,12 +61,21 @@ CSP_FRAME_ANCESTORS = ("'self'","sok.folke.isof.se")
 #CSP_WORKER_SRC = ("'self'",)
 CSP_MEDIA_SRC = ("'self'","sok.folke.isof.se")
 
-CORS_ORIGIN_ALLOW_ALL = True
+# CORS_ORIGIN_ALLOW_ALL = True
+
+CORS_ALLOWED_ORIGINS = [
+    "http://sok.folke.isof.se",
+    "http://forska.folke.isof.se",
+    "http://sok.folke-test.isof.se",
+    "http://forska.folke-test.isof.se",
+
+]
 
 # Application definition
 
 INSTALLED_APPS = [
     #'Sagenkarta-Admin.apps.SagenkartaDjangoAdminConfig',
+    'corsheaders',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -79,16 +88,16 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
 ]
 
-ROOT_URLCONF = 'sagendatabas.urls'
+ROOT_URLCONF = 'kartplattformen_common.urls'
 
 TEMPLATES = [
     {
@@ -214,8 +223,6 @@ REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
     'PAGE_SIZE': 50
 }
-
-CORS_ORIGIN_ALLOW_ALL = True
 
 # *** Settings for HTTPS ***
 
