@@ -7,10 +7,13 @@ Common files to run kartplattformen API applications in same OS process
 │   ├── wsgi.py\
 │   ├── settings.py\
 │   ├── urls.py\
-│   └── secrets_env.py\
+│   └── secrets_env.py\: Copy secrets_env.py.template
 └── other repos\
 ## Prepare installation with easy way of go back
-- clone repo kartplattformen_common in main folder
+- Clone repo kartplattformen_common in main folder
+- Configure settings for enviroment
+Copy secrets_env.py.template to secrets_env.py
+Set settings in secrets_env.py
 - Make link to support config:\
   ln -snf kartplattformen_common sagendatabas\
 - Backup old configuration if needed later:\
