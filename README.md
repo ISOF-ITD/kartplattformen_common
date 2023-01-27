@@ -12,6 +12,9 @@ Example of file structure:\
 │   └── secrets_env.py: Copy secrets_env.py.template\
 └── other repos
 ## Prepare installation with easy way of go back
+Installation in an already running enviroment.
+
+Example of steps:
 - Clone repo kartplattformen_common in main folder
 - Configure settings for current environment\
 Copy secrets_env.py.template to secrets_env.py\
