@@ -19,7 +19,7 @@ from django.contrib import admin
 urlpatterns = [
     url(r'^api/', include('sagenkarta_rest_api.urls')),
     url(r'^api/es/', include('sagendatabas_es_api.urls')),
-    url(r'^api/es-advanced/', include('sagendatabasi_es_api_advanced.urls')),
+    #url(r'^api/es-advanced/', include('sagendatabasi_es_api_advanced.urls')),
     #url(r'^api/es-test/', include('Sagendatabas-ES-API-test.urls')),
     #url(r'^Sagenkarta-Admin/', include('Sagenkarta-Admin.urls')),
     #url(r'^admin/', admin.site.urls),
