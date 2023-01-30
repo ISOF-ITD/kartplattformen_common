@@ -61,7 +61,7 @@ CSP_FRAME_ANCESTORS = ("'self'","sok.folke.isof.se")
 #CSP_WORKER_SRC = ("'self'",)
 CSP_MEDIA_SRC = ("'self'","sok.folke.isof.se")
 
-# CORS_ORIGIN_ALLOW_ALL = True
+CORS_ORIGIN_ALLOW_ALL = True
 
 CORS_ALLOWED_ORIGINS = [
     "http://sok.folke.isof.se",
