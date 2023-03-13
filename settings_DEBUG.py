@@ -206,6 +206,10 @@ LOGGING = {
             'level': 'WARNING',
             'propagate': False,
         },
+        'django.utils.autoreload': {
+            'handlers': ['console'],
+            'level': 'INFO',
+        },
         '': {
             'handlers': ['console'],
             'level': 'WARNING',
