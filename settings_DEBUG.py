@@ -176,6 +176,10 @@ USE_TZ = False
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
+# static files local in app installation:
+#STATIC_URL = '/folkeservice/static/'
+#STATIC_ROOT = '/var/www/django/folkeservice/static'
+# OLD (frigg-test/frigg): static in global static folder per app:
 STATIC_URL = '/static/'
 
 ADMIN_MEDIA_PREFIX = '/static/admin/'
