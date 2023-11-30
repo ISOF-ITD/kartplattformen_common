@@ -16,4 +16,10 @@ os.environ["DJANGO_SETTINGS_MODULE"] = "sagendatabas.settings"
 sys.path.append('/var/www/django/sagendatabas')
 sys.path.append('/var/www/django/sagendatabase/sagendatabas')
 
+# New environment
+#os.environ["DJANGO_SETTINGS_MODULE"] = "kartplattformen_common.settings"
+
+#sys.path.append('/var/www/django/folkeservice')
+# #sys.path.append('/var/www/django/folkeservice/kartplattformen_common')
+
 application = get_wsgi_application()
