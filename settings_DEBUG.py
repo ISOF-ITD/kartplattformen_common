@@ -205,6 +205,22 @@ LOGGING = {
             'level': 'DEBUG',
             # 'level': 'WARNING',
         },
+        'sagenkarta_rest_api': {
+            # 'handlers': ['console', 'logfile'],
+            'handlers': ['console'],
+            'propagate': True,
+            # 'level': 'INFO',
+            'level': 'DEBUG',
+            # 'level': 'WARNING',
+        },
+        'sagendatabas_es_api': {
+            # 'handlers': ['console', 'logfile'],
+            'handlers': ['console'],
+            'propagate': True,
+            'level': 'INFO',
+            # 'level': 'DEBUG',
+            # 'level': 'WARNING',
+        },
         'django.db.backends': {
             'handlers': ['console'],
             'level': 'WARNING',
