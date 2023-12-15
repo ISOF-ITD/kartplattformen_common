@@ -224,6 +224,7 @@ LOGGING = {
         'django.db.backends': {
             'handlers': ['console'],
             'level': 'WARNING',
+            # 'level': 'DEBUG',
             'propagate': False,
         },
         'django.utils.autoreload': {
