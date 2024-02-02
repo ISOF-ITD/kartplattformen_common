@@ -19,6 +19,7 @@ from django.contrib import admin
 urlpatterns = [
     url(r'^api/', include('sagenkarta_rest_api.urls')),
     url(r'^api/es/', include('sagendatabas_es_api.urls')),
+    url(r'^opendata/', include('sagendatabas_es_api.opendata.v1.urls')),
     # Not used anymore:
     #url(r'^api/es-advanced/', include('sagendatabasi_es_api_advanced.urls')),
     #url(r'^api/es-test/', include('sagendatabas_es_api-test.urls')),
