@@ -14,12 +14,18 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
 from django.conf.urls import url, include
+from django.urls import path
 from django.contrib import admin
 
 urlpatterns = [
     url(r'^api/', include('sagenkarta_rest_api.urls')),
     url(r'^api/es/', include('sagendatabas_es_api.urls')),
     url(r'^opendata/', include('sagendatabas_es_api.opendata.v1.urls')),
+
+    # Test with namespace:
+    #path(r'^api/', include('sagenkarta_rest_api.urls', namespace='api-base')),
+    #path(r'^api/es/', include('sagendatabas_es_api.urls', namespace='api-es')),
+    #path(r'^opendata/', include('sagendatabas_es_api.opendata.v1.urls', namespace='folke-opendata-v1')),
     # Not used anymore:
     #url(r'^api/es-advanced/', include('sagendatabasi_es_api_advanced.urls')),
     #url(r'^api/es-test/', include('sagendatabas_es_api-test.urls')),
