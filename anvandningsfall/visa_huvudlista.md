@@ -13,8 +13,8 @@ Användaren har valt filter
 3. Visar X-Y av Z (Visar 1-8 av 8)
 4. Knappar: "Föregående" "Nästa"
 5. Visa lista över dokument. Hierarkiskt:
--- accessionsrad (one_accession_row)
--- recordrader som hör till accessionsraden (one_record)
+- accessionsrad (one_accession_row)
+- recordrader som hör till accessionsraden (one_record)
 Kolumner:
 - Titel
 - Arkivnummer (sorterbar)
