@@ -1,4 +1,4 @@
-# Användingsfall Sök mediatyp
+# Användningsfall Sök mediatyp
 # Syfte
 Sök mediatyp
 
