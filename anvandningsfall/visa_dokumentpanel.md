@@ -23,7 +23,11 @@ Användaren har valt ett dokument i en dokumentlista (huvudlista, ortlista, pers
   - Kolumner:
   - Play-knapp (Visar och startar ljudspelaren)
   - Ljudfilstitel efter tillgång: 1) Titel 2) Text efter filnamn i Innehåll 3) Interjuad person + År
-3. Om one_record: Visa transkription
+3. Beroende på record_type
+- Om one_accession_row och inget material digitaliserat: **EJ IDAG**
+    - Den här uppteckningen är inte publikt tillgänglig digitalt.
+    - Vill du att den ska bli det!
+    - Knapp: "Tillgängliggör på Folke"
 - Om one_record och avskriven:
     - text
 - Om one_record och inte avskriven:
