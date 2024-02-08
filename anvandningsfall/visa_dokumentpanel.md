@@ -18,11 +18,11 @@ Användaren har valt ett dokument i en dokumentlista (huvudlista, ortlista, pers
   - Fler?
 2. Visa material
 - Om text/bild: Visa bildfiler
--- Alla visas (_Dölj frågelistor bakom "Visa frågelista?"_)
+  - Alla visas (_Dölj frågelistor bakom "Visa frågelista?"_)
 - Om ljud: Visa lista på ljudfiler
--- Kolumner:
---- Play-knapp (Visar och startar ljudspelaren)
---- Ljudfilstitel efter tillgång: 1) Titel 2) Text efter filnamn i Innehåll 3) Interjuad person + År
+  - Kolumner:
+  - Play-knapp (Visar och startar ljudspelaren)
+  - Ljudfilstitel efter tillgång: 1) Titel 2) Text efter filnamn i Innehåll 3) Interjuad person + År
 3. Om one_record: Visa transkription
 - Om one_record och avskriven:
     - text
