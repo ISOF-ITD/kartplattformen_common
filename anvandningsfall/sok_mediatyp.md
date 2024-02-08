@@ -5,7 +5,7 @@ Sök mediatyp
 # Mål
 
 # Förutsättningar
-Användaren har startat progammet
+Användaren har vänsterpanelen (huvudpanelen) expanderad och aktiv
 
 # Huvudflöde
 1. Visa mediatyper att välja mellan samt antal träffar.
