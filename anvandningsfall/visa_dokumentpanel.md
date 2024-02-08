@@ -24,7 +24,7 @@ Användaren har valt ett dokument i en dokumentlista (huvudlista, ortlista, pers
   - Play-knapp (Visar och startar ljudspelaren)
   - Ljudfilstitel efter tillgång: 1) Titel 2) Text efter filnamn i Innehåll 3) Interjuad person + År
 3. Beroende på record_type
-- Om one_accession_row och inget material digitaliserat: **EJ IDAG**
+- Om one_accession_row och inget material digitaliserat (och Göteborg/Lund): **EJ IDAG**
     - Den här uppteckningen är inte publikt tillgänglig digitalt.
     - Vill du att den ska bli det!
     - Knapp: "Tillgängliggör på Folke"
