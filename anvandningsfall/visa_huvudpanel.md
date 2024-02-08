@@ -11,15 +11,15 @@ Användaren har vänsterpanelen (huvudpanelen) expanderad och aktiv
 1. Visa funktioner att välja mellan:
 - Arkivmaterial
 - Skriv av (accessioner/one_accession_row som har one_records)
-2. Visa filter på mediatyp med antal träffar på varje
+2. Visa filter med avbockning på mediatyp med antal träffar på varje
 - Text (default)
 - Ljud
 - Bild
 - Fler från formtyp, t.ex. teckning?
-3. Visa filter på kategorier  (med antal träffar på varje?) **EJ IDAG**
+3. Visa avbockning/lista på kategorier som filter (med antal träffar på varje?) **EJ IDAG**
 - all tradark?
 - importerade från t.ex. matkartan, sägenkartan, realkatalog-kategorier?
-4. Visa filter på frågelistor (med antal träffar på varje?) **EJ IDAG**
+4. Visa lista på frågelistor som filter (med antal träffar på varje?) **EJ IDAG**
 - Alla som finns eller alla som finns i Folke?
 5. Knapp: "Skriv av slumpmässig uppteckning"
 - 
