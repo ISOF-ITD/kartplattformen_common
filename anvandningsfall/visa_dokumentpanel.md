@@ -1,4 +1,4 @@
-# Användingsfall Visa sökpanel
+# Användingsfall Visa dokumentpanel
 # Syfte
 Visa dokument (uppteckning eller inspelning)
 
