@@ -15,6 +15,7 @@ Användaren har vänsterpanelen (huvudpanelen) expanderad och aktiv
 - Text (default)
 - Ljud
 - Bild
+- _"Digitaliserad och tillgänglig publik" (i stället för aldrig visa icke-digitaliserat)_
 - Fler från formtyp, t.ex. teckning?
 3. Visa avbockning/lista på kategorier som filter (med antal träffar på varje?) **EJ IDAG**
 - all tradark?
