@@ -5,7 +5,7 @@ Visa plats (Lantmäteriet sockenstad inom Sverige)
 # Mål
 
 # Förutsättningar
-Användaren har valt en plats i kartan eller en dokumentlista (huvudlista, ortlista, personlista)
+Användaren har valt en person i söklista under sökfält eller i dokumentlista (huvudlista, ortlista, personlista)
 
 # Huvudflöde
 1. Visa huvuduppgifter
