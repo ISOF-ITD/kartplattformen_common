@@ -34,7 +34,7 @@ Användaren har vänsterpanelen (huvudpanelen) expanderad och aktiv
     - Med requiredParams:
         - // transcriptionstatus: 'readytotranscribe,undertranscription,transcribed,reviewing,needsimprovement,approved,published',
         - mark_metadata: 'transcriptionstatus', _Varför? Kanske föra att icke-folke kan sakna denna_
-        - materialtyp type: arkiv, _Även tryckt?_
+        - materialtyp type: arkiv, _Även tryckt? För tidningsurklipp?_
         - categorytypes: 'tradark'. Obligatoriskt att tradark är med.
         - publishstatus: 'published'. Bara publicerat utifall icke-publicerat av misstag hamnar i sökdatabasen
         - has_media: 'true', // **TODO: Bekräfta att vi ska använda detta**
