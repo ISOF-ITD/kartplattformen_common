@@ -1,4 +1,4 @@
-# Användingsfall Visa dokumentpanel
+# Användningsfall Visa dokumentpanel
 # Syfte
 Visa plats (Lantmäteriet sockenstad inom Sverige)
 

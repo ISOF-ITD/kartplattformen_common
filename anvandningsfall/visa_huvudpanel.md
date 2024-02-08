@@ -1,4 +1,4 @@
-# Användingsfall Visa huvudpanel
+# Användningsfall Visa huvudpanel
 # Syfte
 Hitta material genom att välj funktion och utval (sökning)
 
