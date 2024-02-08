@@ -13,9 +13,9 @@ Användaren har valt ett dokument i en dokumentlista (huvudlista, ortlista, pers
 - Accessionsnummer 
 - Antal uppteckningar
 - Materialtyp
--- Arkiv
--- Tryckt
--- Fler?
+  - Arkiv
+  - Tryckt
+  - Fler?
 2. Visa bildfiler
 3. Visa ljudfiler
 4. Visa uppgifter:
