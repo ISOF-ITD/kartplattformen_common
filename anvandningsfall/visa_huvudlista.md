@@ -15,13 +15,13 @@ Användaren har valt filter
 5. Visa lista över dokument. Hierarkiskt:
 - accessionsrad (one_accession_row)
 - recordrader som hör till accessionsraden (one_record)
-6. Kolumner:
-- Titel
-- Arkivnummer (sorterbar)
-- Ort (länk till ort)
-- Insamlare (länk till person som är insamlare)
-- År
-- Avskriven
+- Kolumner:
+  - Titel
+  - Arkivnummer (sorterbar)
+  - Ort (länk till ort)
+  - Insamlare (länk till person som är insamlare)
+  - År
+  - Avskriven
 6. Expandera "Uppteckningar i den här accessionen"
 - Alla tillhörande one_record visas i lista med sidnummer
 7. Filtera i tidsdiagrammet genom att välja tidsperiod grafiskt från-till
