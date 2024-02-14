@@ -15,13 +15,16 @@ Användaren har vänsterpanelen (huvudpanelen) expanderad och aktiv
 - Text (default)
 - Ljud
 - Bild
+- **Fler ej idag:**
+- Ljud med transkribering
 - _"Digitaliserad och tillgänglig publik" (i stället för aldrig visa icke-digitaliserat)_
 - Fler från formtyp, t.ex. teckning?
 3. Visa avbockning/lista på kategorier som filter (med antal träffar på varje?) **EJ IDAG**
 - all tradark?
 - importerade från t.ex. matkartan, sägenkartan, realkatalog-kategorier?
+- Språk i physical_media.language
 4. Visa lista på frågelistor som filter (med antal träffar på varje?) **EJ IDAG**
-- Alla som finns eller alla som finns i Folke?
+- physical_media.questionnaire? Alla som finns eller alla som finns i Folke?
 5. Knapp: "Skriv av slumpmässig uppteckning"
 - 
 6. Visa sökfält för fritextsök
