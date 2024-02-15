@@ -12,7 +12,11 @@ Användaren har valt en plats i kartan eller en dokumentlista (huvudlista, ortli
 - Personnamn
 - Födelseår, födelseort
 - Foto om det finns
-- Biografi om det finns (titel och biografi från accessionsregistret + angivet av transkriberare/användare?)
+- Biografi om det finns
+  - "Titel:" titel från accessionsregistret
+  - personalia från accessionsregistret, förutom:
+    - "Ja" som betyder att uppgifter finns i personregister i Göteborg
+  - persons.biografi (t.ex. uppgifter från av transkriberare/användare)
 2. Kopplat material i lista. **Borde vara beroende på roll**
 - Om informant:
   - "Arkivmaterial upptecknad av Ragnar Nilsson" **Berättat/upptecknat borde vara beroende på roll**
