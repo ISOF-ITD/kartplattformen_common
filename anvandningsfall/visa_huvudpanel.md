@@ -19,12 +19,13 @@ Användaren har vänsterpanelen (huvudpanelen) expanderad och aktiv
 - Ljud med transkribering
 - _"Digitaliserad och tillgänglig publik" (i stället för aldrig visa icke-digitaliserat)_
 - Fler från formtyp, t.ex. teckning?
-3. Visa avbockning/lista på kategorier som filter (med antal träffar på varje?) **EJ IDAG**
-- all tradark?
-- importerade från t.ex. matkartan, sägenkartan, realkatalog-kategorier?
-- Språk i physical_media.language
-4. Visa lista på frågelistor som filter (med antal träffar på varje?) **EJ IDAG**
-- physical_media.questionnaire? Alla som finns eller alla som finns i Folke?
+3. För liten mängd värden som filter: Visa lista med avbockning (med antal träffar på varje?) **EJ IDAG**
+- Kategorier: alla tradark?
+- Importerade kategorier från t.ex. matkartan, sägenkartan
+- Realkatalog-kategorier
+- Språk som kategorityp language (eller physical_media.language)
+4. För stor mängd värden: Visa lista i t.ex. rullgardinsmeny som filter **EJ IDAG**
+- Frågelista i kategorityp (eller physical_media.questionnaire)? Alla som finns i Folke?
 5. Knapp: "Skriv av slumpmässig uppteckning"
 - 
 6. Visa sökfält för fritextsök
