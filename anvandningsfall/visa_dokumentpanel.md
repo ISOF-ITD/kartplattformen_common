@@ -28,7 +28,7 @@ Användaren har valt ett dokument i en dokumentlista (huvudlista, ortlista, pers
     - Den här uppteckningen är inte publikt tillgänglig digitalt.
     - Vill du att den ska bli det!
     - Knapp: "Tillgängliggör på Folke"
-- Om one_record, transkriberingstyp "inte sida för sida" och avskriven:
+- Om one_record, transkriberingstyp inte "sida för sida" och avskriven:
     - text
 	  - visas sida för sida med "ram" runt varje sida
 - Om one_record, transkriberingstyp "sida för sida" och avskriven:
