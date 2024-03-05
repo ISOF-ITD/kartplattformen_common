@@ -1,0 +1,359 @@
+So far manual tests
+TODO: Automatic testing
+--------
+
+
+-----------------------------------------
+Test REST api kartplattform
+-----------------------------------------
+Test proxy-tjänster:
+https://frigg-test.isof.se/sagendatabas/api/lm_proxy/1/2/4.png
+http://localhost:8000/api/lm_proxy/1/2/4.png
+Direkt:
+https://filemaker.isof.se/publik/Goteborg/skriftligt/ifgh/ifgh_00700-00799/ifgh00700.pdf
+https://arkivfiler.isof.se/publik/Goteborg/skriftligt/ifgh/ifgh_00700-00799/ifgh00700.pdf
+Test:
+https://frigg-test.isof.se/sagendatabas/api/filemaker_proxy/publik/Goteborg/skriftligt/ifgh/ifgh_00700-00799/ifgh00700.pdf
+http://localhost:8000/api/filemaker_proxy/publik/Goteborg/skriftligt/ifgh/ifgh_00700-00799/ifgh00700.pdf
+
+https://frigg-test.isof.se/sagendatabas/api/records/1986/
+http://localhost:8000/api/records/ifgh03061_200253_1/
+
+Används vid importera data till index:
+http://localhost:8000/api/records/?offset=0&type=arkiv
+https://frigg-test.isof.se/sagendatabas/api/records/?offset=0&type=arkiv&publishstatus=published&recordtype=one_record
+
+
+-----------------------------------------
+Test av klienttjänster med POST och json med t.ex. curl:
+-----------------------------------------
+Identify status:
+curl -X GET localhost:9200/isof-publik/_doc/ifgh03061_200253_1
+https://frigg-test.isof.se/sagendatabas/api/es/document/accifgh05163_205454_31/
+http://localhost:8000/api/es/document/accifgh03888_202289_27/
+
+Test api feedback
+curl -X POST "http://localhost:8000/api/feedback/" -F json='
+curl -X POST "https://garm-test.isof.se/folkeservice/api/feedback/" -F json='
+{
+	"from_email":"per.laas@isof.se",
+	"from_name":"PerTest",
+	"subject":"localhost:8080: ContributeInfo",
+	"recordid":"02212:4_63249",
+	"message":"Uppteckning: null\n/records/02212:4_63249\n\nFrån: test (test@test)\n\ntest"
+}'
+
+Calls:
+  "recordid": "ifgh03061_200253_1"
+
+curl -X GET "http://localhost:8000/api/records/ifgh04486_203692_5/"
+curl -X POST "http://localhost:8000/api/transcribestart/" -F json='
+{
+  "recordid": "ifgh04486_203692_5"
+}'
+curl -X POST "http://localhost:8000/api/transcribecancel/" -F json='
+{
+  "recordid": "2578",
+  "transcribesession": "2022-01-11 09:02:33.000"
+}'
+
+# transcribesave: transcribe save and continue transcribe
+# transcribe: transcribe save and send (stop transcribe)
+curl -X POST "http://localhost:8000/api/transcribesave/" -F json='
+curl -X POST "http://localhost:8000/api/transcribe/" -F json='
+{
+ "transcribesession": "2024-01-24 16:44:02.000",
+"url":"https://sok.folke-test.isof.se#records/ifgh04486_203692_5",
+"recordid":"ifgh04486_203692_5",
+"recordtitle":"Sägner om troll",
+"from_email":"pertest@isof.se",
+"from_name":"pertest",
+"subject":"Crowdsource: Transkribering",
+"informantName":"Karl Larsson",
+"informantBirthDate":"1885",
+"informantBirthPlace":"Salvebo Älvsåker",
+"informantInformation":"",
+"message":"I Kinnekulle berg fanns.. TEST7",
+"messageComment":"Svår stil"
+}'
+
+-------------------------
+127.0.0.1 i stället för localhost
+-------------------------
+curl -X GET "http://127.0.0.1:8000/api/records/ifgh04486_203692_6/"
+curl -X POST "http://127.0.0.1:8000/api/transcribestart/" -F json='
+{
+  "recordid": "ifgh04486_203692_6"
+}'
+curl -X POST "http://127.0.0.1:8000/api/transcribecancel/" -F json='
+{
+  "recordid": "2578",
+  "transcribesession": "2022-01-11 09:02:33.000"
+}'
+
+curl -X POST "http://127.0.0.1:8000/api/transcribesave/" -F json='
+curl -X POST "http://127.0.0.1:8000/api/transcribe/" -F json='
+{
+ "transcribesession": "2022-01-11 09:07:17.000",
+"url":"https://sok.folke-test.isof.se#records/2578",
+"recordid":"2578",
+"recordtitle":"Sägner om troll",
+"from_email":"pertest@isof.se",
+"from_name":"pertest",
+"subject":"Crowdsource: Transkribering",
+"informantName":"Karl Larsson",
+"informantBirthDate":"1885",
+"informantBirthPlace":"Salvebo Älvsåker",
+"informantInformation":"",
+"message":"I Kinnekulle berg fanns.. TEST7",
+"messageComment":"Svår stil"
+}'
+
+
+-----------------------------------------
+Test Elasticsearch API i dator med åtkomst, t.ex. frigg-test
+-----------------------------------------
+curl -X GET saga-test.isof.se:9200/_cat/indices?v&s=indices
+curl -X GET saga-test.isof.se:9200/_cat/aliases?v&s=aliases
+curl -X GET saga-test.isof.se:9200/isof-publik/_doc/ifgh00700_195384
+för:
+https://frigg-test.isof.se/sagendatabas/api/es/document/ifgh00700_195384/
+
+-----------------------------------------
+Test Rest ES-API kartplattform
+-----------------------------------------
+Test has_media ES5 in es-test:
+1. /var/www/django/sagendatabas/Sagendatabas-ES-API-test
+2. git checkout master
+3. restart
+https://frigg-test.isof.se/sagendatabas/api/es-test/documents/?size=50&has_media=true&recordtype=one_accession_row&mark_metadata=transcriptionstatus&categorytypes=tradark&publishstatus=published
+
+https://frigg-test.isof.se/sagendatabas/api/es/documents/?size=50&type=arkiv,tryckt&categorytypes=sägner
+https://frigg-test.isof.se/sagendatabas/api/es/documents/?size=50&type=inspelning&country=sweden
+https://frigg.isof.se/sagendatabas/api/es/documents/?size=50&type=matkarta&country=sweden&mark_metadata=sitevision_url,matkarta_edited
+
+http://localhost:8000/api/es/documents/?size=50&type=arkiv,tryckt&categorytypes=sägner
+http://localhost:8000/api/es/documents/?size=50&type=inspelning&country=sweden
+http://localhost:8000/api/es/documents/?size=50&type=matkarta&country=sweden&mark_metadata=sitevision_url,matkarta_edited
+
+Fungerar inte i ES7: Med material (publikutforska): 
+Kanske: När "ignore_above" inte finns i mappings så verkar “exists“ fungera ex: persons.gender 
+https://frigg-test.isof.se/sagendatabas/api/es/documents/?size=50&has_media=true&recordtype=one_accession_row&mark_metadata=transcriptionstatus&categorytypes=tradark&publishstatus=published
+
+
+sagenkarta start up: 
+http://localhost:8000/api/es/documents/?size=50&search=älva&recordtype=one_accession_row&mark_metadata=transcriptionstatus&categorytypes=tradark
+https://frigg-test.isof.se/sagendatabas/api/es/documents/?size=50&search=älva&recordtype=one_accession_row&mark_metadata=transcriptionstatus&categorytypes=tradark
+
+ {
+'query':  {
+'bool':  {
+'must': [ {
+'bool':  {
+'should': [ {
+'match':  {
+'materialtype': 'arkiv'}},  {
+'match':  {
+'materialtype': 'tryckt'}}]}},  {
+'bool':  {
+'should': [ {
+'match':  {
+'taxonomy.type': 'sägner'}}]}}]}}, 'size': '50', 'from': 0, 'highlight':  {
+'pre_tags': ['<span class="highlight">'], 'post_tags': ['</span>'], 'fields':  {
+'text':  {
+'number_of_fragments': 0}}}, 'track_total_hits': True}
+
+sagenkarta free text search: troll
+http://localhost:8000/api/es/documents/?size=50&search=troll&type=arkiv,tryckt&categorytypes=sägner
+https://frigg-test.isof.se/sagendatabas/api/es/documents/?size=50&search=troll&type=arkiv,tryckt&categorytypes=sägner
+
+ {
+'bool': {
+'must': [{
+'multi_match': {
+'query': 'troll', 'type': 'best_fields', 'fields': ['text^2', 'search_other', 'metadata.value', 'title', 'archive.archive', 'archive.archive_id', 'places.name', 'places.landskap', 'places.county', 'places.harad', 'persons.name', 'title'], 'minimum_should_match': '100%'}}, {
+'bool': {
+'should': [{
+'match': {
+'materialtype': 'arkiv'}}, {
+'match': {
+'materialtype': 'tryckt'}}]}}, {
+'bool': {
+'should': [{
+'match': {
+'taxonomy.type': 'sägner'}}]}}]}}
+
+dialektkartan free text search: Häst
+http://localhost:8000/api/es/documents/?size=50&search=häst&type=inspelning&country=sweden
+https://frigg-test.isof.se/sagendatabas/api/es/documents/?size=50&search=häst&type=inspelning&country=sweden
+
+{
+'bool': {
+'must': [{
+'multi_match': {
+'query': 'häst', 'type': 'best_fields', 'fields': ['text^2', 'search_other', 'metadata.value', 'title', 'archive.archive', 'archive.archive_id', 'places.name', 'places.landskap', 'places.county', 'places.harad', 'persons.name', 'title'], 'minimum_should_match': '100%'}}, {
+'bool': {
+'should': [{
+'match': {
+'materialtype': 'inspelning'}}]}}, {
+'term': {
+'archive.country': 'sweden'}}]}}
+
+matkartan free text search: blåbär
+http://localhost:8000/api/es/documents/?size=50&search=blåbär&type=matkarta&country=sweden&mark_metadata=sitevision_url,matkarta_edited
+https://frigg.isof.se/sagendatabas/api/es/documents/?size=50&search=blåbär&type=matkarta&country=sweden&mark_metadata=sitevision_url,matkarta_edited
+
+{
+'bool': {
+'must': [{
+'multi_match': {
+'query': 'blåbär', 'type': 'best_fields', 'fields': ['text^2', 'search_other', 'metadata.value', 'title', 'archive.archive', 'archive.archive_id', 'places.name', 'places.landskap', 'places.county', 'places.harad', 'persons.name', 'title'], 'minimum_should_match': '100%'}}, {
+'bool': {
+'should': [{
+'match': {
+'materialtype': 'matkarta'}}]}}, {
+'term': {
+'archive.country': 'sweden'}}], 'should': [{
+'match': {
+'metadata.type': {
+'query': 'sitevision_url,matkarta_edited', 'boost': 5}}}, {
+'exists': {
+'field': 'text', 'boost': 10}}]}}
+
+{
+'query': {
+'bool': {
+'must': [{
+'multi_match': {
+'query': 'blåbär', 'type': 'best_fields', 'fields': ['text^2', 'search_other', 'metadata.value', 'title', 'archive.archive', 'archive.archive_id', 'places.name', 'places.landskap', 'places.county', 'places.harad', 'persons.name', 'title'], 'minimum_should_match': '100%'}}, {
+'bool': {
+'should': [{
+'match': {
+'materialtype': 'matkarta'}}]}}, {
+'term': {
+'archive.country': 'sweden'}}], 'should': [{
+'match': {
+'metadata.type': {
+'query': 'sitevision_url,matkarta_edited', 'boost': 5}}}, {
+'exists': {
+'field': 'text', 'boost': 10}}]}}, 'size': '50', 'from': 0, 'highlight': {
+'pre_tags': ['<span class="highlight">'], 'post_tags': ['</span>'], 'fields': {
+'text': {
+'number_of_fragments': 0}}}, 'track_total_hits': True}
+
+
+curl -X GET "$1"":9200/""$2""/_search?size=0&pretty=true" "$3"  "$4"  "$5" -H "Content-Type: application/json" -d"
+curl -X GET localhost:9200/isof-publik/_search?size=0&pretty=true" -H 'Content-Type: application/json' -d'
+ {
+"query":  {
+"bool":  {
+"must": [ {
+"multi_match":  {
+"query": "älva", "type": "best_fields", "fields": ["text^2", "search_other", "metadata.value", "title", "archive.archive", "archive.archive_id", "places.name", "places.landskap", "places.county", "places.harad", "persons.name", "title"], "minimum_should_match": "100%"}},  {
+"bool":  {
+"should": [ {
+"match":  {
+"recordtype": "one_accession_row"}}]}},  {
+"bool":  {
+"should": [ {
+"match":  {
+"taxonomy.type": "tradark"}}]}}], "should": [ {
+"match":  {
+"metadata.type":  {
+"query": "transcriptionstatus", "boost": 5}}},  {
+"exists":  {
+"field": "text", "boost": 10}}]}}, "size": "50", "from": 0, "highlight":  {
+"pre_tags": ["<span class="highlight">"], "post_tags": ["</span>"], "fields":  {
+"text":  {
+"number_of_fragments": 0}}}, "track_total_hits": True}'
+
+
+-- Above 10000 documents:
+http://localhost:8000/api/es/documents/?size=50&recordtype=one_record&mark_metadata=transcriptionstatus&categorytypes=tradark
+https://frigg-test.isof.se/sagendatabas/api/es/documents/?size=50&recordtype=one_record&mark_metadata=transcriptionstatus&categorytypes=tradark
+
+https://saga-test.isof.se/kibana/app/dev_tools#/console
+ES 7.13.2 saga-test
+Works in kibana :
+GET isof-publik/_search 
+{"query": {"bool": {"must": [{"bool": {"should": [{"match": {"recordtype": "one_accession_row"}}]}}, {"bool": {"should": [{"match": {"taxonomy.type": "tradark"}}]}}], "should": [{"match": {"metadata.type": {"query": "transcriptionstatus", "boost": 5}}}, {"exists": {"field": "text", "boost": 10}}]}}, "size": "50", "from": 0, "track_total_hits": true}
+GET isof-publik/_search 
+{"query": {"bool": {"must": [{"bool": {"should": [{"match": {"recordtype": "one_record"}}]}}, {"bool": {"should": [{"match": {"taxonomy.type": "tradark"}}]}}], "should": [{"match": {"metadata.type": {"query": "transcriptionstatus", "boost": 5}}}, {"exists": {"field": "text", "boost": 10}}]}}, "size": "50", "from": 0, "track_total_hits": true}
+
+https://oden-test.sprakochfolkminnen.se/kibana/app/kibana#/dev_tools/console?_g=()
+ES 5.6 in kibana oden-test 
+Works in kibana :
+GET isof-publik/_search 
+{"query": {"bool": {"must": [{"bool": {"should": [{"match": {"recordtype": "one_accession_row"}}]}}, {"bool": {"should": [{"match": {"taxonomy.type": "tradark"}}]}}], "should": [{"match": {"metadata.type": {"query": "transcriptionstatus", "boost": 5}}}, {"exists": {"field": "text", "boost": 10}}]}}, "size": "50", "from": 0}
+GET isof-publik/_search 
+{"query": {"bool": {"must": [{"bool": {"should": [{"match": {"recordtype": "one_record"}}]}}, {"bool": {"should": [{"match": {"taxonomy.type": "tradark"}}]}}], "should": [{"match": {"metadata.type": {"query": "transcriptionstatus", "boost": 5}}}, {"exists": {"field": "text", "boost": 10}}]}}, "size": "50", "from": 0}
+
+response:
+data	[…]
+metadata	
+total	
+value	56721
+relation	"eq"
+took	527
+
+-- Felaktig es-konfig i frigg-test: Test i frigg-test med py3.6-django?-es7.13.2 om inget annat angivet
+-- Tester var egentligen mot oden-test med ES5:
+Test i frigg-test med py3.6-django?-es5 om inget annat angivet
+100000
+OBS: Funkar i ubuntu med py3.8-django2.2-es7.10.2!
+Unknown key for a VALUE_NUMBER in [track_total_hits]
+true
+NameError: name 'true' is not defined
+True
+OBS: Funkar i ubuntu med py3.8-django2.2-es7.10.2!
+Unknown key for a VALUE_BOOLEAN in [track_total_hits]
+"true"
+{'error': {'root_cause': [{'type': 'parsing_exception'
+, 'reason': 'Unknown key for a VALUE_STRING in [track_total_hits].', 'line': 1, 'col': 480}], 'type': 'parsing_exception', 'reason': 'Unknown key for a VALUE_STRING in [track_total_hits].', 'line': 1, 'col': 480}, 'status'
+: 400}
+"100000"
+{'error': {'root_cause': [{'type': 'parsing_exception'
+, 'reason': 'Unknown key for a VALUE_STRING in [track_total_hits].', 'line': 1, 'col': 480}], 'type': 'parsing_exception', 'reason': 'Unknown key for a VALUE_STRING in [track_total_hits].', 'line': 1, 'col': 480}, 'status'
+: 400}
+
+https://www.elastic.co/guide/en/elasticsearch/reference/current/breaking-changes-7.0.html
+You can force the count to always be accurate by setting track_total_hits to true explicitly in the search request.
+
+http://man.hubwiz.com/docset/ElasticSearch.docset/Contents/Resources/Documents/www.elastic.co/guide/en/elasticsearch/reference/current/search-request-track-total-hits.html
+It is also possible to set track_total_hits to an integer.
+
+	query = {
+		'query': queryObject,
+		'controls': {
+			'use_significance': True,
+			'sample_size': int(request.GET['sample_size']) if 'sample_size' in request.GET else 20000,
+			'timeout': 20000
+		},
+
+-- Start
+-- 1 socken/
+http://localhost:8000/api/es/socken/?type=arkiv,tryckt&categorytypes=sägner
+https://frigg-test.isof.se/sagendatabas/api/es-test/socken/?type=arkiv
+
+prequery: request, query <WSGIRequest: GET '/api/es/socken/?type=arkiv'> {'query': {'bool': {'must': [{'bool': {'should': [{'match': {'materialtype': 'arkiv'}}]}}]}}, 'size': 0, 'aggs': {'data': {'nested': {'path': 'places'}, 'aggs': {'data': {'terms': {'field': 'places.id', 'size': 10000}, 'aggs': {'page_count': {'reverse_nested': {}, 'aggs': {'pages': {'sum': {'field': 'archive.total_pages'}}}}, 'data': {'terms': {'field': 'places.name', 'size': 1, 'order': {'_term': 'asc'}}}, 'parent_doc_count': {'reverse_nested': {}}, 'harad': {'terms': {'field': 'places.harad', 'size': 1, 'order': {'_term': 'asc'}}}, 'landskap': {'terms': {'field': 'places.landskap', 'size': 1, 'order': {'_term': 'asc'}}}, 'lan': {'terms': {'field': 'places.county', 'size': 1, 'order': {'_term': 'asc'}}}, 'location': {'geohash_grid': {'field': 'places.location', 'precision': 12}}, 'lm_id': {'terms': {'field': 'places.lm_id', 'size': 1, 'order': {'_term': 'asc'}}}, 'relation_type': {'terms': {'field': 'places.type', 'size': 100, 'order': {'_term': 'asc'}}}}}}}}}
+
+-- 2 documents/
+http://localhost:8000/api/es/documents/?size=50&recordtype=one_record&mark_metadata=transcriptionstatus&categorytypes=tradark
+https://frigg-test.isof.se/sagendatabas/api/es-test/documents/?size=50&recordtype=one_record&mark_metadata=transcriptionstatus&categorytypes=tradark
+
+-- Dokument
+http://localhost:8000/api/es/document/8087/
+https://frigg-test.isof.se/sagendatabas/api/es/document/8087/
+
+--Socken/Plats
+http://localhost:8000/api/es/documents/?size=50&recordtype=one_record&socken_id=1375&mark_metadata=transcriptionstatus&categorytypes=tradark
+https://frigg-test.isof.se/sagendatabas/api/es/documents/?size=50&recordtype=one_record&socken_id=1375&mark_metadata=transcriptionstatus&categorytypes=tradark
+
+http://localhost:8000/api/es/socken/?recordtype=one_record&country=sweden&mark_metadata=transcriptionstatus&categorytypes=tradark
+https://frigg-test.isof.se/sagendatabas/api/es/socken/?recordtype=one_record&country=sweden&mark_metadata=transcriptionstatus&categorytypes=tradark
+
+--Person
+http://localhost:8000/api/es/documents/?size=50&person_id=acc82025&mark_metadata=transcriptionstatus&categorytypes=tradark
+https://frigg-test.isof.se/sagendatabas/api/es-test/documents/?size=50&person_id=acc82025&mark_metadata=transcriptionstatus&categorytypes=tradark
+
+

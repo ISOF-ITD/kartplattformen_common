@@ -1,0 +1,397 @@
+more /etc/httpd/logs/ssl_error_log
+journalctl -xe
+sudo systemctl restart httpd-ssl
+#isof verkar inte ha behörighet:
+sudo systemctl status httpd-ssl.service
+
+mariadb --version
+git version
+python3 --version
+
+# wsgi conf:
+/etc/httpd/conf-ssl.d/garm-test/TradarkAdmin.conf
+/etc/httpd/conf-ssl.d/garm-test/accessionsregister.conf
+
+# --------------------------
+# Install TradarkAdmin
+# --------------------------
+cd /var/www/django
+mkdir TradarkAdmin
+cd TradarkAdmin
+mkdir static
+
+# Python environment
+git clone https://vcs.its.uu.se/isof-devs/TradarkAdmin.git
+python3 -m venv venvdj_3
+ln -snf venvdj_3 current_venv
+source venvdj_3/bin/activate
+cd /var/www/django/TradarkAdmin/TradarkAdmin
+pip3 list
+vi requirements.txt
+pip3 install -r requirements.txt
+sudo systemctl restart httpd-ssl
+
+# Configuration
+cp settings_debug.py settings.py
+# If needed: Set static
+vi settings.py
+# Or replace by link:
+ln -snf settings_debug.py settings.py
+
+cp es_config.py.test es_config.py
+
+# Run internal server as test
+# Run parameters, example in pycharm:
+Script parameters:
+runserver 127.0.0.1:8008
+Environment variables:
+DJANGO_SETTINGS_MODULE=settings;PYTHONUNBUFFERED=1
+
+cp secrets.py.template secrets_env.py
+# Set secrets
+vi secrets_env.py
+python3 -c 'import secrets; print(secrets.token_hex(100))'
+python3 -c 'from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())'
+# Set restApiRecordUrl = 'https://garm-test.isof.se/folkeservice/api/records/'
+# Set host = 'saga-test.isof.se:9200'
+
+# Collect static
+STATIC_ROOT (och STATIC_URL för åtkomst?) ska vara satt i settings.py:
+STATIC_URL = '/static/'
+STATIC_ROOT = "/var/www/django/APP/static"
+python3 manage.py collectstatic
+
+# Get git pull log from previous server (local shell)
+cd local-computer-with-access-to-old-server/temp
+scp perla331@frigg-test.isof.se:/var/www/django/TradarkAdmin/gitupdate.* .
+scp gitupdate.* perla331@garm-test.isof.se:/var/www/django/TradarkAdmin/TradarkAdmin
+chmod a+x gitupdate.*
+
+# Get saved scheduled task log files from previous server (local shell)
+scp perla331@frigg-test.isof.se:/var/www/django/TradarkAdmin/script.log.* .
+scp script.log.* perla331@garm-test.isof.se:/var/www/django/TradarkAdmin/TradarkAdmin
+
+# Commit updated configuration files in repo if needed (local env)
+cd local-computer-with-git-commmit-rights/TradarkAdmin
+scp perla331@garm-test.isof.se:/var/www/django/TradarkAdmin/TradarkAdmin/settings.py settings_debug.py
+scp perla331@garm-test.isof.se:/var/www/django/TradarkAdmin/TradarkAdmin/es_config.py es_config.py.test
+scp perla331@garm-test.isof.se:/var/www/django/TradarkAdmin/TradarkAdmin/secrets_env.py secrets.py.template
+scp perla331@garm-test.isof.se:/var/www/django/TradarkAdmin/TradarkAdmin/wsgi.py wsgi.py 
+scp perla331@garm-test.isof.se:/var/www/django/TradarkAdmin/TradarkAdmin/requirements.txt requirements.txt
+scp perla331@garm-test.isof.se:/etc/httpd/conf-ssl.d/garm-test/TradarkAdmin.conf wsgi/TradarkAdmin.conf
+
+# --------------------------
+# Install Accessionsregister (not yet verified)
+# --------------------------
+cd /var/www/django
+mkdir AccessionsRegister
+cd AccessionsRegister
+mkdir static
+git clone https://vcs.its.uu.se/isof-devs/Accessionsregister.git AccessionsRegister
+cd /var/www/django/AccessionsRegister/AccessionsRegister/AccReg
+
+# Get configuration from previous server (local shell)
+cd local-computer-with-access-to-old-server/temp
+scp perla331@frigg-test.isof.se:/var/www/django/AccessionsRegister/AccReg/secrets_env.py .
+scp secrets_env.py perla331@garm-test.isof.se:/var/www/django/AccessionsRegister/AccessionsRegister/AccReg
+
+# Configuration
+ln -snf settings_debug.py settings.py
+# IF NO secrets from previous server
+cp secrets_template.py secrets_env.py
+# Set secrets
+vi secrets_env.py
+
+cd /var/www/django/AccessionsRegister
+
+# Python environment
+python3 -m venv venvdj_3
+ln -snf venvdj_3 current_venv
+source venvdj_3/bin/activate
+
+# Repo name not as expected path in wsgi config
+mv Accessionsregister AccessionsRegister
+cd /var/www/django/AccessionsRegister/AccessionsRegister
+
+pip3 list
+vi requirements.txt
+pip3 install -r requirements.txt
+sudo systemctl restart httpd-ssl
+
+cd /var/www/django/AccessionsRegister/AccessionsRegister
+
+# Collect static
+mkdir static
+STATIC_ROOT (och STATIC_URL för åtkomst?) ska vara satt i settings.py:
+STATIC_URL = '/static/'
+STATIC_ROOT = "/var/www/django/APP/static"
+python3 manage.py collectstatic
+
+# http://127.0.0.1:8001/admin
+# ImportBatch Action: Test that JDBC connection to accessionsregistret works
+# https://support.claris.com/s/article/Troubleshooting-ODBC-and-JDBC-connections-with-FileMaker-Server-1503692906225?language=en_US
+Test "The FileMaker Server ODBC service uses port 2399":
+telnet fistulator.its.uu.se 2399
+
+# Get git pull log from previous server (local shell)
+# local-computer-with-access-to-old-server
+cd /home/per/temp
+scp perla331@frigg-test.isof.se:/var/www/django/AccessionsRegister/gitupdate.* .
+scp gitupdate.* perla331@garm-test.isof.se:/var/www/django/AccessionsRegister/AccessionsRegister
+chmod a+x gitupdate.*
+
+# Get saved scheduled task log files from previous server (local shell)
+scp perla331@frigg-test.isof.se:/var/www/django/AccessionsRegister/script.log.* .
+scp script.log.* perla331@garm-test.isof.se:/var/www/django/AccessionsRegister/AccessionsRegister
+
+# Commit updated configuration files in repo if needed (local env)
+cd local-computer-with-access-to-old-server/AccessionsRegister
+scp perla331@garm-test.isof.se:/var/www/django/AccessionsRegister/AccessionsRegister/AccReg/settings.py AccReg/settings_debug.py
+scp perla331@garm-test.isof.se:/var/www/django/AccessionsRegister/AccessionsRegister/AccReg/secrets_env.py AccReg/secrets.template.py
+scp perla331@garm-test.isof.se:/var/www/django/AccessionsRegister/AccessionsRegister/wsgi.py wsgi.py 
+scp perla331@garm-test.isof.se:/var/www/django/AccessionsRegister/AccessionsRegister/requirements.txt requirements.txt
+scp perla331@garm-test.isof.se:/etc/httpd/conf-ssl.d/garm-test/accessionsregister.conf wsgi/accessionsregister.conf
+
+# --------------------------
+# folkeservice (old wsgi name sagendatabas)
+# --------------------------
+See also svn /isof/utveckling/environment/persUbuntu.txt:
+ "# Install folke service apis as one django application"
+
+# Check config:
+more /var/www/django/folkeservice/kartplattformen_common/secrets_env.py
+more /var/www/django/folkeservice/sagenkarta_rest_api/secrets_env.py
+more /var/www/django/folkeservice/sagenkarta_rest_api/config.py
+more /var/www/django/folkeservice/sagendatabas_es_api/es_config.py
+
+cd /var/www/django
+mkdir folkeservice
+cd folkeservice
+python3 -m venv venvdj_3
+ln -snf venvdj_3 current_venv
+# Clone repos:
+git clone git@github.com:ISOF-ITD/kartplattformen_common.git
+# följande funkar inte på servern. kopiera istället
+ln -snf kartplattformen_common/manage.py manage.py
+git clone git@github.com:ISOF-ITD/sagenkarta_rest_api
+git clone git@github.com:ISOF-ITD/sagendatabas_es_api
+git remote -v
+# Might be needed?:
+cp /var/www/django/folkeservice/kartplattformen_common/manage.py /var/www/django/folkeservice/manage.py
+vi wsgi.py
+Byt till aktuell path som kartplattformen_common
+
+cd /var/www/django/folkeservice/kartplattformen_common
+cp settings_NOTDEBUG.py settings.py 
+cp secrets_env.py.template secrets_env.py
+OR get secrets from old server!
+scp perla331@frigg.isof.se:/var/www/django/sagendatabas/kartplattformen_common/secrets_env.py .
+scp secrets_env.py perla331@garm.isof.se:/var/www/django/folkeservice/kartplattformen_common
+vi secrets_env.py
+allowed_host = 'garm-test.isof.se'
+
+cd /var/www/django/folkeservice/sagenkarta_rest_api
+cp config_prod.py config.py
+cp secrets_env.py.template secrets_env.py
+OR get config from old server!
+scp perla331@frigg.isof.se:/var/www/django/sagendatabas/sagenkarta_rest_api/secrets_env.py .
+scp secrets_env.py perla331@garm.isof.se:/var/www/django/folkeservice/sagenkarta_rest_api
+restApiRecordUrl = 'https://garm-test.isof.se/sagendatabas/api/records/'
+FriggStatic = 'https://garm-test.isof.se/static/'
+pip3 list
+vi requirements.txt
+pip3 install -r requirements.txt
+
+cd /var/www/django/folkeservice/sagendatabas_es_api/
+cp es_config.py.dev es_config.py
+OR get config from old server!
+# Set es_config
+vi es_config.py
+# Set restApiRecordUrl = 'https://garm-test.isof.se/folkeservice/api/records/'
+# Set host = 'saga-test.isof.se:9200'
+
+# Collect static
+mkdir static
+STATIC_ROOT (och STATIC_URL för åtkomst?) ska vara satt i settings.py:
+STATIC_URL = '/static/'
+STATIC_ROOT = "/var/www/django/APP/static"
+cd /var/www/django/APP
+source venvdj_3/bin/activate
+python3 manage.py collectstatic
+
+# Get git pull log from previous server (local shell)
+# local-computer-with-access-to-old-server
+cd /home/per/temp
+rm git*
+scp perla331@frigg-test.isof.se:/var/www/django/sagendatabas/sagendatabas/gitupdate.* .
+scp gitupdate.* perla331@garm-test.isof.se:/var/www/django/folkeservice/kartplattformen_common
+rm git*
+scp perla331@frigg-test.isof.se:/var/www/django/sagendatabas/sagenkarta_rest_api/gitupdate.* .
+scp gitupdate.* perla331@garm-test.isof.se:/var/www/django/folkeservice/sagenkarta_rest_api
+rm git*
+scp perla331@frigg-test.isof.se:/var/www/django/sagendatabas/sagendatabas_es_api/gitupdate.* .
+scp gitupdate.* perla331@garm-test.isof.se:/var/www/django/folkeservice/sagendatabas_es_api
+chmod a+x gitupdate.*
+
+# fatal: detected dubious ownership in repository at '/var/www/django/folkeservice/kartplattformen_common'
+git config --global --add safe.directory /var/www/django/folkeservice/kartplattformen_common
+
+# test
+source venvdj_3/bin/activate
+python3 manage.py runserver
+curl http://127.0.0.1:8000/
+curl http://127.0.0.1:8000/api/records/34716_286
+
+# Configuration
+cd /var/www/django/folkeservice/sagenkarta_rest_api
+ln -snf config_test.py config.py
+scp perla331@frigg-test.isof.se:/var/www/django/sagendatabas/sagenkarta_rest_api/secrets_env.py .
+
+# ###########################
+# Data
+# ###########################
+# Import data - ej publik, apache ska kunna läsa
+/var/isof/importdata/
+
+cd temp/importdata/
+scp -rp perla331@frigg.isof.se:/var/isof/importdata/ .
+scp * perla331@garm-test.isof.se:/var/www/isof/importdata/folke
+
+# ###########################
+# publik data - publik (apache ska kunna läsa), static, vissa: django/apache ska kunna skriva
+# 2023: Moved by UU-maintenance from frigg-test/frigg till garm-test/garm
+# ###########################
+
+# media-data:
+# Persons for folke
+du /var/www/django/media/personer/ --block-size=1M
+/var/www/django/media/personer/
+#media for signbank/Teckenlistan
+du /var/www/django/media/glossvideo/ --block-size=1M
+/var/www/django/media/glossvideo/
+
+# Copy:
+cd temp/media
+scp -rp perla331@frigg.isof.se:/var/www/django/media/
+scp * perla331@garm-test.isof.se:/var/www/django/media
+
+# Kartskikt/GIS-data:
+cd temp/data
+# General data store (seems only data for snabbkarta?)
+scp -rp perla331@frigg.isof.se:/var/www/django/static/data/
+scp * perla331@garm-test.isof.se:/?
+# Data snabbkarta
+scp perla331@frigg.isof.se:/var/www/django/static/js-apps/snabbkarta/data/* .
+scp *.geojson perla331@garm-test.isof.se:/?
+
+# snabbkarta:
+scp perla331@frigg-test.isof.se:/var/www/django/static/data/olandskartan/* .
+scp * perla331@garm-test.isof.se:/var/www/data/olandskartan
+
+# OBS: Kan ta lång tid: Fråga UU-drift att göra det?
+scp perla331@frigg-test.isof.se:/var/www/django/static/data/ortnamn-teckensprak/* .
+scp * perla331@garm-test.isof.se:/var/www/data/ortnamn-teckensprak
+
+scp perla331@frigg-test.isof.se:/var/www/django/static/js-apps/snabbkarta/data/* .
+scp * perla331@garm-test.isof.se:/var/www/data/sifferkartan
+
+# ###########################
+# Snabbkarta
+# ###########################
+EJ: Installera på js-apps ENKLAST, då alla inte har domäner
+Installera på react/ och alla appar får subdomäner
+mkdir js-apps
+cd js-apps/
+git clone https://github.com/ISOF-ITD/ISOF-Snabbkarta.git snabbkarta
+scp -rp perla331@frigg.isof.se:/var/www/django/static/js-apps/snabbkarta/data/sifferkartor_* .
+scp * perla331@garm-test.isof.se:/var/www/django/static/js-apps/snabbkarta/data
+https://garm-test.isof.se/static/js-apps/snabbkarta/index.html?config=sifferkartan.json
+
+# GÖR:
+cd /var/www/react/
+git clone https://github.com/ISOF-ITD/ISOF-Snabbkarta.git
+
+# Switch environment test-prod:
+cd /var/react/ISOF-Snabbkarta
+cp /var/www/react/Sagenkarta-GUI/switch-* .
+#Lägg in:
+find . -name '*.json' | xargs grep -l 'olandskartan.isof.se' | xargs sed -i.bak s/olandskartan.isof.se/olandskartan-test.isof.se/g
+
+# ###########################
+# Kartappar övrigt
+# ###########################
+cd /var/www/react/
+git clone https://github.com/ISOF-ITD/PublikUtforska-GUI.git
+Troligen ej tillgänglig som static i apache
+https://garm-test.isof.se/react/PublikUtforska-GUI
+ping sok.folke-test.isof.se
+
+git clone https://github.com/ISOF-ITD/Dialektkarta-GUI.git
+git clone https://github.com/ISOF-ITD/Sagenkarta-GUI.git
+git clone https://github.com/ISOF-ITD/Matkarta-GUI.git
+git clone https://github.com/ISOF-ITD/Folkmusikkarta-GUI.git
+git clone https://github.com/ISOF-ITD/Norsk-Sagenkarta-GUI.git
+git clone https://github.com/ISOF-ITD/ISOF-Snabbkarta.git
+
+# Flytta gitupdate för alla:
+Finns EJ???:
+Kopiera från annat repo:
+cp /var/www/django/TradarkAdmin/TradarkAdmin/gitupdate.sh .
+
+scp perla331@frigg-test.isof.se:/var/www/django/react/PublikUtforska-GUI/gitupdate.* .
+scp gitupdate.* perla331@garm-test.isof.se:/var/www/react/PublikUtforska-GUI
+
+scp perla331@frigg-test.isof.se:/var/www/django/static/js-apps/sagenkarta/svn_www_update.* .
+scp svn_www_update.* perla331@garm-test.isof.se:/var/www/react/Sagenkarta-GUI
+ping sagenkartan-test.isof.se
+cp /var/www/react/PublikUtforska-GUI/switch-api.sh .
+
+scp perla331@frigg-test.isof.se:/var/www/django/static/js-apps/sagenkarta/switch-* .
+scp switch-* perla331@garm-test.isof.se:/var/www/react/Sagenkarta-GUI
+
+scp perla331@frigg-test.isof.se:/var/www/django/static/js-apps/sagenkarta-norsk/svn_www_update.* .
+scp svn_www_update.* perla331@garm-test.isof.se:/var/www/react/Norsk-Sagenkarta-GUI
+ping sagenkartan-norsk-test.isof.se
+cp /var/www/react/Sagenkarta-GUI/switch-api.sh .
+
+scp perla331@frigg-test.isof.se:/var/www/django/static/js-apps/dialektkartan/svn_www_update.* .
+scp svn_www_update.* perla331@garm-test.isof.se:/var/www/react/Dialektkarta-GUI
+ping dialektkartan-test.isof.se
+cp /var/www/react/Sagenkarta-GUI/switch-api.sh .
+
+scp perla331@frigg-test.isof.se:/var/www/django/static/js-apps/matkartan/svn_www_update.* .
+scp svn_www_update.* perla331@garm-test.isof.se:/var/www/react/Matkarta-GUI
+ping matkartan-test.isof.se
+
+scp perla331@frigg-test.isof.se:/var/www/django/static/js-apps/folkmusikkartan/svn_www_update.* .
+scp svn_www_update.* perla331@garm-test.isof.se:/var/www/react/Folkmusikkarta-GUI
+ping hittafolkmusiken-test.isof.se
+
+-- Prod:
+scp perla331@frigg.isof.se:/var/www/react/PublikUtforska-GUI/gitupdate.* .
+scp gitupdate.* perla331@garm.isof.se:/var/www/react/PublikUtforska-GUI
+
+scp perla331@frigg.isof.se:/var/www/django/static/js-apps/sagenkarta/svn_www_update.* .
+scp svn_www_update.* perla331@garm.isof.se:/var/www/react/Sagenkarta-GUI
+
+scp perla331@frigg.isof.se:/var/www/django/static/js-apps/publikutforska-to-delete/switch-* .
+scp switch-* perla331@garm.isof.se:/var/www/react/PublikUtforska-GUI
+
+scp perla331@frigg.isof.se:/var/www/django/static/js-apps/sagenkarta-norsk/svn_www_update.* .
+scp svn_www_update.* perla331@garm.isof.se:/var/www/react/Norsk-Sagenkarta-GUI
+
+scp perla331@frigg.isof.se:/var/www/django/static/js-apps/dialektkartan/svn_www_update.* .
+scp svn_www_update.* perla331@garm.isof.se:/var/www/react/Dialektkarta-GUI
+
+scp perla331@frigg.isof.se:/var/www/django/static/js-apps/matkartan/svn_www_update.* .
+scp svn_www_update.* perla331@garm.isof.se:/var/www/react/Matkarta-GUI
+
+scp perla331@frigg.isof.se:/var/www/django/static/js-apps/folkmusikkartan/svn_www_update.* .
+scp svn_www_update.* perla331@garm.isof.se:/var/www/react/Folkmusikkarta-GUI
+
+# Korrigera api urler:
+cp /var/www/react/PublikUtforska-GUI/switch-api.sh .
+
+# Check om app används:
+tail /etc/httpd/logs/ssl_access_log | grep app.js
+

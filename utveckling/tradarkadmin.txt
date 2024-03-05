@@ -1,0 +1,19 @@
+Install TradarkAdmin from repo
+----
+mkdir TradarkAdmin
+cd TradarkAdmin
+git clone https://vcs.its.uu.se/isof-devs/TradarkAdmin.git
+
+Copy config files from svn repo:
+cp ~/isof/kod/django/sagendatabas/test/sagendatabas/settings_debug.py .
+cp ~/isof/kod/django/sagendatabas/manage.py .
+cp ~/isof/kod/django/sagendatabas/urls.py .
+cp ~/isof/kod/django/sagendatabas/wsgi.py .
+cp /home/perla331/isof/kod/django/sagendatabas/test/Sagenkarta-Admin/es_config.py .
+
+Adjust app name, to http not https in config files
+
+Adjust for new app name:
+cd TradarkAdmin/migrations/ 
+find -name '*.py' | xargs sed -i s/Sagenkarta-Admin/TradarkAdmin/g
+
