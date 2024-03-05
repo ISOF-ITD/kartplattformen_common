@@ -9,17 +9,16 @@ Användaren har valt en uppteckning att transkribera som har transkriberingstyp 
 
 # Huvudflöde
 1. Höger panel: Bilder att transkribera
-- Över: Visa aktuell sida att transkribera som stor bild, typ 2/3 i bredd och höjd
-  - Möjligt att zooma in i bilden med t.ex. + och - knappar
+- Överdel Visningsläge: Visa aktuell sida att transkribera som stor bild, typ 2/3 i bredd och höjd
+  - Möjligt att zooma in i bilden med t.ex. "mus-rulle" och + och - knappar
   - Första sida inom uppteckningen som inte är transkriberad visas här 
-- Under: Visa lista på övriga sidor i uppteckningen som ska transkriberas.
-- Knappar visas:
-  - "Föregående sida"
-  - "Nästa sida" (oavsett transkriptionsstatus då användaren kan behöva läsa redan transkriberad sida)
-  - "Föregående sida att skriva av"
-  - "Nästa sida att skriva av"
+- Mellandel: Panel med knappar i följd vågrätt visas:
+  - "Föregående sida" (oavsett transkriptionsstatus då användaren kan behöva läsa tidigare sida)
+  - "Nästa sida" (oavsett transkriptionsstatus då användaren kan behöva läsa nästa sida)
+  - "Nästa sida att skriva av" (visa nästa sida som har transkriptionsstatus "publicerad för transkribering")
   - För förflytningsknapparna:
     - Lås ny sida för transkribering och lås upp gammal sida 
+- Underdel "Lista över filer"-läge: Visa lista på övriga sidor i uppteckningen som ska transkriberas, max 5 stycken. Ett tryck på en sida lägger den sidan i Visningsläge.
 2. Vänster panel: Inmatningsfält för uppgifter
 - Om transkriberingstyp "uppteckningsblankett": **Användningsfall Transkribering uppteckningsblankett** 
 - Om transkriberingstyp "fritext": **Användningsfall Transkribering fritext** 
@@ -30,9 +29,10 @@ Vi hanterar personuppgifter enligt dataskyddsförordningen. Läs mer. "Pekar på
   - Ditt namn (frivilligt):
   - Din e-post adress (frivilligt):
 - Inlämningsknapp(ar) - (bättre här under själva inmatningen?):
-  - "Skicka" (visas om sidan inte avskriven)
+  - "Skicka in aktuell sida och gå vidare till nästa sida att skriva av". 
+	- Vid sista sida: ligg kvar på sista sida.
   - _"Spara och fortsätt"? Behövs kanske inte när det bara är en sida att transkribera inom en transkriberingssession!_
 3. Vid tryck på "Skicka":
-- Uppteckningen skickas till server
+- Uppteckningens transkription och övriga uppgifter skickas till server
 - Svar om ok: "Tack för din avskrift..."
 - Svar om fel: Felmeddelande
