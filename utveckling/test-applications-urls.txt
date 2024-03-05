@@ -1,0 +1,133 @@
+-------------------
+Test Publikutforska-GUI
+-------------------
+
+skriftligt: DAG
+http://127.0.0.1:8000/api/records/ifgh06689_190407/
+
+skriftligt: AFU
+http://localhost:8080/#/records/07993:b-c_32740
+https://sok.folke-test.isof.se/#/records/07993:b-c_32740
+https://sok.folke.isof.se/#/records/07993:b-c_32740
+Många innehållskategorier, tex teckning:
+https://sok.folke-test.isof.se/#/records/34716_286
+# Med kolon ":" i id: Får fler än EN träff på unikt id vilket ger problem:
+https://sok.folke.isof.se/#/records/01444:2_69025/search/Ore%2520sn/search_field/place
+https://garm.isof.se/folkeservice/api/es/documents/?mark_metadata=transcriptionstatus&type=arkiv&categorytypes=tradark&publishstatus=published&has_media=true&search=Ore sn&id=01444:2_69025
+http://127.0.0.1:8000/api/es/documents/?mark_metadata=transcriptionstatus&type=arkiv&categorytypes=tradark&publishstatus=published&has_media=true&search=Ore sn&id=01444:2_69025
+{'query': {'bool': {'must': [{'bool': {'should': [{'match': {'publishstatus': 'published'}}]}}, {'bool': {'should': [{'multi_match': {'query': 'Ore sn', 'type': 'best_fields', 'fields': ['text^2', 'search_other', 'metadata.value', 'title', 'contents', 'archive.archive', 'archive.archive_id', 'archive.archive_id_row', 'places.name', 'places.landskap', 'places.county', 'places.harad', 'persons.name', 'id', 'headwords', 'title'], 'minimum_should_match': '100%'}}]}}, {'bool': {'should': [{'match': {'materialtype': 'arkiv'}}]}}, {'exists': {'field': 'media.source'}}, {'bool': {'should': [{'match': {'taxonomy.type': 'tradark'}}]}}, {'match': {'id': '01444:2_69025'}}], 'should': [{'match': {'metadata.type': {'query': 'transcriptionstatus', 'boost': 5}}}, {'exists': {'field': 'text', 'boost': 10}}]}}, 'size': 100, 'from': 0, 'highlight': {'pre_tags': ['<span class="highlight">'], 'post_tags': ['</span>'], 'fields': [{'text': {'number_of_fragments': 0}}, {'title': {'number_of_fragments': 0}}, {'contents': {'number_of_fragments': 0}}, {'headwords': {'number_of_fragments': 0}}]}, 'track_total_hits': True}
+# Med kolon ":" i id: Får FLER än EN träff på unikt id vilket ger PROBLEM:
+GET /isof-publik/_search?size=100
+{"query": {"bool": {"must": [{"bool": {"should": [{"match": {"publishstatus": "published"}}]}}, {"bool": {"should": [{"multi_match": {"query": "Ore sn", "type": "best_fields", "fields": ["text^2", "search_other", "metadata.value", "title", "contents", "archive.archive", "archive.archive_id", "archive.archive_id_row", "places.name", "places.landskap", "places.county", "places.harad", "persons.name", "id", "headwords", "title"], "minimum_should_match": "100%"}}]}}, {"bool": {"should": [{"match": {"materialtype": "arkiv"}}]}}, {"exists": {"field": "media.source"}}, {"bool": {"should": [{"match": {"taxonomy.type": "tradark"}}]}}, {"match": {"id": "01444:2_69025"}}], "should": [{"match": {"metadata.type": {"query": "transcriptionstatus", "boost": 5}}}, {"exists": {"field": "text", "boost": 10}}]}}, "size": 100, "from": 0, "highlight": {"pre_tags": ["<span class=\"highlight\">"], "post_tags": ["</span>"], "fields": [{"text": {"number_of_fragments": 0}}, {"title": {"number_of_fragments": 0}}, {"contents": {"number_of_fragments": 0}}, {"headwords": {"number_of_fragments": 0}}]}, "track_total_hits": true}
+# Samma socken Ore utan kolon ":" i id: Får fler endast EN träff på unikt id vilket är KORREKT:
+GET /isof-publik/_search?size=100
+{"query": {"bool": {"must": [{"bool": {"should": [{"match": {"publishstatus": "published"}}]}}, {"bool": {"should": [{"multi_match": {"query": "Ore sn", "type": "best_fields", "fields": ["text^2", "search_other", "metadata.value", "title", "contents", "archive.archive", "archive.archive_id", "archive.archive_id_row", "places.name", "places.landskap", "places.county", "places.harad", "persons.name", "id", "headwords", "title"], "minimum_should_match": "100%"}}]}}, {"bool": {"should": [{"match": {"materialtype": "arkiv"}}]}}, {"exists": {"field": "media.source"}}, {"bool": {"should": [{"match": {"taxonomy.type": "tradark"}}]}}, {"match": {"id": "00766_70080"}}], "should": [{"match": {"metadata.type": {"query": "transcriptionstatus", "boost": 5}}}, {"exists": {"field": "text", "boost": 10}}]}}, "size": 100, "from": 0, "highlight": {"pre_tags": ["<span class=\"highlight\">"], "post_tags": ["</span>"], "fields": [{"text": {"number_of_fragments": 0}}, {"title": {"number_of_fragments": 0}}, {"contents": {"number_of_fragments": 0}}, {"headwords": {"number_of_fragments": 0}}]}, "track_total_hits": true}
+
+
+API
+http://localhost:8000/api/records/34716_286
+https://garm-test.isof.se/folkeservice/api/records/34716_286
+https://garm-test.isof.se/folkeservice/api/es/document/34716_286/
+
+inspelning: DAG:
+https://garm-test.isof.se/folkeservice/api/es/document/iodb00225_208737/
+för att se "skräptecken" i taxonomy[].name: "\ufeffInspelning" - ska numera vara bortstädade ur kategorityp-tabellen:
+https://garm.isof.se/folkeservice/api/records/iodb00225_208737/?format=json
+http://localhost:8080/#/records/iod00701_191991
+https://sok.folke-test.isof.se/#/records/iod00701_191991
+https://sok.folke.isof.se/#/records/iod00701_191991
+Innehåll saknar uppgift för en ljudfil, blir: "Albert Karlsson intervju 1958"
+https://sok.folke-test.isof.se/#/records/iodb00225_208737
+
+inspelning: DAL:
+http://localhost:8080/#/records/s00736:b_f_124639
+https://sok.folke-test.isof.se/#/records/s00736:b_f_124639
+https://sok.folke.isof.se/#/records/s00736:b_f_124639
+
+-------------------
+Test transkribering:
+Ej avskrivet med filer: IFGH01052, IFGH00931-IFGH02011
+
+http://127.0.0.1:5500/www/#/records/accifgh00960_196314_48/search/ifgh00960/recordtype/one_record
+/records/accifgh00960_196314_48/search/ifgh00960/recordtype/one_record
+
+https://frigg-test.isof.se/static/js-apps/publikutforska/#/records/accifgh00960_196314_48/search/ifgh00960/recordtype/one_record
+
+-------------------
+Test byte accession till uppteckning/record och tillbaka:
+
+https://frigg-test.isof.se/sagendatabas/api/records/ifgh00960_196314
+numberofonerecord 98
+
+https://frigg-test.isof.se/sagendatabas/api/records/ifgh00969_196323
+numberofonerecord 70
+
+accifgh03281_201170_2
+
+this.props.item._source.numberofonerecord && this.props.item._source.numberofonerecord > 0 && 
+
+Har one_record: ifgh01052
+Har inte one_record: ifgh02725
+
+-------------------
+kartor tiles WMTS
+
+https://frigg.isof.se/sagendatabas/api/lm_epsg3857_proxy/8/75/138.png
+
+http://maps.lantmateriet.se/topowebb/v1/wmts/1.0.0/topowebb/default/3006/
+http://maps.lantmateriet.se/topowebb/v1/wmts/1.0.0/topowebb/default/3857/8/75/138.png
+
+http://maps.lantmateriet.se/topowebb/v1/wmts/1.0.0/topowebb_nedtonad/default/3857/8/75/138.png
+
+https://frigg.isof.se/sagendatabas/api/lm_nedtonad_epsg3857_proxy/8/75/138.png
+
+WMS 
+------------
+Lantmäteriet ortofoto
+http://maps.lantmateriet.se/ortofoto/wms/v1.3?SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&FORMAT=image%2Fpng&TRANSPARENT=true&SRS=EPSG%3A3006&LAYERS=Ortofoto_0.5%2COrtofoto_0.4%2COrtofoto_0.25%2COrtofoto_0.16&STYLES=&TILED=true&ISBASELAYER=true&WIDTH=256&HEIGHT=256&BBOX=673114.4794650078%2C6603179.746149238%2C673419.8853086852%2C6603485.151992915
+
+Lantmäteriet Fastighetsskikt:
+http://maps.lantmateriet.se/fastighet/wms/v1.1?request=GetCapabilities&version=1.1.1
+http://maps.lantmateriet.se/fastighet/wms/v1.1?SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&FORMAT=image%2Fpng&TRANSPARENT=true&SRS=EPSG%3A3006&LAYERS=granser&STYLES=&WIDTH=256&HEIGHT=256&BBOX=673114.4794650078%2C6603179.746149238%2C673419.8853086852%2C6603485.151992915
+
+
+https://karta.raa.se/geo/arkreg_v1.0/wms?service=WMS&request=GetMap&layers=socken&styles=&format=image/png&transparent=true&version=1.1.1&hidden=false&TILED=true&ISBASELAYER=false&TILESORIGIN=-2238400, 5287200&width=256&height=256&srs=EPSG:3857&bbox=1428455.184593374,8003262.609571095,1448023.063834379,8022830.488812103
+?service=WMS&request=GetMap&layers=socken&styles=&format=image/png&transparent=true&version=1.1.1&hidden=false&TILED=true&ISBASELAYER=false&TILESORIGIN=-2238400, 5287200&width=256&height=256&srs=EPSG:3857&bbox=1428455.184593374,8003262.609571095,1448023.063834379,8022830.488812103
+
+http://maps.lantmateriet.se/ortofoto/wms/v1.3?request=GetCapabilities&version=1.1.1&service=WMS
+
+Orto Funkar:
+https://karta.raa.se/lmortofoto?SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&FORMAT=image%2Fpng&TRANSPARENT=true&SRS=EPSG%3A3006&LAYERS=Ortofoto_0.5%2COrtofoto_0.4%2COrtofoto_0.25%2COrtofoto_0.16&STYLES=&TILED=true&ISBASELAYER=true&WIDTH=256&HEIGHT=256&BBOX=673114.4794650078%2C6603179.746149238%2C673419.8853086852%2C6603485.151992915
+http://maps.lantmateriet.se/ortofoto/wms/v1.3?SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&FORMAT=image%2Fpng&TRANSPARENT=true&SRS=EPSG%3A3006&LAYERS=Ortofoto_0.5%2COrtofoto_0.4%2COrtofoto_0.25%2COrtofoto_0.16&STYLES=&TILED=true&ISBASELAYER=true&WIDTH=256&HEIGHT=256&BBOX=673114.4794650078%2C6603179.746149238%2C673419.8853086852%2C6603485.151992915
+https://frigg.isof.se/sagendatabas/api/lm_orto_proxy?SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&FORMAT=image%2Fpng&TRANSPARENT=true&SRS=EPSG%3A3006&LAYERS=Ortofoto_0.5%2COrtofoto_0.4%2COrtofoto_0.25%2COrtofoto_0.16&STYLES=&TILED=true&ISBASELAYER=true&WIDTH=256&HEIGHT=256&BBOX=673114.4794650078%2C6603179.746149238%2C673419.8853086852%2C6603485.151992915
+
+Hist Orto Funkar inte:
+https://api.lantmateriet.se/historiska-ortofoton/wms/v1?SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&FORMAT=image%2Fpng&TRANSPARENT=true&SRS=EPSG%3A3006&LAYERS=OI.Histortho_60&STYLES=&TILED=true&ISBASELAYER=true&WIDTH=256&HEIGHT=256&BBOX=673114.4794650078%2C6603179.746149238%2C673419.8853086852%2C6603485.151992915
+https://frigg.isof.se/sagendatabas/api/lm_orto_proxy
+https://api.lantmateriet.se/historiska-ortofoton/wms/v1/token/dc447728-8f76-308d-88f6-70f5718278bf/
+https://api.lantmateriet.se/historiska-ortofoton/wms/v1/token/dc447728-8f76-308d-88f6-70f5718278bf/?SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&FORMAT=image%2Fpng&TRANSPARENT=true&SRS=EPSG%3A3006&LAYERS=OI.Histortho_60&STYLES=&TILED=true&ISBASELAYER=true&WIDTH=256&HEIGHT=256&BBOX=673114.4794650078%2C6603179.746149238%2C673419.8853086852%2C6603485.151992915
+
+https://api.lantmateriet.se/historiska-ortofoton/wms/v1?request=
+
+------------
+Vector tiles
+------------
+Full layer with WFS:
+https://oden.isof.se/geoserver/Sockenstad/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=Sockenstad%3ASockenStad_ExtGranskn_v1.0%20clipped&maxFeatures=50&outputFormat=application%2Fjson
+
+
+curl "https://frigg-test.isof.se/geoserver/gwc/service/wmts?REQUEST=GetTile&SERVICE=WMTS&VERSION=1.0.0&LAYER=SockenStad_ExtGranskning-clipped:SockenStad_ExtGranskn_v1.0_clipped&STYLE=&TILEMATRIX=EPSG:900913:5&TILEMATRIXSET=EPSG:900913&FORMAT=application/x-protobuf;type=mapbox-vector&TILECOL=17&TILEROW=10" -o test_tile_frigg-test
+curl "https://oden-test.sprakochfolkminnen.se/geoserver/gwc/service/wmts?REQUEST=GetTile&SERVICE=WMTS&VERSION=1.0.0&LAYER=SockenStad_ExtGranskning-clipped:SockenStad_ExtGranskn_v1.0_clipped&STYLE=&TILEMATRIX=EPSG:900913:5&TILEMATRIXSET=EPSG:900913&FORMAT=application/x-protobuf;type=mapbox-vector&TILECOL=17&TILEROW=10" -o test_tile_oden-test
+-- <ExceptionText>LAYER SockenStad:SockenStad_ExtGranskn_v1.0_clipped is not known.</ExceptionText>:
+curl "https://oden.isof.se/geoserver/gwc/service/wmts?REQUEST=GetTile&SERVICE=WMTS&VERSION=1.0.0&LAYER=SockenStad:SockenStad_ExtGranskn_v1.0_clipped&STYLE=&TILEMATRIX=EPSG:900913:5&TILEMATRIXSET=EPSG:900913&FORMAT=application/x-protobuf;type=mapbox-vector&TILECOL=17&TILEROW=10" -o test_tile_oden
+
+-- Check WMS
+curl "https://oden-test.sprakochfolkminnen.se/geoserver/SockenStad_ExtGranskning-clipped/wms?SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&FORMAT=image/png&TRANSPARENT=true&STYLES=&LAYERS=SockenStad_ExtGranskning-clipped:SockenStad_ExtGranskn_v1.0_clipped&SRS=EPSG:3857&WIDTH=410&HEIGHT=769&BBOX=923547.271280482,7217350.897784506,2927009.6058042785,10970177.904892497" -o test_tile_wms_oden-test
+-- Err:
+curl "https://oden-test.sprakochfolkminnen.se/SockenStad_ExtGranskning-clipped/wms?SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&FORMAT=image/png&TRANSPARENT=true&STYLES=&LAYERS=SockenStad_ExtGranskning-clipped:SockenStad_ExtGranskn_v1.0_clipped&exceptions=application/vnd.ogc.se_inimage&SRS=EPSG:3006&WIDTH=330&HEIGHT=769&BBOX=190573.24645470263,5963965.315332424,996844.6737630598,7840378.81888642" -o test_tile_wms_oden-test
+curl "https://oden.isof.se/geoserver/Sockenstad/wms?SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&FORMAT=image/png&TRANSPARENT=true&STYLES=&LAYERS=Sockenstad:SockenStad_ExtGranskn_v1.0_clipped&exceptions=application/vnd.ogc.se_inimage&SRS=EPSG:3006&WIDTH=330&HEIGHT=769&BBOX=190573.24645470263,5963965.315332424,996844.6737630598,7840378.81888642" -o test_tile_wms_oden
+
+Cross-Origin Request Blocked: The Same Origin Policy disallows reading the remote resource at https://oden-test.isof.se/geoserver/gwc/service/wmts?REQUEST=GetTile&SERVICE=WMTS&VERSION=1.0.0&LAYER=SockenStad_ExtGranskning-clipped:SockenStad_ExtGranskn_v1.0_clipped&STYLE=&TILEMATRIX=EPSG:900913:5&TILEMATRIXSET=EPSG:900913&FORMAT=application/x-protobuf;type=mapbox-vector&TILECOL=16&TILEROW=9. (Reason: CORS request did not succeed).
+Cross-Origin Request Blocked: The Same Origin Policy disallows reading the remote resource at  (Reason: CORS request did not succeed).
+https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS
+

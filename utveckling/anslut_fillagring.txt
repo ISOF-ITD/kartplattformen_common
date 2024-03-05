@@ -1,0 +1,14 @@
+fistulator som ”filsystem” fungerade för mig både i Windows powershell och ubuntu! Se även skärmbilder nedan. 
+
+Windows powershell:
+cd \\fistulator.its.uu.se\DAL
+
+Ubuntu filhanterare:
+”Other locations” -> ”Connect to server”
+smb://fistulator.its.uu.se/DAL
+I ubuntu fick jag första gången jag kopplade upp mig på servern ange: användarnamn, ”domän/workgroup (eller vad det hette)” och lösen, där jag angav min vanliga akka/Windows-inloggning: ”min inlogg”, USER, ”mitt lösen”.
+
+funkar för mig också, använde detta i ubuntu:
+
+sudo mount -t cifs -o username=harbe578 //fistulator.its.uu.se/DAL /mnt/fistulator/DAL/
+
