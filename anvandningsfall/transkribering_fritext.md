@@ -1,22 +1,16 @@
-# Användningsfall Transkribering uppteckningsblankett
+# Användningsfall Transkribering fritext
 # Syfte
-Transkribera uppteckningar med enhetlig struktur som försöker följa layouten i en "uppteckningsblankett"
+Transkribera uppteckningar med fri struktur som fritext
 
 # Mål
 
 # Förutsättningar
-Användaren har valt en uppteckning att transkribera som har transkriberingstyp "uppteckningsblankett"
+Användaren har valt en uppteckning att transkribera som har transkriberingstyp "fritext"
 
 # Huvudflöde
 1. I Vänster panel visa: Inmatningsfält för uppgifter
-- Fält i första raden:
-  - Berättat av:
-  - Född år:
-  - Född i:
 - Fält som egna rader:
-  - Fält under berättat av:
-  - Titel: Text vid titel eller liknande
-  - Text: Text är skriven på sidan i övrigt
+  - Text: Text är skriven på sidan
   - Kommentar till avskriften om inte "sida för sida":
     - Om inte supertranskriberare: till transcription_comment som inte publiceras direkt
     - Om supertranskriberare: till comment som publiceras direkt
