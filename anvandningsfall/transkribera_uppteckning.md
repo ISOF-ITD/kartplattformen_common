@@ -1,6 +1,16 @@
 # Användningsfall Transkribera uppteckning
 # Syfte
 Transkribera uppteckning med alla sidor i uppteckningen inom en transkriberingssession.
+Mer lämpligt för accessioner/uppteckningar som består av ett mindre antal sidor.
+
+Fördelar:
+- Godkännande kan gå lite snabbare: Färre rader i databasen att godkänna
+- UI för godkännande lite enklare
+
+Nackdelar:
+- Transkribering blir inte direkt vid sparning kopplad till sin sida: i stället radbrytningstecken som kan missas och placeras fel
+- Längre tid innan transkribering sparas: Att transkribera många sidor tar tid
+  - Mer behov av "Spara och fortsätt"
 
 # Mål
 
