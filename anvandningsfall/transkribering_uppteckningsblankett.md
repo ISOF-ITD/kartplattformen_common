@@ -17,4 +17,11 @@ Användaren har valt en uppteckning att transkribera som har transkriberingstyp 
   - Fält under berättat av:
   - Titel:
   - Text:
-  - Kommentar till avskriften:
+  - Kommentar till avskriften om inte "sida för sida":
+    - Om inte supertranskriberare: till transcription_comment som inte publiceras direkt
+    - Om supertranskriberare: till comment som publiceras direkt
+  - Kommentar till avskriften om "sida för sida":
+    - Fältet töms efter varje Skicka, för att minska risk att dubblettexter sparas
+	- Texten läggs ihop, förutom text som redan sparats ner, alltså inga "textdubbletter" sparas
+    - Om inte supertranskriberare: till transcription_comment på huvudpost som inte publiceras direkt
+    - Om supertranskriberare: till comment på huvudpost som publiceras direkt
