@@ -32,8 +32,9 @@ Användaren har valt ett dokument i en dokumentlista (huvudlista, ortlista, pers
     - text
 	  - visas sida för sida med "ram" runt varje sida
 - Om one_record, transkriberingstyp "sida för sida" och avskriven:
-    - visas sida för sida med "ram" runt varje sida bredvid sin jpg-fil
-	- sidor som inte transkriberats än: "Ej transkiberad"
+  - För varje media.text:
+    - visa sida för sida med "ram" runt varje sida bredvid sin jpg-fil
+    - sidor som inte transkriberats än: "Ej transkiberad"
 - Om one_record och inte avskriven:
     - Den här uppteckningen är inte avskriven.
     - Vill du vara med och tillgängliggöra samlingarna för fler? Hjälp oss att skriva av berättelser!
