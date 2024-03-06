@@ -2,6 +2,7 @@
 # Syfte
 Transkribera uppteckningar med fri struktur som fritext
 
+Exempel: https://sok.folke-test.isof.se/#/records/liu00604_195711_7
 # Mål
 
 # Förutsättningar
