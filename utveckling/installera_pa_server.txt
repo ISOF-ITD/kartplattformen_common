@@ -83,6 +83,9 @@ scp perla331@garm-test.isof.se:/etc/httpd/conf-ssl.d/garm-test/TradarkAdmin.conf
 # --------------------------
 # Install Accessionsregister (not yet verified)
 # --------------------------
+Dev:
+cd ~/dev/server
+Server:
 cd /var/www/django
 mkdir AccessionsRegister
 cd AccessionsRegister
@@ -97,6 +100,9 @@ scp secrets_env.py perla331@garm-test.isof.se:/var/www/django/AccessionsRegister
 
 # Configuration
 ln -snf settings_debug.py settings.py
+#OR:
+cp settings_debug.py settings.py
+vi settings.py
 # IF NO secrets from previous server
 cp secrets_template.py secrets_env.py
 # Set secrets
