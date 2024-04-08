@@ -103,6 +103,8 @@ ln -snf settings_debug.py settings.py
 #OR:
 cp settings_debug.py settings.py
 vi settings.py
+Dev:
+#SECURE_SSL_REDIRECT = True
 # IF NO secrets from previous server
 cp secrets_template.py secrets_env.py
 # Set secrets
@@ -131,7 +133,7 @@ mkdir static
 STATIC_ROOT (och STATIC_URL för åtkomst?) ska vara satt i settings.py:
 STATIC_URL = '/static/'
 STATIC_ROOT = "/var/www/django/APP/static"
-python3 manage.py collectstatic
+	
 
 # http://127.0.0.1:8001/admin
 # ImportBatch Action: Test that JDBC connection to accessionsregistret works
