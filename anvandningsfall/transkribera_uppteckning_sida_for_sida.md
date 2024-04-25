@@ -39,10 +39,10 @@ Vi hanterar personuppgifter enligt dataskyddsförordningen. Läs mer. "Pekar på
   - Ditt namn (frivilligt):
   - Din e-post adress (frivilligt):
 - Inlämningsknapp(ar) - (bättre här under själva inmatningen?):
-  - "Skicka in aktuell sida och gå vidare till nästa sida att skriva av". 
+  - "Skicka in aktuell sida och gå vidare till nästa sida att skriva av".
 	- Vid sista sida: ligg kvar på sista sida.
-  - _"Spara och fortsätt"? Behövs kanske inte när det bara är en sida att transkribera inom en transkriberingssession!_
+  - INTE AKTUELLT: "Spara och fortsätt"? Behövs kanske inte när det bara är en sida att transkribera inom en transkriberingssession!-
 3. Vid tryck på "Skicka":
 - Uppteckningens transkription och övriga uppgifter skickas till server
-- Svar om ok: "Tack för din avskrift..."
-- Svar om fel: Felmeddelande
+- Svar om ok: "Tack för din avskrift...". Längst upp på den "nya" sidan, inte overlay som behöver "klickas bort"
+- Svar om fel: Felmeddelande (500, för få tecken)
