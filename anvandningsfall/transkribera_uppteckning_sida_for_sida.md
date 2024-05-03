@@ -18,10 +18,10 @@ Nackdelar:
 Användaren har valt en uppteckning att transkribera som har transkriberingstyp "sida för sida"
 
 # Huvudflöde
-1. Höger panel: Bilder att transkribera
-- Överdel Visningsläge: Visa aktuell sida att transkribera som stor bild, typ 2/3 i bredd och höjd
-  - Möjligt att zooma in i bilden med t.ex. "mus-rulle" och + och - knappar
-  - Första sida inom uppteckningen som inte är transkriberad visas här 
+1. Höger panel: Bilder att transkribera ✅
+- Överdel Visningsläge: Visa aktuell sida att transkribera som stor bild, typ 2/3 i bredd och höjd ✅
+  - Möjligt att zooma in i bilden med t.ex. "mus-rulle" och + och - knappar ✅
+  - Första sida inom uppteckningen som inte är transkriberad visas här  ✅
 - Mellandel: Panel med knappar i följd vågrätt visas:
   - "Föregående sida" (oavsett transkriptionsstatus då användaren kan behöva läsa tidigare sida)
   - "Nästa sida" (oavsett transkriptionsstatus då användaren kan behöva läsa nästa sida)
