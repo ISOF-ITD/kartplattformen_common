@@ -28,10 +28,10 @@ Användaren har valt en uppteckning att transkribera som har transkriberingstyp 
   - "Nästa sida att skriva av" (visa nästa sida som har transkriptionsstatus "publicerad för transkribering") ✅
   - För förflytningsknapparna:
     - Lås ny sida för transkribering och lås upp gammal sida 🟨(BEHÖVER TESTAS MER)
-- Underdel "Lista över filer"-läge: Visa lista på övriga sidor i uppteckningen som ska transkriberas, max 5 stycken. Ett tryck på en sida lägger den sidan i Visningsläge.
+- Underdel "Lista över filer"-läge: Visa lista på övriga sidor i uppteckningen som ska transkriberas, max 5 stycken. Ett tryck på en sida lägger den sidan i Visningsläge. ✅
 2. Vänster panel: Inmatningsfält för uppgifter
-- Om transkriberingstyp "uppteckningsblankett": **Användningsfall Transkribering uppteckningsblankett** 
-- Om transkriberingstyp "fritext": **Användningsfall Transkribering fritext** 
+- Om transkriberingstyp "uppteckningsblankett": **Användningsfall Transkribering uppteckningsblankett** ✅
+- Om transkriberingstyp "fritext": **Användningsfall Transkribering fritext** ✅
 - Kommentar till avskriften:
 - Text: Vill du att vi anger att det är du som har skrivit av uppteckningen? Ange i så fall ditt namn och din e-postadress nedan. E-postadressen publiceras inte.
 Vi hanterar personuppgifter enligt dataskyddsförordningen. Läs mer. "Pekar på": https://www.isof.se/vart-uppdrag/om-myndigheten/om-webbplatsen/hantering-av-personuppgifter
