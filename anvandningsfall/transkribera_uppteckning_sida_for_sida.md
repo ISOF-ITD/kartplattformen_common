@@ -37,12 +37,12 @@ Användaren har valt en uppteckning att transkribera som har transkriberingstyp 
 	- Kommentar ska kopplas till en sida
  	- Text: "Kommentar till sida 15 av 30" (skriv "av 30" på alla ställen där sidnummer nämns. enhetligt!)
 - Text: Vill du att vi anger att det är du som har skrivit av uppteckningen? Ange i så fall ditt namn och din e-postadress nedan. E-postadressen publiceras inte.
-Vi hanterar personuppgifter enligt dataskyddsförordningen. Läs mer. "Pekar på": https://www.isof.se/vart-uppdrag/om-myndigheten/om-webbplatsen/hantering-av-personuppgifter
+Vi hanterar personuppgifter enligt dataskyddsförordningen. Läs mer. "Pekar på": https://www.isof.se/vart-uppdrag/om-myndigheten/om-webbplatsen/hantering-av-personuppgifter ✅
 - Fält som egna rader:
-  - Ditt namn (frivilligt):
-  - Din e-post adress (frivilligt):
+  - Ditt namn (frivilligt): ✅
+  - Din e-post adress (frivilligt): ✅
 - Inlämningsknapp(ar) - (bättre här under själva inmatningen?):
-  - "Skicka in aktuell sida och gå vidare till nästa sida att skriva av".
+  - "Skicka in aktuell sida och gå vidare till nästa sida att skriva av".  ✅
 	- Vid sista sida: ligg kvar på sista sida.
   - INTE AKTUELLT: "Spara och fortsätt"? Behövs kanske inte när det bara är en sida att transkribera inom en transkriberingssession!-
 3. Vid tryck på "Skicka":
