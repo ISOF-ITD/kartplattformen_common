@@ -60,3 +60,5 @@ Användaren har valt en uppteckning att transkribera som har transkriberingstyp 
 - *Todo*: Vad händer när alla sidor är avskrivna?
   - ☐ ???
 - En fjärde status: "Godkänt/Published"
+- måste man skriva en mejladress när man skriver ett namn?
+- byt bara till nästa sida om /transcribe-anropet lyckats
