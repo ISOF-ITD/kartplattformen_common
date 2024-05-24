@@ -37,9 +37,9 @@ Användaren har valt en uppteckning att transkribera som har transkriberingstyp 
   - ✅ Fält som egna rader:
     - ✅ Ditt namn (frivilligt):
     - ✅ Din e-post adress (frivilligt):
-  - ☐ Inlämningsknapp - (bättre här under själva inmatningen?):
+  - ✅ Inlämningsknapp - (bättre här under själva inmatningen?):
     - ✅ "Skicka in aktuell sida och gå vidare till nästa sida att skriva av".
-    - ☐ Vid sista sida: ligg kvar på sista sida.
+    - ✅ Vid sista sida: ligg kvar på sista sida.
 
 
 **FÖRSLAG:**
@@ -52,8 +52,8 @@ Användaren har valt en uppteckning att transkribera som har transkriberingstyp 
 - ☐ När vi skickar in /transcribe så måste vi kolla om record får editeras
 - ✅ OBS! Kontroller! man måste ha en markering vilka sidor som inte sparats. man behöver också få ett meddelande när man vill lämna sidan!
 - ✅ Olika ramfärger, beroende på status på sidan (osparat, sparat, annan har skrivit av)
-- ☐ Lägg till en extra knapp "Skicka in alla sidor"
+- ☐ Avancerat: Lägg till en extra knapp "Skicka in alla sidor"
   - ☐ lägg till förhandsvisning av det man skickar in. man behöver scrolla ända längst ner, först sen kan man godkänna inskickandet
-  - ☐ lägg till de 3 hjälp-knapparna i mörkgröna huvudpanelen även i denna vy
-  - ☐ Knappen "skriva av" i record-vyn: Ändra text till "skriv av uppteckning" eller "skriv av sida för sida"
-  - ☐ Samma uppe i den gröna panelen
+- ☐ lägg till de 3 hjälp-knapparna i mörkgröna huvudpanelen även i denna vy
+- ☐ Knappen "skriva av" i record-vyn: Ändra text till "skriv av uppteckning" eller "skriv av sida för sida"
+- ☐ Samma uppe i den gröna panelen
