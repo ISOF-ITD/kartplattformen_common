@@ -59,3 +59,4 @@ Användaren har valt en uppteckning att transkribera som har transkriberingstyp 
   - ☐ lägg till förhandsvisning av det man skickar in. man behöver scrolla ända längst ner, först sen kan man godkänna inskickandet
 - *Todo*: Vad händer när alla sidor är avskrivna?
   - ☐ ???
+- En fjärde status: "Godkänt/Published"
