@@ -42,8 +42,6 @@ Användaren har valt en uppteckning att transkribera som har transkriberingstyp 
     - ✅ Vid sista sida: ligg kvar på sista sida.
 
 
-**FÖRSLAG:**
-
 - ✅ Navigation mellan sidor: Användaren bör kunna navigera mellan olika sidor utan att vara tvungen att skicka in dem för godkännande.
 - ✅ Låsning av dokumentet: När en användare påbörjar transkriberingen av en sida, låses hela dokumentet för andra användare. Detta förhindrar att flera personer arbetar på samma dokument samtidigt, vilket minimerar risken för konflikter.
 - ✅ Hantering av inskickade sidor: När en sida har skickats in, blir den låst och kan inte redigeras vidare. Användaren kan dock fortfarande se vad de har skrivit. Detta ger möjlighet att granska sitt eget arbete samtidigt som man fortsätter transkribera andra sidor.
@@ -57,3 +55,4 @@ Användaren har valt en uppteckning att transkribera som har transkriberingstyp 
 - ☐ lägg till de 3 hjälp-knapparna i mörkgröna huvudpanelen även i denna vy
 - ☐ Knappen "skriva av" i record-vyn: Ändra text till "skriv av uppteckning" eller "skriv av sida för sida"
 - ☐ Samma uppe i den gröna panelen
+- Inlämnade sidor ska får status "under granskning" och inte "transkriberad"
