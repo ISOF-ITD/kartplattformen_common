@@ -58,7 +58,7 @@ Användaren har valt en uppteckning att transkribera som har transkriberingstyp 
 - ☐ Avancerat: Lägg till en extra knapp "Skicka in alla sidor"
   - ☐ lägg till förhandsvisning av det man skickar in. man behöver scrolla ända längst ner, först sen kan man godkänna inskickandet
 - *Todo*: Vad händer när alla sidor är avskrivna?
-  - ☐ ???
-- En fjärde status: "Godkänt/Published"
-- måste man skriva en mejladress när man skriver ett namn?
-- byt bara till nästa sida om /transcribe-anropet lyckats
+  - ✅ till att börja med gör vi inget speciellt, användaren får själv stänga fönstret!
+- ☐ En fjärde status: "Godkänt/Published"
+- ☐ måste man skriva en mejladress när man skriver ett namn?
+- ☐ byt bara till nästa sida om /transcribe-anropet lyckats
