@@ -57,3 +57,5 @@ Användaren har valt en uppteckning att transkribera som har transkriberingstyp 
 - ✅ lägg till de 3 hjälp-knapparna i mörkgröna huvudpanelen även i denna vy
 - ☐ Knappen "skriva av" i record-vyn: Ändra text till "skriv av uppteckning" eller "skriv av sida för sida"
 - ☐ Samma uppe i den gröna panelen
+3. *Todo*: Vad händer när alla sidor är avskrivna?
+  - ☐ ???
