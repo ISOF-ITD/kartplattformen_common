@@ -12,7 +12,9 @@ Nackdelar:
 - Godkännande kan ta mer tid: Fler rader i databasen att godkänna
 - UI för godkännande lite mer komplext
 
-# Mål
+# Testa med:
+- https://garm-test.isof.se/demo/folke-sida-for-sida/www/#/transcribe/records/liu00198_194713_1
+- https://garm-test.isof.se/TradarkAdmin/admin/TradarkAdmin/records/liu00198_5F194713_5F1/
 
 # Förutsättningar
 Användaren har valt en uppteckning att transkribera som har transkriberingstyp "sida för sida"
