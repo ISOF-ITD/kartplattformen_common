@@ -53,13 +53,13 @@ Användaren har valt en uppteckning att transkribera som har transkriberingstyp 
 - ✅ OBS! Kontroller! man måste ha en markering vilka sidor som inte sparats. man behöver också få ett meddelande när man vill lämna sidan!
 - ✅ Olika ramfärger, beroende på status på sidan (osparat, sparat, annan har skrivit av)
 - ✅ lägg till de 3 hjälp-knapparna i mörkgröna huvudpanelen även i denna vy
-- ☐ Knappen "skriva av" i record-vyn: Ändra text till "skriv av uppteckning" eller "skriv av sida för sida"
-- ☐ Samma uppe i den gröna panelen
+- ✅ Knappen "skriva av" i record-vyn: Ändra text till "skriv av uppteckning" eller "skriv av sida för sida"
+- ✅ Samma uppe i den gröna panelen
 - ☐ Avancerat: Lägg till en extra knapp "Skicka in alla sidor"
   - ☐ lägg till förhandsvisning av det man skickar in. man behöver scrolla ända längst ner, först sen kan man godkänna inskickandet
-- *Todo*: Vad händer när alla sidor är avskrivna?
+- ✅ Vad händer när alla sidor är avskrivna?
   - ✅ till att börja med gör vi inget speciellt, användaren får själv stänga fönstret!
-- ☐ En fjärde status: "Godkänt/Published"
-- ☐ måste man skriva en mejladress när man skriver ett namn?
-- ☐ byt bara till nästa sida om /transcribe-anropet lyckats
+- ✅ En fjärde status: "Godkänt/Published"
+- ✅ måste man skriva en mejladress när man skriver ett namn?
+- ✅ byt bara till nästa sida om /transcribe-anropet lyckats
 - ☐ BUG: det går inte att nollställa page.text i TradarkAdmin. Fel i REST-Api?
