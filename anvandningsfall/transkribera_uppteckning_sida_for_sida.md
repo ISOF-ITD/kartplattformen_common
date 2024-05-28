@@ -62,4 +62,4 @@ Användaren har valt en uppteckning att transkribera som har transkriberingstyp 
 - ✅ En fjärde status: "Godkänt/Published"
 - ✅ måste man skriva en mejladress när man skriver ett namn?
 - ✅ byt bara till nästa sida om /transcribe-anropet lyckats
-- ☐ BUG: det går inte att nollställa page.text i TradarkAdmin. Fel i REST-Api?
+- ✅ BUG: det går inte att nollställa page.text i TradarkAdmin. Fel i REST-Api?
