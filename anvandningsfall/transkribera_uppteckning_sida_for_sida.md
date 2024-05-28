@@ -63,3 +63,4 @@ Användaren har valt en uppteckning att transkribera som har transkriberingstyp 
 - ✅ måste man skriva en mejladress när man skriver ett namn?
 - ✅ byt bara till nästa sida om /transcribe-anropet lyckats
 - ✅ BUG: det går inte att nollställa page.text i TradarkAdmin. Fel i REST-Api?
+- ☐ har man skickat in sidor och stänger overlayen (transcribecancel), så måste datat i recordview uppdateras! med pagereload eller på annat sätt.
