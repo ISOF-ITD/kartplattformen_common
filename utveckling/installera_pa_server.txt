@@ -193,7 +193,7 @@ cd /var/www/django/folkeservice/kartplattformen_common
 cp settings_NOTDEBUG.py settings.py 
 cp secrets_env.py.template secrets_env.py
 OR get secrets from old server!
-scp perla331@frigg.isof.se:/var/www/django/sagendatabas/kartplattformen_common/secrets_env.py .
+scp perla331@garm.isof.se:/var/www/django/sagendatabas/kartplattformen_common/secrets_env.py .
 scp secrets_env.py perla331@garm.isof.se:/var/www/django/folkeservice/kartplattformen_common
 vi secrets_env.py
 allowed_host = 'garm-test.isof.se'
@@ -202,7 +202,7 @@ cd /var/www/django/folkeservice/sagenkarta_rest_api
 cp config_prod.py config.py
 cp secrets_env.py.template secrets_env.py
 OR get config from old server!
-scp perla331@frigg.isof.se:/var/www/django/sagendatabas/sagenkarta_rest_api/secrets_env.py .
+scp perla331@garm.isof.se:/var/www/django/sagendatabas/sagenkarta_rest_api/secrets_env.py .
 scp secrets_env.py perla331@garm.isof.se:/var/www/django/folkeservice/sagenkarta_rest_api
 restApiRecordUrl = 'https://garm-test.isof.se/sagendatabas/api/records/'
 FriggStatic = 'https://garm-test.isof.se/static/'
