@@ -166,6 +166,10 @@ Test has_media ES5 in es-test:
 1. /var/www/django/sagendatabas/Sagendatabas-ES-API-test
 2. git checkout master
 3. restart
+
+https://garm.isof.se/folkeservice/api/es/document/02212:4_63249
+http://localhost:8000/api/es/document/02212:4_63249
+
 https://garm-test.isof.se/folkeservice/api/es-test/documents/?size=50&has_media=true&recordtype=one_accession_row&mark_metadata=transcriptionstatus&categorytypes=tradark&publishstatus=published
 
 https://garm-test.isof.se/folkeservice/api/es/documents/?size=50&type=arkiv,tryckt&categorytypes=sägner
