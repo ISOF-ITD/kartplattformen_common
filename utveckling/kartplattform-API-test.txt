@@ -7,21 +7,21 @@ TODO: Automatic testing
 Test REST api kartplattform
 -----------------------------------------
 Test proxy-tjänster:
-https://frigg-test.isof.se/sagendatabas/api/lm_proxy/1/2/4.png
+https://garm-test.isof.se/folkeservice/api/lm_proxy/1/2/4.png
 http://localhost:8000/api/lm_proxy/1/2/4.png
 Direkt:
 https://filemaker.isof.se/publik/Goteborg/skriftligt/ifgh/ifgh_00700-00799/ifgh00700.pdf
 https://arkivfiler.isof.se/publik/Goteborg/skriftligt/ifgh/ifgh_00700-00799/ifgh00700.pdf
 Test:
-https://frigg-test.isof.se/sagendatabas/api/filemaker_proxy/publik/Goteborg/skriftligt/ifgh/ifgh_00700-00799/ifgh00700.pdf
+https://garm-test.isof.se/folkeservice/api/filemaker_proxy/publik/Goteborg/skriftligt/ifgh/ifgh_00700-00799/ifgh00700.pdf
 http://localhost:8000/api/filemaker_proxy/publik/Goteborg/skriftligt/ifgh/ifgh_00700-00799/ifgh00700.pdf
 
-https://frigg-test.isof.se/sagendatabas/api/records/1986/
+https://garm-test.isof.se/folkeservice/api/records/1986/
 http://localhost:8000/api/records/ifgh03061_200253_1/
 
 Används vid importera data till index:
 http://localhost:8000/api/records/?offset=0&type=arkiv
-https://frigg-test.isof.se/sagendatabas/api/records/?offset=0&type=arkiv&publishstatus=published&recordtype=one_record
+https://garm-test.isof.se/folkeservice/api/records/?offset=0&type=arkiv&publishstatus=published&recordtype=one_record
 
 
 -----------------------------------------
@@ -29,7 +29,7 @@ Test av klienttjänster med POST och json med t.ex. curl:
 -----------------------------------------
 Identify status:
 curl -X GET localhost:9200/isof-publik/_doc/ifgh03061_200253_1
-https://frigg-test.isof.se/sagendatabas/api/es/document/accifgh05163_205454_31/
+https://garm-test.isof.se/folkeservice/api/es/document/accifgh05163_205454_31/
 http://localhost:8000/api/es/document/accifgh03888_202289_27/
 
 Test api feedback
@@ -157,7 +157,7 @@ curl -X GET saga-test.isof.se:9200/_cat/indices?v&s=indices
 curl -X GET saga-test.isof.se:9200/_cat/aliases?v&s=aliases
 curl -X GET saga-test.isof.se:9200/isof-publik/_doc/ifgh00700_195384
 för:
-https://frigg-test.isof.se/sagendatabas/api/es/document/ifgh00700_195384/
+https://garm-test.isof.se/folkeservice/api/es/document/ifgh00700_195384/
 
 -----------------------------------------
 Test Rest ES-API kartplattform
@@ -166,10 +166,10 @@ Test has_media ES5 in es-test:
 1. /var/www/django/sagendatabas/Sagendatabas-ES-API-test
 2. git checkout master
 3. restart
-https://frigg-test.isof.se/sagendatabas/api/es-test/documents/?size=50&has_media=true&recordtype=one_accession_row&mark_metadata=transcriptionstatus&categorytypes=tradark&publishstatus=published
+https://garm-test.isof.se/folkeservice/api/es-test/documents/?size=50&has_media=true&recordtype=one_accession_row&mark_metadata=transcriptionstatus&categorytypes=tradark&publishstatus=published
 
-https://frigg-test.isof.se/sagendatabas/api/es/documents/?size=50&type=arkiv,tryckt&categorytypes=sägner
-https://frigg-test.isof.se/sagendatabas/api/es/documents/?size=50&type=inspelning&country=sweden
+https://garm-test.isof.se/folkeservice/api/es/documents/?size=50&type=arkiv,tryckt&categorytypes=sägner
+https://garm-test.isof.se/folkeservice/api/es/documents/?size=50&type=inspelning&country=sweden
 https://frigg.isof.se/sagendatabas/api/es/documents/?size=50&type=matkarta&country=sweden&mark_metadata=sitevision_url,matkarta_edited
 
 http://localhost:8000/api/es/documents/?size=50&type=arkiv,tryckt&categorytypes=sägner
@@ -178,12 +178,15 @@ http://localhost:8000/api/es/documents/?size=50&type=matkarta&country=sweden&mar
 
 Fungerar inte i ES7: Med material (publikutforska): 
 Kanske: När "ignore_above" inte finns i mappings så verkar “exists“ fungera ex: persons.gender 
-https://frigg-test.isof.se/sagendatabas/api/es/documents/?size=50&has_media=true&recordtype=one_accession_row&mark_metadata=transcriptionstatus&categorytypes=tradark&publishstatus=published
+https://garm-test.isof.se/folkeservice/api/es/documents/?size=50&has_media=true&recordtype=one_accession_row&mark_metadata=transcriptionstatus&categorytypes=tradark&publishstatus=published
 
+#Count
+http://localhost:8000/api/es/count?mark_metadata=transcriptionstatus&type=arkiv&categorytypes=tradark&publishstatus=published&has_media=true&add_aggregations=false&recordtype=one_record&transcriptionstatus=published&range=transcriptiondate,now/M,now+2h
+{'error': {'root_cause': [{'type': 'parse_exception', 'reason': 'operator not supported for date math [ 2h]'}], 'type': 'search_phase_execution_exception', 'reason': 'all shards failed', 'phase': 'query', 'grouped': True, 'failed_shards': [{'shard': 0, 'index': 'isof-publik_20240619', 'node': 'PCN7ZaPqSXmmPUxAs7KTvw', 'reason': {'type': 'parse_exception', 'reason': 'operator not supported for date math [ 2h]'}}]}, 'status': 400}
 
 sagenkarta start up: 
 http://localhost:8000/api/es/documents/?size=50&search=älva&recordtype=one_accession_row&mark_metadata=transcriptionstatus&categorytypes=tradark
-https://frigg-test.isof.se/sagendatabas/api/es/documents/?size=50&search=älva&recordtype=one_accession_row&mark_metadata=transcriptionstatus&categorytypes=tradark
+https://garm-test.isof.se/folkeservice/api/es/documents/?size=50&search=älva&recordtype=one_accession_row&mark_metadata=transcriptionstatus&categorytypes=tradark
 
  {
 'query':  {
@@ -205,7 +208,7 @@ https://frigg-test.isof.se/sagendatabas/api/es/documents/?size=50&search=älva&r
 
 sagenkarta free text search: troll
 http://localhost:8000/api/es/documents/?size=50&search=troll&type=arkiv,tryckt&categorytypes=sägner
-https://frigg-test.isof.se/sagendatabas/api/es/documents/?size=50&search=troll&type=arkiv,tryckt&categorytypes=sägner
+https://garm-test.isof.se/folkeservice/api/es/documents/?size=50&search=troll&type=arkiv,tryckt&categorytypes=sägner
 
  {
 'bool': {
@@ -225,7 +228,7 @@ https://frigg-test.isof.se/sagendatabas/api/es/documents/?size=50&search=troll&t
 
 dialektkartan free text search: Häst
 http://localhost:8000/api/es/documents/?size=50&search=häst&type=inspelning&country=sweden
-https://frigg-test.isof.se/sagendatabas/api/es/documents/?size=50&search=häst&type=inspelning&country=sweden
+https://garm-test.isof.se/folkeservice/api/es/documents/?size=50&search=häst&type=inspelning&country=sweden
 
 {
 'bool': {
@@ -310,7 +313,7 @@ curl -X GET localhost:9200/isof-publik/_search?size=0&pretty=true" -H 'Content-T
 
 -- Above 10000 documents:
 http://localhost:8000/api/es/documents/?size=50&recordtype=one_record&mark_metadata=transcriptionstatus&categorytypes=tradark
-https://frigg-test.isof.se/sagendatabas/api/es/documents/?size=50&recordtype=one_record&mark_metadata=transcriptionstatus&categorytypes=tradark
+https://garm-test.isof.se/folkeservice/api/es/documents/?size=50&recordtype=one_record&mark_metadata=transcriptionstatus&categorytypes=tradark
 
 https://saga-test.isof.se/kibana/app/dev_tools#/console
 ES 7.13.2 saga-test
@@ -373,27 +376,27 @@ It is also possible to set track_total_hits to an integer.
 -- Start
 -- 1 socken/
 http://localhost:8000/api/es/socken/?type=arkiv,tryckt&categorytypes=sägner
-https://frigg-test.isof.se/sagendatabas/api/es-test/socken/?type=arkiv
+https://garm-test.isof.se/folkeservice/api/es-test/socken/?type=arkiv
 
 prequery: request, query <WSGIRequest: GET '/api/es/socken/?type=arkiv'> {'query': {'bool': {'must': [{'bool': {'should': [{'match': {'materialtype': 'arkiv'}}]}}]}}, 'size': 0, 'aggs': {'data': {'nested': {'path': 'places'}, 'aggs': {'data': {'terms': {'field': 'places.id', 'size': 10000}, 'aggs': {'page_count': {'reverse_nested': {}, 'aggs': {'pages': {'sum': {'field': 'archive.total_pages'}}}}, 'data': {'terms': {'field': 'places.name', 'size': 1, 'order': {'_term': 'asc'}}}, 'parent_doc_count': {'reverse_nested': {}}, 'harad': {'terms': {'field': 'places.harad', 'size': 1, 'order': {'_term': 'asc'}}}, 'landskap': {'terms': {'field': 'places.landskap', 'size': 1, 'order': {'_term': 'asc'}}}, 'lan': {'terms': {'field': 'places.county', 'size': 1, 'order': {'_term': 'asc'}}}, 'location': {'geohash_grid': {'field': 'places.location', 'precision': 12}}, 'lm_id': {'terms': {'field': 'places.lm_id', 'size': 1, 'order': {'_term': 'asc'}}}, 'relation_type': {'terms': {'field': 'places.type', 'size': 100, 'order': {'_term': 'asc'}}}}}}}}}
 
 -- 2 documents/
 http://localhost:8000/api/es/documents/?size=50&recordtype=one_record&mark_metadata=transcriptionstatus&categorytypes=tradark
-https://frigg-test.isof.se/sagendatabas/api/es-test/documents/?size=50&recordtype=one_record&mark_metadata=transcriptionstatus&categorytypes=tradark
+https://garm-test.isof.se/folkeservice/api/es-test/documents/?size=50&recordtype=one_record&mark_metadata=transcriptionstatus&categorytypes=tradark
 
 -- Dokument
 http://localhost:8000/api/es/document/8087/
-https://frigg-test.isof.se/sagendatabas/api/es/document/8087/
+https://garm-test.isof.se/folkeservice/api/es/document/8087/
 
 --Socken/Plats
 http://localhost:8000/api/es/documents/?size=50&recordtype=one_record&socken_id=1375&mark_metadata=transcriptionstatus&categorytypes=tradark
-https://frigg-test.isof.se/sagendatabas/api/es/documents/?size=50&recordtype=one_record&socken_id=1375&mark_metadata=transcriptionstatus&categorytypes=tradark
+https://garm-test.isof.se/folkeservice/api/es/documents/?size=50&recordtype=one_record&socken_id=1375&mark_metadata=transcriptionstatus&categorytypes=tradark
 
 http://localhost:8000/api/es/socken/?recordtype=one_record&country=sweden&mark_metadata=transcriptionstatus&categorytypes=tradark
-https://frigg-test.isof.se/sagendatabas/api/es/socken/?recordtype=one_record&country=sweden&mark_metadata=transcriptionstatus&categorytypes=tradark
+https://garm-test.isof.se/folkeservice/api/es/socken/?recordtype=one_record&country=sweden&mark_metadata=transcriptionstatus&categorytypes=tradark
 
 --Person
 http://localhost:8000/api/es/documents/?size=50&person_id=acc82025&mark_metadata=transcriptionstatus&categorytypes=tradark
-https://frigg-test.isof.se/sagendatabas/api/es-test/documents/?size=50&person_id=acc82025&mark_metadata=transcriptionstatus&categorytypes=tradark
+https://garm-test.isof.se/folkeservice/api/es-test/documents/?size=50&person_id=acc82025&mark_metadata=transcriptionstatus&categorytypes=tradark
 
 
