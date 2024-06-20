@@ -162,6 +162,18 @@ https://garm-test.isof.se/folkeservice/api/es/document/ifgh00700_195384/
 -----------------------------------------
 Test Rest ES-API kartplattform
 -----------------------------------------
+Query ES with curl example:
+curl -u elastic:AndP-u=bz8YFdAEzYEDm -H "Content-Type: application/json" "http://localhost:9200/isof-publik/_search?size=0" -d '
+{
+  "aggs": {
+    "by_materialtype": {
+      "terms": {
+        "field": "materialtype"
+      }
+    }
+  }
+}'
+
 Test has_media ES5 in es-test:
 1. /var/www/django/sagendatabas/Sagendatabas-ES-API-test
 2. git checkout master
