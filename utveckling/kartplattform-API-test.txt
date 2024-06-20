@@ -185,6 +185,13 @@ Kanske: När "ignore_above" inte finns i mappings så verkar “exists“ funger
 https://garm-test.isof.se/folkeservice/api/es/documents/?size=50&has_media=true&recordtype=one_accession_row&mark_metadata=transcriptionstatus&categorytypes=tradark&publishstatus=published
 
 #Count
+https://garm-test.isof.se/folkeservice/api/es/count?mark_metadata=transcriptionstatus&type=arkiv&categorytypes=tradark&publishstatus=published&has_media=true&add_aggregations=false&recordtype=one_record&transcriptionstatus=published&range=transcriptiondate,now/M,now+2h
+%2b fungerar:
+https://garm-test.isof.se/folkeservice/api/es/count?mark_metadata=transcriptionstatus&type=arkiv&categorytypes=tradark&publishstatus=published&has_media=true&add_aggregations=false&recordtype=one_record&transcriptionstatus=published&range=transcriptiondate,now/M,now%2b2h
+http://localhost:8000/api/es/count?mark_metadata=transcriptionstatus&type=arkiv&categorytypes=tradark&publishstatus=published&has_media=true&add_aggregations=false&recordtype=one_record&transcriptionstatus=published&range=transcriptiondate,now/M,now%2b2h
+PLUS fungerar:
+http://localhost:8000/api/es/count?mark_metadata=transcriptionstatus&type=arkiv&categorytypes=tradark&publishstatus=published&has_media=true&add_aggregations=false&recordtype=one_record&transcriptionstatus=published&range=transcriptiondate,now/M,nowPLUS2h
++ fungerar inte:
 http://localhost:8000/api/es/count?mark_metadata=transcriptionstatus&type=arkiv&categorytypes=tradark&publishstatus=published&has_media=true&add_aggregations=false&recordtype=one_record&transcriptionstatus=published&range=transcriptiondate,now/M,now+2h
 {'error': {'root_cause': [{'type': 'parse_exception', 'reason': 'operator not supported for date math [ 2h]'}], 'type': 'search_phase_execution_exception', 'reason': 'all shards failed', 'phase': 'query', 'grouped': True, 'failed_shards': [{'shard': 0, 'index': 'isof-publik_20240619', 'node': 'PCN7ZaPqSXmmPUxAs7KTvw', 'reason': {'type': 'parse_exception', 'reason': 'operator not supported for date math [ 2h]'}}]}, 'status': 400}
 
@@ -195,6 +202,10 @@ http://localhost:8000/api/es/socken/?mark_metadata=transcriptionstatus&type=arki
 #antal för typ
 https://garm-test.isof.se/folkeservice/api/es/count/?mark_metadata=transcriptionstatus&type=arkiv&categorytypes=tradark&publishstatus=published&has_media=true&add_aggregations=false&transcriptionstatus=published,accession&category=contentG5
 http://localhost:8000/api/es/count/?mark_metadata=transcriptionstatus&type=arkiv&categorytypes=tradark&publishstatus=published&has_media=true&add_aggregations=false&transcriptionstatus=published,accession&category=contentG5
+
+# collection_years
+https://garm-test.isof.se/folkeservice/api/es/collection_years/?mark_metadata=transcriptionstatus&type=arkiv&categorytypes=tradark&publishstatus=published&has_media=true&add_aggregations=false&transcriptionstatus=published,accession
+http://localhost:8000/api/es/collection_years/?mark_metadata=transcriptionstatus&type=arkiv&categorytypes=tradark&publishstatus=published&has_media=true&add_aggregations=false&transcriptionstatus=published,accession
 
 sagenkarta start up:
 http://localhost:8000/api/es/documents/?size=50&search=älva&recordtype=one_accession_row&mark_metadata=transcriptionstatus&categorytypes=tradark
