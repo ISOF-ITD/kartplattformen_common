@@ -210,7 +210,7 @@ http://localhost:8000/api/es/count?mark_metadata=transcriptionstatus&type=arkiv&
 #mediacount
 #sub_values_count
 http://localhost:8000/api/es/mediacount/?search=01363_68793
-http://localhost:8000/api/es/mediacount/api/es/mediacount/?search=01363_68793&transcriptionstatus=published,transcribed
+http://localhost:8000/api/es/mediacount/?search=01363_68793&transcriptionstatus=published,transcribed
 https://garm-test.isof.se/folkeservice/api/es/mediacount/?search=01363_68793
 https://garm-test.isof.se/folkeservice/api/es/mediacount/?search=01363_68793&transcriptionstatus=published,transcribed
 
