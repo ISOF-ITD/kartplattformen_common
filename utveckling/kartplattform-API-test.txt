@@ -12,7 +12,12 @@ curl -u elastic:password -X GET "http://localhost:9200/_cat/aliases?v"
 curl -X GET saga-test.isof.se:9200/_cat/indices?v&s=indices
 curl -X GET saga-test.isof.se:9200/_cat/aliases?v&s=aliases
 curl -X GET saga-test.isof.se:9200/isof-publik/_doc/ifgh00700_195384
-#curl -u elastic:password -X DELETE "http://localhost:9200/isof-publik_20240627"
+#curl -u elastic:password -X DELETE "http://localhost:9200/isof-publik_20240627-settings"
+
+curl -u elastic:password -X GET "http://localhost:9200/_settings" | python3 -m json.tool
+# Does not work:
+curl -u elastic:password -X GET "http://localhost:9200/isof-publik_20270627/_settings?pretty"
+curl -u elastic:password -X GET "http://localhost:9200/isof-publik/_mapping?pretty"
 
 # reindex with new mapping
 curl -u elastic:password -X POST "http://localhost:9200/_reindex?wait_for_completion=false"  -H 'Content-Type: application/json' -d'
@@ -21,18 +26,18 @@ curl -u elastic:password -X POST "http://localhost:9200/_reindex?wait_for_comple
     "index": "isof-publik_20240619"
   },
   "dest": {
-    "index": "isof-publik_20240627"
+    "index": "isof-publik_20240627-media-nested"
   }
 }'
 # Get task from wait_for_completion=false, for example for reindex
-curl -u elastic:password -X GET "http://localhost:9200/_tasks/PCN7ZaPqSXmmPUxAs7KTvw:23834"
+curl -u elastic:password -X GET "http://localhost:9200/_tasks/PCN7ZaPqSXmmPUxAs7KTvw:37192"
 
 # Switch alias
-curl -u elastic:password -X PUT "http://localhost:9200/_aliases"  -H 'Content-Type: application/json' -d'
+curl -u elastic:password -X POST "http://localhost:9200/_aliases"  -H 'Content-Type: application/json' -d'
 {
     "actions" : [
-        { "remove" : { "index" : "isof-publik_20240619", "alias" : "isof-publik" } },
-        { "add" : { "index" : "isof-publik_20240627", "alias" : "isof-publik" } }
+        { "remove" : { "index" : "isof-publik_20240627-settings3", "alias" : "isof-publik" } },
+        { "add" : { "index" : "isof-publik_20240627-media-nested", "alias" : "isof-publik" } }
     ]
 }'
 
