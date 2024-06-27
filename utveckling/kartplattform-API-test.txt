@@ -207,6 +207,13 @@ http://localhost:8000/api/es/count?mark_metadata=transcriptionstatus&type=arkiv&
 http://localhost:8000/api/es/count?mark_metadata=transcriptionstatus&type=arkiv&categorytypes=tradark&publishstatus=published&has_media=true&add_aggregations=false&recordtype=one_record&transcriptionstatus=published&range=transcriptiondate,now/M,now+2h
 {'error': {'root_cause': [{'type': 'parse_exception', 'reason': 'operator not supported for date math [ 2h]'}], 'type': 'search_phase_execution_exception', 'reason': 'all shards failed', 'phase': 'query', 'grouped': True, 'failed_shards': [{'shard': 0, 'index': 'isof-publik_20240619', 'node': 'PCN7ZaPqSXmmPUxAs7KTvw', 'reason': {'type': 'parse_exception', 'reason': 'operator not supported for date math [ 2h]'}}]}, 'status': 400}
 
+#mediacount
+#sub_values_count
+http://localhost:8000/api/es/mediacount/?search=01363_68793
+http://localhost:8000/api/es/mediacount/api/es/mediacount/?search=01363_68793&transcriptionstatus=published,transcribed
+https://garm-test.isof.se/folkeservice/api/es/mediacount/?search=01363_68793
+https://garm-test.isof.se/folkeservice/api/es/mediacount/?search=01363_68793&transcriptionstatus=published,transcribed
+
 #socken
 https://garm-test.isof.se/folkeservice/api/es/socken/?mark_metadata=transcriptionstatus&type=arkiv&categorytypes=tradark&publishstatus=published&has_media=true&add_aggregations=false&transcriptionstatus=published,accession
 http://localhost:8000/api/es/socken/?mark_metadata=transcriptionstatus&type=arkiv&categorytypes=tradark&publishstatus=published&has_media=true&add_aggregations=false&transcriptionstatus=published,accession
