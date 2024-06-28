@@ -234,6 +234,14 @@ Fungerar inte i ES7: Med material (publikutforska):
 Kanske: När "ignore_above" inte finns i mappings så verkar “exists“ fungera ex: persons.gender 
 https://garm-test.isof.se/folkeservice/api/es/documents/?size=50&has_media=true&recordtype=one_accession_row&mark_metadata=transcriptionstatus&categorytypes=tradark&publishstatus=published
 
+# count: search by text, example 'riddare'
+## add_aggregations=false
+https://garm-test.isof.se/folkeservice/api/es/count/?mark_metadata=transcriptionstatus&type=arkiv&categorytypes=tradark&publishstatus=published&has_media=true&add_aggregations=false&search=riddare&transcriptionstatus=published,accession
+http://localhost:8000/api/es/count/?mark_metadata=transcriptionstatus&type=arkiv&categorytypes=tradark&publishstatus=published&has_media=true&add_aggregations=false&search=riddare&transcriptionstatus=published,accession
+-swe = swedish stemmer
+datum       test    test-swe  prod  prod-swe
+20240628    77        73        82  77
+
 #Count
 https://garm-test.isof.se/folkeservice/api/es/count?mark_metadata=transcriptionstatus&type=arkiv&categorytypes=tradark&publishstatus=published&has_media=true&add_aggregations=false&recordtype=one_record&transcriptionstatus=published&range=transcriptiondate,now/M,now+2h
 %2b fungerar:
