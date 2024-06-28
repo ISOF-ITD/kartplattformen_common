@@ -40,15 +40,22 @@ cd /var/www/django/folkeservice/sagenkarta_rest_api/
 #cp secrets_env.py secrets_env.py.freja-test
 
 # prod:
+cp secrets_env.py secrets_env.py.before_ES8
+cp config.py config.py.before_ES8
 cp secrets_env.py.freja secrets_env.py
 cp config_prod.py config.py
+diff secrets_env.py secrets_env.py.before_ES8
+diff config.py config.py.before_ES8
+
 
 cd /var/www/django/folkeservice/sagendatabas_es_api/
 #cp es_config.py es_config.py.saga
 #cp es_config.py es_config.py.freja
 
 #prod:
+cp es_config.py es_config.py.before_ES8
 cp es_config.py.freja es_config.py
+diff es_config.py es_config.py.before_ES8
 
 # --------------------------
 # Install TradarkAdmin
