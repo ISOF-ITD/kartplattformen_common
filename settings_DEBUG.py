@@ -32,6 +32,9 @@ DEBUG = True
 #ALLOWED_HOSTS = ['*', u'127.0.0.1', u'localhost']
 ALLOWED_HOSTS = [secrets_env.allowed_host, u'127.0.0.1', u'localhost']
 
+# HINT: Configure the DEFAULT_AUTO_FIELD setting or the SagenkartaApiConfig.default_auto_field attribute to point to a subclass of AutoField, e.g. 'django.db.models.BigAutoField'.
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
 # https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options:
 # 1. ALLOW-FROM is an obsolete directive that no longer works in modern browsers. Don't use it.
 # 2. Does not seem to change headers anyway
