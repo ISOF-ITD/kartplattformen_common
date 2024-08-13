@@ -64,6 +64,8 @@ Användaren har valt en uppteckning att transkribera som har transkriberingstyp 
 - ✅ byt bara till nästa sida om /transcribe-anropet lyckats
 - ✅ BUG: det går inte att nollställa page.text i TradarkAdmin. Fel i REST-Api?
 - ☐ har man skickat in sidor och stänger overlayen (transcribecancel), så måste datat i recordview uppdateras! med pagereload eller på annat sätt.
+- ✅ Vid stängning av overlay så: Om ingen sida kvar att transkribera (ingen sida med status readytotranscribe): 
+  - byt status på huvudpost/record till transkriberad, eller om alla sidor har status autopublished: autopublished (samma princip som för transkribering "hel record") 
 
 ## Process efter transkriberingen
 
