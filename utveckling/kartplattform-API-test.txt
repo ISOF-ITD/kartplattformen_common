@@ -88,7 +88,7 @@ uppteckningar/liu_00100-00199/liu00198_0030.jpg
 
 
 -------------------------
-transcribe page by page
+transcribe record - page by page with text in each media.text
 -------------------------
 curl -X GET "http://localhost:8000/api/records/liu00198_194713_1/"
 curl -X POST "http://localhost:8000/api/transcribestart/" -F json='
@@ -117,10 +117,21 @@ curl -X POST "http://localhost:8000/api/transcribe/" -F json='
   "messageComment":"Svår stil"
 }'
 
+Test in client folke:
+sida-för-sida-transkribering som är transkriberad och publicerad
+https://garm-test.isof.se/demo/folke-sida-for-sida/www/#/records/01363_68793_1
+https://sok.folke-test.isof.se/#/records/01363_68793_1
 
+sida-för-sida-transkribering att transkribera OBS: Visning skiljer sig lite: Bilder lägger sig i många rader för sida-för-sida medan bara i rad i tidigare kod
+https://garm-test.isof.se/demo/folke-sida-for-sida/www/#/transcribe/records/liu00198_194713_1
+https://sok.folke-test.isof.se/#/transcribe/records/liu00198_194713_1
+
+Gammal icke-sida-för-sida-transkribering som är färdig
+https://garm-test.isof.se/demo/folke-sida-for-sida/www/#/records/ifgh00706_195390_5
+https://sok.folke.isof.se/#/#/records/ifgh00706_195390_5
 
 -------------------------
-transcribe record
+transcribe record - all in record.text
 -------------------------
 
 curl -X GET "http://localhost:8000/api/records/ifgh04486_203692_5/"
