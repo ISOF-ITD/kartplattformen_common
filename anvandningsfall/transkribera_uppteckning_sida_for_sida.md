@@ -66,6 +66,7 @@ Användaren har valt en uppteckning att transkribera som har transkriberingstyp 
 - ☐ har man skickat in sidor och stänger overlayen (transcribecancel), så måste datat i recordview uppdateras! med pagereload eller på annat sätt.
 - ✅ Vid stängning av overlay så: Om ingen sida kvar att transkribera (ingen sida med status readytotranscribe): 
   - byt status på huvudpost/record till transkriberad, eller om alla sidor har status autopublished: autopublished (samma princip som för transkribering "hel record") 
+  - kopiera transkriptionskommentarer (även för "sida för sida"-transkribering) till kommentar på record som visas
 
 ## Process efter transkriberingen
 

@@ -31,12 +31,13 @@ Användaren har valt ett dokument i en dokumentlista (huvudlista, ortlista, pers
 - Om one_record, transkriberingstyp inte "sida för sida" och avskriven:
     - text
 	  - visas sida för sida med "ram" runt varje sida
-- Om one_record, transkriberingstyp "sida för sida" och avskriven:
+- Om one_record, transkriberingstyp "sida för sida" och avskrift publicerad:
   - För varje media.text:
-    - visa sida för sida med "ram" runt varje sida bredvid sin jpg-fil
-    - sidor som inte transkriberats än: "Ej transkiberad"
+    - visa sida för sida med "ram" runt varje sida med text tillsammans med sin jpg-fil
+    - AVVAKTAR tills stort behov finns: sidor som inte transkriberats än: "Ej transkiberad"
 - Om one_record och inte avskriven:
     - Den här uppteckningen är inte avskriven.
+    - AVVAKTAR tills stort behov finns: Om "sida för sida" och sida finns kvar att skriva av: Den här uppteckningen är bara delvis avskriven.
     - Vill du vara med och tillgängliggöra samlingarna för fler? Hjälp oss att skriva av berättelser!
     - Knapp: "Skriv av"
 4. Visa uppgifter:
