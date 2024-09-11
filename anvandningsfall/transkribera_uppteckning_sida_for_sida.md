@@ -67,8 +67,13 @@ Användaren har valt en uppteckning att transkribera som har transkriberingstyp 
 - ✅ Vid stängning av overlay så: Om ingen sida kvar att transkribera (ingen sida med status readytotranscribe): 
   - byt status på huvudpost/record till transkriberad, eller om alla sidor har status autopublished: autopublished (samma princip som för transkribering "hel record") 
   - kopiera transkriptionskommentarer (även för "sida för sida"-transkribering) till kommentar på record som visas
+  - ☐ BUG: "vill du verkligen ladda om sidan"?
+  - ☐ Rubriken: "skriv av uppteckning (ur ..." osv.) Samma som i vanliga transkriptionsvyn
+  - ☐ BUG: svart text i kryss-knappen
+  - ☐ lägg till marginal vänster om "nästa sida att skriva av"-knappen
+  - ☐ lägg till pilar höger/vänster i navigeringsknappar
 
-## Process efter transkriberingen
+## Recordvyn
 
-- Ska sidor publiceras för sig?
-- Får man ett meddelande när en sida / alla sidor skrivits av?
+- ☐ "Den här uppteckningen är inte avskriven", skriv hur många sidor som avskrivna
+- ☐ Använd samma symboler som i transkriberingsläge för att visa vilka sidor som är avskrivna
