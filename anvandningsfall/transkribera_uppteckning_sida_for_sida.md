@@ -65,10 +65,15 @@ Användaren har valt en uppteckning att transkribera som har transkriberingstyp 
 - ✅ BUG: det går inte att nollställa page.text i TradarkAdmin. Fel i REST-Api?
 - ☐ har man skickat in sidor och stänger overlayen (transcribecancel), så måste datat i recordview uppdateras! med pagereload eller på annat sätt.
 - ✅ Vid stängning av overlay så: Om ingen sida kvar att transkribera (ingen sida med status readytotranscribe): 
-  - byt status på huvudpost/record till transkriberad, eller om alla sidor har status autopublished: autopublished (samma princip som för transkribering "hel record") 
-  - kopiera transkriptionskommentarer (även för "sida för sida"-transkribering) till kommentar på record som visas
+  - ✅ byt status på huvudpost/record till *transkriberad*, eller om alla sidor har status autopublished: autopublished (samma princip som för transkribering "hel record") 
+  - ☐ kopiera transkriptionskommentarer (även för "sida för sida"-transkribering) till kommentar på _records_media_ som visas
+  - ✅ BUG: "vill du verkligen ladda om sidan"?
+  - ✅ Rubriken: "skriv av uppteckning (ur ..." osv.) Samma som i vanliga transkriptionsvyn
+  - ✅ BUG: svart text i kryss-knappen
+  - ✅ ~~lägg till marginal vänster om "nästa sida att skriva av"-knappen~~ KOMMENTAR: svårt att ha marginal. på vissa skärmstorlekar skulle marginalen inte fungera så bra. jag la till pilsymboler för att förtydliga funktionen istället.
+  - ✅ lägg till pilar höger/vänster i navigeringsknappar
 
-## Process efter transkriberingen
+## Recordvyn
 
-- Ska sidor publiceras för sig?
-- Får man ett meddelande när en sida / alla sidor skrivits av?
+- ☐ "Den här uppteckningen är inte avskriven", skriv hur många sidor som avskrivna
+- ☐ Använd samma symboler som i transkriberingsläge för att visa vilka sidor som är avskrivna
