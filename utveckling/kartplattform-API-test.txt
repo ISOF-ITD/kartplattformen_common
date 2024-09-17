@@ -91,6 +91,12 @@ uppteckningar/liu_00100-00199/liu00198_0030.jpg
 transcribe record - page by page with text in each media.text
 -------------------------
 curl -X GET "http://localhost:8000/api/records/liu00198_194713_1/"
+#NEW: page by page starts without page id:
+curl -X POST "http://localhost:8000/api/transcribestart/" -F json='
+{
+  "recordid": "liu00198_194713_1"
+}'
+# OLD NOT USED: page by page starts with page id:
 curl -X POST "http://localhost:8000/api/transcribestart/" -F json='
 {
   "recordid": "liu00198_194713_1",
@@ -100,7 +106,7 @@ curl -X POST "http://localhost:8000/api/transcribecancel/" -F json='
 {
   "recordid": "liu00198_194713_1",
   "page": "uppteckningar/liu_00100-00199/liu00198_0030.jpg",
-  "transcribesession": "2024-03-05 14:21:14.000"
+  "transcribesession": "2024-08-13 14:29:17.000"
 }'
 
 # transcribesave: transcribe save and continue transcribe
@@ -110,7 +116,7 @@ curl -X POST "http://localhost:8000/api/transcribe/" -F json='
 {
   "recordid": "liu00198_194713_1",
   "page": "uppteckningar/liu_00100-00199/liu00198_0030.jpg",
-  "transcribesession": "2024-03-05 14:21:14.000"
+  "transcribesession": "2024-09-17 13:47:38.000",
   "from_email":"pertest@isof.se",
   "from_name":"pertest",
   "message":"I Kinnekulle berg fanns.. TESTPER",
@@ -137,12 +143,12 @@ transcribe record - all in record.text
 curl -X GET "http://localhost:8000/api/records/ifgh04486_203692_5/"
 curl -X POST "http://localhost:8000/api/transcribestart/" -F json='
 {
-  "recordid": "ifgh04486_203692_5"
+  "recordid": "01363_68793_1"
 }'
 curl -X POST "http://localhost:8000/api/transcribecancel/" -F json='
 {
-  "recordid": "2578",
-  "transcribesession": "2022-01-11 09:02:33.000"
+  "recordid": "01363_68793_1",
+  "transcribesession": "2024-08-13 16:20:16.000"
 }'
 
 # Simple free text transcribe
