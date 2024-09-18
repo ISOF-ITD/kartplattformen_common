@@ -262,6 +262,7 @@ datum       test    test-swe  prod  prod-swe
 20240628    77        73        82  77
 
 #Count
+OBS fungerar EJ:
 https://garm-test.isof.se/folkeservice/api/es/count?mark_metadata=transcriptionstatus&type=arkiv&categorytypes=tradark&publishstatus=published&has_media=true&add_aggregations=false&recordtype=one_record&transcriptionstatus=published&range=transcriptiondate,now/M,now+2h
 %2b fungerar:
 https://garm-test.isof.se/folkeservice/api/es/count?mark_metadata=transcriptionstatus&type=arkiv&categorytypes=tradark&publishstatus=published&has_media=true&add_aggregations=false&recordtype=one_record&transcriptionstatus=published&range=transcriptiondate,now/M,now%2b2h
