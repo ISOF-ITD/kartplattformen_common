@@ -127,6 +127,8 @@ Test in client folke:
 sida-för-sida-transkribering som är transkriberad och publicerad
 https://garm-test.isof.se/demo/folke-sida-for-sida/www/#/records/01363_68793_1
 https://sok.folke-test.isof.se/#/records/01363_68793_1
+med kommentarer per sida-för-sida:
+https://sok.folke-test.isof.se/#/records/01940_62345_1
 
 sida-för-sida-transkribering att transkribera OBS: Visning skiljer sig lite: Bilder lägger sig i många rader för sida-för-sida medan bara i rad i tidigare kod
 https://garm-test.isof.se/demo/folke-sida-for-sida/www/#/transcribe/records/liu00198_194713_1
