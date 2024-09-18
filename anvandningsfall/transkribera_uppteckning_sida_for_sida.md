@@ -72,6 +72,7 @@ Användaren har valt en uppteckning att transkribera som har transkriberingstyp 
   - ✅ BUG: svart text i kryss-knappen
   - ✅ ~~lägg till marginal vänster om "nästa sida att skriva av"-knappen~~ KOMMENTAR: svårt att ha marginal. på vissa skärmstorlekar skulle marginalen inte fungera så bra. jag la till pilsymboler för att förtydliga funktionen istället.
   - ✅ lägg till pilar höger/vänster i navigeringsknappar
+  - ☐ hämta om data både i recordview och recordlist efter stängning (använd eventBus?)
 
 ## Recordvyn
 
