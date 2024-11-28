@@ -76,5 +76,8 @@ Användaren har valt en uppteckning att transkribera som har transkriberingstyp 
 
 ## Recordvyn
 
-- ☐ "Den här uppteckningen är inte avskriven", skriv hur många sidor som avskrivna
-- ☐ Använd samma symboler som i transkriberingsläge för att visa vilka sidor som är avskrivna
+- ✅ "Den här uppteckningen är inte avskriven", skriv hur många sidor som avskrivna
+- ✅ Använd samma symboler som i transkriberingsläge för att visa vilka sidor som är avskrivna
+- ✅ Förbättra/förtydliga design på "1 av 30 sidor transkriberade"
+  - ✅Byt ut "**Den här uppteckningen är inte avskriven.** mot "1 av 30 sidor transkriberade"
+  - ✅ Byt ut "Ej avskriven" mot "Sida 1-30 (1 transkriberad(e))"

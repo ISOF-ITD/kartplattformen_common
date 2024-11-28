@@ -39,7 +39,11 @@ Användaren har valt ett dokument i en dokumentlista (huvudlista, ortlista, pers
     - Den här uppteckningen är inte avskriven.
     - AVVAKTAR tills stort behov finns: Om "sida för sida" och sida finns kvar att skriva av: Den här uppteckningen är bara delvis avskriven.
     - Vill du vara med och tillgängliggöra samlingarna för fler? Hjälp oss att skriva av berättelser!
-    - Knapp: "Skriv av"
+    - Om transkriberingstyp inte "sida för sida"
+		- Knapp: "Skriv av sida för sida"
+ 			- Hjälptext: "X av Y sidor avskrivna"	
+    - Annars:
+    	- Knapp: "Skriv av" 
 4. Visa uppgifter:
 - Kopiera länk
 - Källhänvisning
