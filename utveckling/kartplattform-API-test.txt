@@ -115,11 +115,11 @@ curl -X POST "http://localhost:8000/api/transcribesave/" -F json='
 curl -X POST "http://localhost:8000/api/transcribe/" -F json='
 {
   "recordid": "liu00198_194713_1",
-  "page": "uppteckningar/liu_00100-00199/liu00198_0030.jpg",
-  "transcribesession": "2024-09-17 13:47:38.000",
+  "page": "uppteckningar/liu_00100-00199/liu00198_0029.jpg",
+  "transcribesession": "2024-11-19 08:49:40.000",
   "from_email":"pertest@isof.se",
   "from_name":"pertest",
-  "message":"I Kinnekulle berg fanns.. TESTPER",
+  "message":"I Kinnekulle berg fanns 2024-11-19.. TESTPER",
   "messageComment":"Svår stil"
 }'
 

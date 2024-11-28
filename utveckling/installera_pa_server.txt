@@ -183,8 +183,17 @@ STATIC_ROOT = "/var/www/django/APP/static"
 # http://127.0.0.1:8001/admin
 # ImportBatch Action: Test that JDBC connection to accessionsregistret works
 # https://support.claris.com/s/article/Troubleshooting-ODBC-and-JDBC-connections-with-FileMaker-Server-1503692906225?language=en_US
-Test "The FileMaker Server ODBC service uses port 2399":
+# Test Test FileMaker Server default jdbc port "The FileMaker Server ODBC service uses port 2399":
 telnet fistulator.its.uu.se 2399
+telnet uuc-ran.user.uu.se 2399
+
+# Install java in development
+sudo apt install openjdk-8-jre-headless
+# Get jdbc driver
+https://support.claris.com/s/article/Software-Update-FileMaker-xDBC-client-drivers-for-FileMaker-1503692806454?language=en_US 
+# Test read from FileMaker Server using JDBC
+source ../current_venv/bin/activate
+python3 runFetchFMOrg.py
 
 # Get git pull log from previous server (local shell)
 # local-computer-with-access-to-old-server
