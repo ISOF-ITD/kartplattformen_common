@@ -225,6 +225,10 @@ more /var/www/django/folkeservice/kartplattformen_common/secrets_env.py
 more /var/www/django/folkeservice/sagenkarta_rest_api/secrets_env.py
 more /var/www/django/folkeservice/sagenkarta_rest_api/config.py
 more /var/www/django/folkeservice/sagendatabas_es_api/es_config.py
+# Find a setting
+cd /var/www/django/folkeservice
+find . -name '*.py' | xargs grep 'sql6'
+find . -name '*.py' | xargs grep 'passord'
 
 cd /var/www/django
 mkdir folkeservice
