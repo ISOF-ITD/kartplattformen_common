@@ -100,6 +100,10 @@ python3 -c 'from django.core.management.utils import get_random_secret_key; prin
 # Set restApiRecordUrl = 'https://garm-test.isof.se/folkeservice/api/records/'
 # Set host = 'saga-test.isof.se:9200'
 
+# Find a setting
+cd /var/www/django/TradarkAdmin/TradarkAdmin
+find . -name '*.py' | xargs grep 'sql6'
+
 # Collect static
 STATIC_ROOT (och STATIC_URL för åtkomst?) ska vara satt i settings.py:
 STATIC_URL = '/static/'
@@ -154,6 +158,9 @@ Dev:
 cp secrets_template.py secrets_env.py
 # Set secrets
 vi secrets_env.py
+# Find a setting
+cd /var/www/django/AccessionsRegister/AccessionsRegister/
+find . -name '*.py' | xargs grep 'sql6'
 
 cd /var/www/django/AccessionsRegister
 
