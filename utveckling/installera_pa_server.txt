@@ -8,6 +8,14 @@ mariadb --version
 git version
 python3 --version
 
+mariadb --host=sql6-t.its.uu.se --port=5805 --user=perla331 --password= svenska_sagor
+mariadb --host=sql6-t.its.uu.se --port=5805 --user=perla331 --password= accessionsregister
+mariadb --host=sql6.its.uu.se --port=3508 --user=perla331 --password= svenska_sagor
+mariadb --host=sql6.its.uu.se --port=3508 --user=perla331 --password= accessionsregister
+mysql --host=sql6.its.uu.se --port=3508 --user=perla331 --password= svenska_sagor
+mysql --host=sql6.its.uu.se --port=3508 --user=perla331 --password= accessionsregister
+
+
 # wsgi conf:
 /etc/httpd/conf-ssl.d/garm-test/TradarkAdmin.conf
 /etc/httpd/conf-ssl.d/garm-test/accessionsregister.conf
