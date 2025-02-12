@@ -1,7 +1,8 @@
 So far manual tests
 TODO: Automatic testing
 --------
-
+Trace curl:
+curl --trace-ascii -
 
 -----------------------------------------
 Elasticsearch API prepare data using curl
@@ -90,22 +91,66 @@ uppteckningar/liu_00100-00199/liu00198_0030.jpg
 contribute to records media - description
 NOTE: NOT YET IMPLEMENTED
 -------------------------
-curl -X POST "http://localhost:8000/api/transcribestart/" -F json='
-{
+curl -X POST "http://localhost:8000/api/describe/start/" -F json='
+curl -X POST "http://localhost:8000/api/describe/start/" \
+    -H "Content-Type: application/json" \
+-d '{
   "recordid": "s03684:a_f_128326_0"
 }'
+curl -X POST "http://localhost:8000/api/describe/start/" -F json='
+{
+  "recordid": "1546585"
+}'
 
-# describe: Update text for audio time description
-curl -X POST "http://localhost:8000/api/describe/" -F json='
+desciption-change.json:
 {
   "recordid": "s03684:a_f_128326_0",
-  "page": "Lund/Ljudarkiv/3001-4000/3601-3700/S 3684A Byarum SMÅL.MP3",
-  "transcribesession": "2024-11-19 08:49:40.000",
+  "file": "Lund/Ljudarkiv/3001-4000/3601-3700/S 3684A Byarum SMÅL.MP3",
+  "transcribesession": "2025-02-12 11:40:20.000",
+  "from_email": "pertest@isof.se",
+  "from_name": "pertest",
+  "start": "7:30",
+  "change_from": "Koling (minnen, kolarskrock)",
+  "change_to": "Kolning (minnen, kolarskrock); "
+}
+
+# describe: ADD time and text for audio time description
+curl -X POST "http://localhost:8000/api/describe/change/" -H "Content-Type: application/json" -d '
+{
+"recordid": "s03684:a_f_128326_0",
+"file": "Lund/Ljudarkiv/3001-4000/3601-3700/S 3684A Byarum SMÅL.MP3",
+"transcribesession": "2025-02-11 16:42:47",
+"from_email": "pertest@isof.se",
+"from_name": "pertest",
+"start": "7:30",
+"change_to": "Koning (minnen, kolarskrock); "
+}'
+
+# describe: UPDATE text for audio time description
+#  "recordid": "1546585",
+curl -X POST "http://localhost:8000/api/describe/change/" -F json='
+{
+  "recordid": "s03684:a_f_128326_0",
+  "file": "Lund/Ljudarkiv/3001-4000/3601-3700/S 3684A Byarum SMÅL.MP3",
+  "transcribesession": "2025-02-12 11:40:20.000",
   "from_email":"pertest@isof.se",
   "from_name":"pertest",
   "start":7.3,
   "change_from":"Koling (minnen, kolarskrock)",
   "change_to":"Kolning (minnen, kolarskrock); ",
+}'
+#curl -X POST "http://localhost:8000/api/describe/change/" -H "Content-Type: application/json" -d @desc-change.json
+curl -X POST "http://localhost:8000/api/describe/change/" -H "Content-Type: application/json" \ 
+-d '
+{
+"recordid": "s03684:a_f_128326_0",
+"file": "Lund/Ljudarkiv/3001-4000/3601-3700/S 3684A Byarum SMÅL.MP3",
+"transcribesession": "2025-02-12 11:40:20.000",
+"from_email": "pertest@isof.se",
+"from_name": "pertest",
+"start": "7:30",
+"change_from": "Koling (minnen, kolarskrock)",
+"change_to": "Kolning (minnen, kolarskrock); "
 }'
 
 # describe: For new audio time description
