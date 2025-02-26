@@ -89,15 +89,17 @@ uppteckningar/liu_00100-00199/liu00198_0030.jpg
 
 -------------------------
 contribute to records media - description
-NOTE: NOT YET IMPLEMENTED
+NOTE: Under development
 -------------------------
 curl -X POST "http://localhost:8000/api/describe/start/" -F json='
 curl -X POST "http://localhost:8000/api/describe/start/" \
+curl -X POST "https://garm-test.isof.se/folkeservice/api/describe/start/" \
     -H "Content-Type: application/json" \
 -d '{
   "recordid": "s03684:a_f_128326_0"
-}'
+}'Better insert logic
 curl -X POST "http://localhost:8000/api/describe/start/" -F json='
+curl -X POST "https://garm-test.isof.se/folkeservice/api/describe/start/" -F json='
 {
   "recordid": "1546585"
 }'
@@ -122,22 +124,23 @@ curl -X POST "http://localhost:8000/api/describe/change/" -H "Content-Type: appl
 "transcribesession": "2025-02-11 16:42:47",
 "from_email": "pertest@isof.se",
 "from_name": "pertest",
-"start": "7:30",
-"change_to": "Koning (minnen, kolarskrock); "
+"start": "0:00",
+"change_to": "Inledning"
 }'
 
 # describe: UPDATE text for audio time description
 #  "recordid": "1546585",
 curl -X POST "http://localhost:8000/api/describe/change/" -F json='
+curl -X POST "http://localhost:8000/api/describe/change/" -H "Content-Type: application/json" -d '
 {
-  "recordid": "s03684:a_f_128326_0",
-  "file": "Lund/Ljudarkiv/3001-4000/3601-3700/S 3684A Byarum SMÅL.MP3",
-  "transcribesession": "2025-02-12 11:40:20.000",
-  "from_email":"pertest@isof.se",
-  "from_name":"pertest",
-  "start":7.3,
-  "change_from":"Koling (minnen, kolarskrock)",
-  "change_to":"Kolning (minnen, kolarskrock); ",
+"recordid": "s03684:a_f_128326_0",
+"file": "Lund/Ljudarkiv/3001-4000/3601-3700/S 3684A Byarum SMÅL.MP3",
+"transcribesession": "2025-02-11 16:42:47",
+"from_email": "pertest@isof.se",
+"from_name": "pertest",
+"start": "450:00",
+"change_from": "Koling (minnen, kolarskrock)",
+"change_to": "Kolning (minnen, kolarskrock)",
 }'
 #curl -X POST "http://localhost:8000/api/describe/change/" -H "Content-Type: application/json" -d @desc-change.json
 curl -X POST "http://localhost:8000/api/describe/change/" -H "Content-Type: application/json" \ 
@@ -239,9 +242,10 @@ curl -X POST "http://localhost:8000/api/transcribestart/" -F json='
   "recordid": "01363_68793_1"
 }'
 curl -X POST "http://localhost:8000/api/transcribecancel/" -F json='
+curl -X POST ""https://garm-test.isof.se/folkeservice/api/transcribecancel/" -F json='
 {
-  "recordid": "01363_68793_1",
-  "transcribesession": "2024-08-13 16:20:16.000"
+  "recordid": "s03684:a_f_128326_0",
+  "transcribesession": "2025-02-24 12:01:45.000"
 }'
 
 # Simple free text transcribe
