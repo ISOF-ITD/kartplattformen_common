@@ -116,17 +116,23 @@ desciption-change.json:
   "change_to": "Kolning (minnen, kolarskrock); "
 }
 
-# describe: ADD time and text for audio time description
+# describe: INSERT/ADD time and text for audio time description
 curl -X POST "http://localhost:8000/api/describe/change/" -H "Content-Type: application/json" -d '
 {
 "recordid": "s03684:a_f_128326_0",
 "file": "Lund/Ljudarkiv/3001-4000/3601-3700/S 3684A Byarum SMÅL.MP3",
-"transcribesession": "2025-02-11 16:42:47",
+"transcribesession": "2025-02-27 08:02:36",
 "from_email": "pertest@isof.se",
 "from_name": "pertest",
+"start": "1:20",
+"change_to": "Köra in säd"
+}'
 "start": "0:00",
 "change_to": "Inledning"
-}'
+"start": "7:30",
+"change_to": "Koling (minnen, kolarskrock)"
+"start": "1:20",
+"change_to": "Köra in säd"
 
 # describe: UPDATE text for audio time description
 #  "recordid": "1546585",
@@ -135,12 +141,12 @@ curl -X POST "http://localhost:8000/api/describe/change/" -H "Content-Type: appl
 {
 "recordid": "s03684:a_f_128326_0",
 "file": "Lund/Ljudarkiv/3001-4000/3601-3700/S 3684A Byarum SMÅL.MP3",
-"transcribesession": "2025-02-11 16:42:47",
+"transcribesession": "2025-02-27 08:02:36",
 "from_email": "pertest@isof.se",
 "from_name": "pertest",
-"start": "450:00",
+"start_from": "7:30",
 "change_from": "Koling (minnen, kolarskrock)",
-"change_to": "Kolning (minnen, kolarskrock)",
+"change_to": "Kolning (minnen, kolarskrock)"
 }'
 #curl -X POST "http://localhost:8000/api/describe/change/" -H "Content-Type: application/json" -d @desc-change.json
 curl -X POST "http://localhost:8000/api/describe/change/" -H "Content-Type: application/json" \ 
