@@ -124,9 +124,17 @@ curl -X POST "http://localhost:8000/api/describe/change/" -H "Content-Type: appl
 "transcribesession": "2025-02-27 08:02:36",
 "from_email": "pertest@isof.se",
 "from_name": "pertest",
-"start": "1:20",
-"change_to": "Köra in säd"
+"start": "5:15",
+"change_to": "Kolmila",
+"terms": 
+[
+{
+"term": "Kolning",
+"termid": "B.V.3."
+}
+]
 }'
+"terms": "Kolning;B.V.3.|Samer;V.3."
 "start": "0:00",
 "change_to": "Inledning"
 "start": "7:30",
@@ -144,9 +152,9 @@ curl -X POST "http://localhost:8000/api/describe/change/" -H "Content-Type: appl
 "transcribesession": "2025-02-27 08:02:36",
 "from_email": "pertest@isof.se",
 "from_name": "pertest",
-"start_from": "7:30",
-"change_from": "Koling (minnen, kolarskrock)",
-"change_to": "Kolning (minnen, kolarskrock)"
+"start_from": "5:15",
+"change_from": "Kolmila",
+"change_to": "Bygga kolmila"
 }'
 #curl -X POST "http://localhost:8000/api/describe/change/" -H "Content-Type: application/json" -d @desc-change.json
 curl -X POST "http://localhost:8000/api/describe/change/" -H "Content-Type: application/json" \ 
