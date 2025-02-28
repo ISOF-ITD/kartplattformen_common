@@ -97,7 +97,8 @@ curl -X POST "https://garm-test.isof.se/folkeservice/api/describe/start/" \
     -H "Content-Type: application/json" \
 -d '{
   "recordid": "s03684:a_f_128326_0"
-}'Better insert logic
+}'
+Better insert logic
 curl -X POST "http://localhost:8000/api/describe/start/" -F json='
 curl -X POST "https://garm-test.isof.se/folkeservice/api/describe/start/" -F json='
 {
@@ -124,6 +125,16 @@ curl -X POST "http://localhost:8000/api/describe/change/" -H "Content-Type: appl
 "transcribesession": "2025-02-27 08:02:36",
 "from_email": "pertest@isof.se",
 "from_name": "pertest",
+"start": "3:45",
+"change_to": "Köra häst",
+"terms": 
+[
+{
+"term": "Häst och vagn",
+"termid": "C.I.1.h"
+}
+]
+}'
 "start": "5:15",
 "change_to": "Kolmila",
 "terms": 
@@ -133,7 +144,6 @@ curl -X POST "http://localhost:8000/api/describe/change/" -H "Content-Type: appl
 "termid": "B.V.3."
 }
 ]
-}'
 "terms": "Kolning;B.V.3.|Samer;V.3."
 "start": "0:00",
 "change_to": "Inledning"
