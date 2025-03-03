@@ -123,6 +123,18 @@ curl -X POST "http://localhost:8000/api/describe/change/" -H "Content-Type: appl
 "recordid": "s03684:a_f_128326_0",
 "file": "Lund/Ljudarkiv/3001-4000/3601-3700/S 3684A Byarum SMÅL.MP3",
 "transcribesession": "2025-02-28 16:21:33",
+"from_email": "pertest3@isof.se",
+"from_name": "pertest3",
+"start": "15:05",
+"change_to": "Björnhistorier",
+"terms": 
+[
+{
+"term": "Djursagor",
+"termid": "L.I.1"
+}
+]
+}'
 "from_email": "pertest2@isof.se",
 "from_name": "pertest2",
 "start": "10:20",
@@ -169,9 +181,13 @@ curl -X POST "http://localhost:8000/api/describe/change/" -H "Content-Type: appl
 {
 "recordid": "s03684:a_f_128326_0",
 "file": "Lund/Ljudarkiv/3001-4000/3601-3700/S 3684A Byarum SMÅL.MP3",
-"transcribesession": "2025-02-27 08:02:36",
+"transcribesession": "2025-02-28 16:21:33",
 "from_email": "pertest@isof.se",
 "from_name": "pertest",
+"start_from": "15:05",
+"change_from": "Jakthistorier på vilda björnar",
+"change_to": "Jakthistorier på flera björnar"
+}'
 "start_from": "5:15",
 "change_from": "Kolmila",
 "change_to": "Bygga kolmila"
