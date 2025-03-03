@@ -122,9 +122,23 @@ curl -X POST "http://localhost:8000/api/describe/change/" -H "Content-Type: appl
 {
 "recordid": "s03684:a_f_128326_0",
 "file": "Lund/Ljudarkiv/3001-4000/3601-3700/S 3684A Byarum SMÅL.MP3",
-"transcribesession": "2025-02-27 08:02:36",
-"from_email": "pertest@isof.se",
-"from_name": "pertest",
+"transcribesession": "2025-02-28 16:21:33",
+"from_email": "pertest2@isof.se",
+"from_name": "pertest2",
+"start": "10:20",
+"change_to": "Örn vid å",
+"terms": 
+[
+{
+"term": "Djursagor",
+"termid": "L.I.1"
+},
+{
+"term": "Samer",
+"termid": "P.I.1."
+}
+]
+}'
 "start": "3:45",
 "change_to": "Köra häst",
 "terms": 
@@ -134,7 +148,6 @@ curl -X POST "http://localhost:8000/api/describe/change/" -H "Content-Type: appl
 "termid": "C.I.1.h"
 }
 ]
-}'
 "start": "5:15",
 "change_to": "Kolmila",
 "terms": 
@@ -144,9 +157,6 @@ curl -X POST "http://localhost:8000/api/describe/change/" -H "Content-Type: appl
 "termid": "B.V.3."
 }
 ]
-"terms": "Kolning;B.V.3.|Samer;V.3."
-"start": "0:00",
-"change_to": "Inledning"
 "start": "7:30",
 "change_to": "Koling (minnen, kolarskrock)"
 "start": "1:20",
