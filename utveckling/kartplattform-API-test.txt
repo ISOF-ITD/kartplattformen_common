@@ -90,6 +90,11 @@ uppteckningar/liu_00100-00199/liu00198_0030.jpg
 -------------------------
 contribute to records media - utterances
 -------------------------
+Transactions in session:
+REUSE describe/start (instead of utterances/start) - Lock
+utterances/change
+REUSE transcribecancel (instead of utterances/cancel) - Unlock
+
 REUSE describe/start (instead of utterances/start)
 curl -X POST "https://garm-test.isof.se/folkeservice/api/describe/start/" \
 curl -X POST "http://localhost:8000/api/describe/start/" -F json='
@@ -116,9 +121,16 @@ curl -X POST "http://localhost:8000/api/utterances/change/" -H "Content-Type: ap
 }'
 {"message":"Text updated successfully.","updated_text":[{"speaker":"A","text":".. ","start":0.0,"end":0.28},{"speaker":"A", ....
 
+REUSE transcribecancel (instead of utterances/cancel)
+
 -------------------------
 contribute to records media - description
 -------------------------
+Transactions in session:
+describe/start - Lock
+utterances/change
+REUSE transcribecancel (instead of describe/cancel) - Unlock
+
 curl -X POST "http://localhost:8000/api/describe/start/" -F json='
 curl -X POST "http://localhost:8000/api/describe/start/" \
 curl -X POST "https://garm-test.isof.se/folkeservice/api/describe/start/" \
@@ -133,7 +145,7 @@ curl -X POST "https://garm-test.isof.se/folkeservice/api/describe/start/" -F jso
   "recordid": "1546585"
 }'
 
-desciption-change.json:
+description-change.json:
 {
   "recordid": "s03684:a_f_128326_0",
   "file": "Lund/Ljudarkiv/3001-4000/3601-3700/S 3684A Byarum SMÅL.MP3",
@@ -258,6 +270,8 @@ curl -X POST "http://localhost:8000/api/describe/" -F json='
   "start_to":10.5,
   "change_from":"Historia om en kalvning",
 }'
+
+REUSE transcribecancel (instead of describe/cancel)
 
 -------------------------
 transcribe record - page by page with text in each media.text
