@@ -94,10 +94,17 @@ ln -snf settings_debug.py settings.py
 cp es_config.py.test es_config.py
 
 # Run internal server as test
+python3 manage.py runserver
 # Run parameters, example in pycharm:
+Script:
+/home/per/dev/server/TradarkAdmin/TradarkAdmin/manage.py
+Working directory:
+/home/per/dev/server/TradarkAdmin/TradarkAdmin
 Script parameters:
 runserver 127.0.0.1:8008
-Environment variables:
+Environment variables, verkar räcka:
+PYTHONUNBUFFERED=1
+Annars:
 DJANGO_SETTINGS_MODULE=settings;PYTHONUNBUFFERED=1
 
 cp secrets.py.template secrets_env.py
