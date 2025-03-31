@@ -325,10 +325,23 @@ chmod a+x gitupdate.*
 git config --global --add safe.directory /var/www/django/folkeservice/kartplattformen_common
 
 # test
-source venvdj_3/bin/activate
+
+# Run internal server as test
+# Run parameters, example in pycharm:
+Script:
+/home/per/dev/server/folkeservice/manage.py
+Working directory:
+/home/per/dev/server/folkeservice
+Script parameters:
+runserver
+Environment variables, verkar räcka:
+DJANGO_SETTINGS_MODULE=kartplattformen_common.settings;PYTHONUNBUFFERED=1
+
+source venvdj_4/bin/activate
 python3 manage.py runserver
 curl http://127.0.0.1:8000/
 curl http://127.0.0.1:8000/api/records/34716_286
+
 
 # Configuration
 cd /var/www/django/folkeservice/sagenkarta_rest_api
