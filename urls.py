@@ -14,12 +14,14 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
 from django.urls import path, include
+from django.views.generic import TemplateView
 from django.contrib import admin
 
 urlpatterns = [
     path('api/', include('sagenkarta_rest_api.urls')),
     path('api/es/', include('sagendatabas_es_api.urls')),
     path('opendata/', include('sagendatabas_es_api.opendata.v1.urls')),
+    path('robots.txt', TemplateView.as_view(template_name="robots.txt", content_type="text/plain")),
 
     # Test with namespace:
     # path('api/', include('sagenkarta_rest_api.urls', namespace='api-base')),
