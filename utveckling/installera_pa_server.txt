@@ -1,13 +1,19 @@
+# Check server configuration
 more /etc/httpd/logs/ssl_error_log
 journalctl -xe
 sudo systemctl restart httpd-ssl
 #isof verkar inte ha behörighet:
 sudo systemctl status httpd-ssl.service
 
+# ubuntu update date and time:
+sudo systemctl restart systemd-timesyncd
+date
+
 mariadb --version
 git version
 python3 --version
 
+# Check server environment
 mariadb --host=sql6-t.its.uu.se --port=5805 --user= --password= svenska_sagor
 mariadb --host=sql6-t.its.uu.se --port=5805 --user= --password= accessionsregister
 mariadb --host=sql6.its.uu.se --port=3508 --user= --password= svenska_sagor
