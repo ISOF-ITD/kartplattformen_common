@@ -3,6 +3,9 @@ import os
 import sys
 
 if __name__ == "__main__":
+    # In development for tests:
+    # os.environ.setdefault("DJANGO_SETTINGS_MODULE", "settings")
+    # In server:
     os.environ.setdefault("DJANGO_SETTINGS_MODULE", "kartplattformen_common.settings")
     try:
         from django.core.management import execute_from_command_line
