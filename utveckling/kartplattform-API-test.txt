@@ -165,7 +165,7 @@ curl -X POST "http://localhost:8000/api/describe/change/" -H "Content-Type: appl
 "file": "Lund/Ljudarkiv/3001-4000/3601-3700/S 3684A Byarum SMÅL.MP3",
 "transcribesession": "2025-04-04 16:15:38.550",
 "start_from": "15:25",
-"change_to": "Jakthistorier på några björnar7",
+"change_to": "Jakthistorier på några björnar10",
 "terms": 
 [
 {
@@ -174,16 +174,16 @@ curl -X POST "http://localhost:8000/api/describe/change/" -H "Content-Type: appl
 }
 ]
 }'
-# user
+# with user
 curl -X POST "http://localhost:8000/api/describe/change/" -H "Content-Type: application/json" -d '
 {
 "recordid": "s03684:a_f_128326_a",
 "file": "Lund/Ljudarkiv/3001-4000/3601-3700/S 3684A Byarum SMÅL.MP3",
-"transcribesession": "2025-04-04 15:28:20.030",
-"from_email": "pertest3@isof.se",
-"from_name": "pertest3",
-"start": "15:25",
-"change_to": "Jakthistorier på några björnar4",
+"transcribesession": "2025-04-07 08:53:30.581",
+"from_email": "pertest4@isof.se",
+"from_name": "pertest4",
+"start_from": "15:25",
+"change_to": "Jakthistorier på några björnar13",
 "terms": 
 [
 {
@@ -192,8 +192,8 @@ curl -X POST "http://localhost:8000/api/describe/change/" -H "Content-Type: appl
 }
 ]
 }'
-"from_email": "pertest2@isof.se",
-"from_name": "pertest2",
+"from_email": "pertest4@isof.se",
+"from_name": "pertest4",
 "start": "10:20",
 "change_to": "Örn vid å",
 "terms": 
@@ -295,10 +295,6 @@ transcribe record - page by page with text in each media.text
 -------------------------
 curl -X GET "http://localhost:8000/api/records/liu00198_194713_1/"
 #NEW: page by page starts without page id:
-curl -X POST "http://localhost:8000/api/transcribestart/" -F json='
-{
-  "recordid": "liu00198_194713_1"
-}'
 # OLD NOT USED: page by page starts with page id:
 curl -X POST "http://localhost:8000/api/transcribestart/" -F json='
 {
@@ -311,19 +307,24 @@ curl -X POST "http://localhost:8000/api/transcribecancel/" -F json='
   "page": "uppteckningar/liu_00100-00199/liu00198_0030.jpg",
   "transcribesession": "2024-08-13 14:29:17.000"
 }'
+# USED:
+curl -X POST "http://localhost:8000/api/transcribestart/" -F json='
+{
+  "recordid": "10637_27773_1"
+}'
 
 # transcribesave: transcribe save and continue transcribe
 # transcribe: transcribe save and stop transcribe
 curl -X POST "http://localhost:8000/api/transcribesave/" -F json='
 curl -X POST "http://localhost:8000/api/transcribe/" -F json='
 {
-  "recordid": "liu00198_194713_1",
-  "page": "uppteckningar/liu_00100-00199/liu00198_0029.jpg",
-  "transcribesession": "2024-11-19 08:49:40.000",
+  "recordid": "10637_27773_1",
+  "page": "uppteckningar/ulma_10600-10699/10637_0001.jpg",
+  "transcribesession": "2025-08-13 13:48:11.234",
   "from_email":"pertest@isof.se",
   "from_name":"pertest",
-  "message":"I Kinnekulle berg fanns 2024-11-19.. TESTPER",
-  "messageComment":"Svår stil"
+  "message":"I Kinnekulle berg fanns .. TESTPER 2024-11-19",
+  "messageComment":"Svår att tolka"
 }'
 
 Test in client folke:
@@ -348,7 +349,7 @@ transcribe record - all in record.text
 curl -X GET "http://localhost:8000/api/records/ifgh04486_203692_5/"
 curl -X POST "http://localhost:8000/api/transcribestart/" -F json='
 {
-  "recordid": "01363_68793_1"
+  "recordid": "ifgh04486_203692_5"
 }'
 curl -X POST ""https://garm-test.isof.se/folkeservice/api/transcribecancel/" -F json='
 curl -X POST "http://localhost:8000/api/transcribecancel/" -F json='
@@ -363,7 +364,7 @@ curl -X POST "http://localhost:8000/api/transcribecancel/" -F json='
 curl -X POST "http://localhost:8000/api/transcribesave/" -F json='
 curl -X POST "http://localhost:8000/api/transcribe/" -F json='
 {
- "transcribesession": "2024-01-24 16:44:02.000",
+ "transcribesession": "2025-08-13 13:23:25.456",
 "url":"https://sok.folke-test.isof.se#records/ifgh04486_203692_5",
 "recordid":"ifgh04486_203692_5",
 "recordtitle":"Sägner om troll",
@@ -374,7 +375,7 @@ curl -X POST "http://localhost:8000/api/transcribe/" -F json='
 "informantBirthDate":"1885",
 "informantBirthPlace":"Salvebo Älvsåker",
 "informantInformation":"",
-"message":"I Kinnekulle berg fanns.. TEST7",
+"message":"I Kinnekulle berg fanns.. TEST-2025-08-13",
 "messageComment":"Svår stil"
 }'
 
