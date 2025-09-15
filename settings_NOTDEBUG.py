@@ -216,6 +216,12 @@ LOGGING = {
             # 'level': 'DEBUG',
             'level': 'WARNING',
         },
+        # Add your module-specific logger here:
+        'sagenkarta_rest_api.models': {
+            'handlers': ['console'],
+            'level': 'WARNING',  # or INFO, WARNING, etc.
+            'propagate': False,
+        },
         'sagendatabas_es_api': {
             # 'handlers': ['console', 'logfile'],
             'handlers': ['console'],
@@ -233,6 +239,7 @@ LOGGING = {
             'handlers': ['console'],
             'level': 'INFO',
         },
+        # Root logger
         '': {
             'handlers': ['console'],
             'level': 'WARNING',
