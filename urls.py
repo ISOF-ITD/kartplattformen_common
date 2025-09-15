@@ -20,7 +20,7 @@ from django.contrib import admin
 urlpatterns = [
     path('api/', include('sagenkarta_rest_api.urls')),
     path('api/es/', include('sagendatabas_es_api.urls')),
-    path('opendata/', include('sagendatabas_es_api.opendata.v1.urls')),
+    # path('opendata/', include('sagendatabas_es_api.opendata.v1.urls')),
     path('robots.txt', TemplateView.as_view(template_name="robots.txt", content_type="text/plain")),
 
     # Test with namespace:
