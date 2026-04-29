@@ -80,10 +80,10 @@ cd TradarkAdmin
 mkdir static
 
 # Python environment
-git clone https://vcs.its.uu.se/isof-devs/TradarkAdmin.git
-python3 -m venv venvdj_3
-ln -snf venvdj_3 current_venv
-source venvdj_3/bin/activate
+git clone https://git.its.uu.se/isof-devs/TradarkAdmin.git
+python3.12 -m venv venvdj_4
+ln -snf venvdj_4 current_venv
+source venvdj_4/bin/activate
 cd /var/www/django/TradarkAdmin/TradarkAdmin
 pip3 list
 vi requirements.txt
@@ -98,6 +98,8 @@ vi settings.py
 ln -snf settings_debug.py settings.py
 
 cp es_config.py.test es_config.py
+cp job-example.yml job.yml
+vi job.yml: kontrollera url till filserver
 
 # Run internal server as test
 python3 manage.py runserver
@@ -160,7 +162,7 @@ cd /var/www/django
 mkdir AccessionsRegister
 cd AccessionsRegister
 mkdir static
-git clone https://vcs.its.uu.se/isof-devs/Accessionsregister.git AccessionsRegister
+git clone https://git.its.uu.se/isof-devs/Accessionsregister.git AccessionsRegister
 cd /var/www/django/AccessionsRegister/AccessionsRegister/AccReg
 
 # Get configuration from previous server (local shell)
@@ -186,9 +188,9 @@ find . -name '*.py' | xargs grep 'sql6'
 cd /var/www/django/AccessionsRegister
 
 # Python environment
-python3 -m venv venvdj_3
-ln -snf venvdj_3 current_venv
-source venvdj_3/bin/activate
+python3.12 -m venv venvdj_4
+ln -snf venvdj_4 current_venv
+source current_venv/bin/activate
 
 # Repo name not as expected path in wsgi config
 mv Accessionsregister AccessionsRegister
@@ -261,8 +263,8 @@ find . -name '*.py' | xargs grep 'passord'
 cd /var/www/django
 mkdir folkeservice
 cd folkeservice
-python3 -m venv venvdj_3
-ln -snf venvdj_3 current_venv
+python3 -m venv venvdj_4
+ln -snf venvdj_4 current_venv
 # Clone repos:
 git clone git@github.com:ISOF-ITD/kartplattformen_common.git
 # följande funkar inte på servern. kopiera istället
