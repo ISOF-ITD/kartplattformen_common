@@ -136,12 +136,13 @@ python3 manage.py collectstatic
 # Get git pull log from previous server (local shell)
 cd local-computer-with-access-to-old-server/temp
 scp perla331@garm-test.isof.se:/var/www/django/TradarkAdmin/TradarkAdmin/gitupdate.* .
-scp gitupdate.* perla331@ull-test.isof.se:/var/www/django/TradarkAdmin/TradarkAdmin
+mv gitupdate.log gitupdate-garm-test.log
+scp gitupdate* perla331@ull-test.isof.se:/var/www/django/TradarkAdmin/TradarkAdmin
 chmod a+x gitupdate.*
 
 # Get saved scheduled task log files from previous server (local shell)
-scp perla331@frigg-test.isof.se:/var/www/django/TradarkAdmin/script.log.* .
-scp script.log.* perla331@garm-test.isof.se:/var/www/django/TradarkAdmin/TradarkAdmin
+scp -p perla331@garm-test.isof.se:/var/www/django/TradarkAdmin/TradarkAdmin/script.log.* .
+scp -p script.log.* perla331@ull-test.isof.se:/var/www/django/TradarkAdmin/TradarkAdmin
 
 # Commit updated configuration files in repo if needed (local env)
 cd local-computer-with-git-commmit-rights/TradarkAdmin
@@ -229,12 +230,13 @@ python3 runFetchFMOrg.py
 # local-computer-with-access-to-old-server
 cd /home/per/temp
 scp perla331@garm-test.isof.se:/var/www/django/AccessionsRegister/AccessionsRegister/gitupdate.* .
-scp gitupdate.* perla331@ull-test.isof.se:/var/www/django/AccessionsRegister/AccessionsRegister
+mv gitupdate.log gitupdate-garm-test.log
+scp gitupdate* perla331@ull-test.isof.se:/var/www/django/AccessionsRegister/AccessionsRegister
 chmod a+x gitupdate.*
 
 # Get saved scheduled task log files from previous server (local shell)
-scp perla331@frigg-test.isof.se:/var/www/django/AccessionsRegister/script.log.* .
-scp script.log.* perla331@garm-test.isof.se:/var/www/django/AccessionsRegister/AccessionsRegister
+scp -p perla331@garm-test.isof.se:/var/www/django/AccessionsRegister/AccessionsRegister/script.log.* .
+scp -p script.log.* perla331@ull-test.isof.se:/var/www/django/AccessionsRegister/AccessionsRegister
 
 # Commit updated configuration files in repo if needed (local env)
 cd local-computer-with-access-to-old-server/AccessionsRegister
@@ -320,14 +322,17 @@ python3.12 manage.py collectstatic
 # local-computer-with-access-to-old-server
 cd /home/per/temp
 rm git*
-scp perla331@garm-test.isof.se:/var/www/django/sagendatabas/sagendatabas/gitupdate.* .
-scp gitupdate.* perla331@ull-test.isof.se:/var/www/django/folkeservice/kartplattformen_common
+scp perla331@garm-test.isof.se:/var/www/django/folkeservice/kartplattformen_common/gitupdate.* .
+mv gitupdate.log gitupdate-garm-test.log
+scp gitupdate* perla331@ull-test.isof.se:/var/www/django/folkeservice/kartplattformen_common
 rm git*
-scp perla331@garm-test.isof.se:/var/www/django/sagendatabas/sagenkarta_rest_api/gitupdate.* .
-scp gitupdate.* perla331@ull-test.isof.se:/var/www/django/folkeservice/sagenkarta_rest_api
+scp perla331@garm-test.isof.se:/var/www/django/folkeservice/sagenkarta_rest_api/gitupdate.* .
+mv gitupdate.log gitupdate-garm-test.log
+scp gitupdate* perla331@ull-test.isof.se:/var/www/django/folkeservice/sagenkarta_rest_api
 rm git*
-scp perla331@garm-test.isof.se:/var/www/django/sagendatabas/sagendatabas_es_api/gitupdate.* .
-scp gitupdate.* perla331@ull-test.isof.se:/var/www/django/folkeservice/sagendatabas_es_api
+scp perla331@garm-test.isof.se:/var/www/django/folkeservice/sagendatabas_es_api/gitupdate.* .
+mv gitupdate.log gitupdate-garm-test.log
+scp gitupdate* perla331@ull-test.isof.se:/var/www/django/folkeservice/sagendatabas_es_api
 chmod a+x gitupdate.*
 
 # fatal: detected dubious ownership in repository at '/var/www/django/folkeservice/kartplattformen_common'
