@@ -253,6 +253,8 @@ See also svn /isof/utveckling/environment/persUbuntu.txt:
  "# Install folke service apis as one django application"
 
 # Check config:
+#more /var/www/django/folkeservice/kartplattformen_common/settings.py
+#more /var/www/django/folkeservice/kartplattformen_common/wsgi.py
 more /var/www/django/folkeservice/kartplattformen_common/secrets_env.py
 more /var/www/django/folkeservice/sagenkarta_rest_api/secrets_env.py
 more /var/www/django/folkeservice/sagenkarta_rest_api/config.py
@@ -409,6 +411,10 @@ scp * perla331@garm-test.isof.se:/var/www/data/ortnamn-teckensprak
 
 scp perla331@frigg-test.isof.se:/var/www/django/static/js-apps/snabbkarta/data/* .
 scp * perla331@garm-test.isof.se:/var/www/data/sifferkartan
+
+# Check configuration:
+# In TradarkAdmin
+./folke-konfigureringslogg.sh
 
 # ###########################
 # Snabbkarta
