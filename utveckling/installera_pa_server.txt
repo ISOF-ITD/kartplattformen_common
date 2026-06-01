@@ -441,8 +441,14 @@ find . -name '*.json' | xargs grep -l 'olandskartan.isof.se' | xargs sed -i.bak 
 # ###########################
 # Kartappar övrigt
 # ###########################
+Check github ssh access:
+https://docs.github.com/en/authentication/troubleshooting-ssh/using-ssh-over-the-https-port
+ssh -T -p 443 git@ssh.github.com
+ssh -T git@github.com
 cd /var/www/react/
 git clone https://github.com/ISOF-ITD/PublikUtforska-GUI.git
+# På garm men funkar inte för perla331 på ull!
+git clone git://github.com/ISOF-ITD/PublikUtforska-GUI.git
 Troligen ej tillgänglig som static i apache
 https://garm-test.isof.se/react/PublikUtforska-GUI
 ping sok.folke-test.isof.se
