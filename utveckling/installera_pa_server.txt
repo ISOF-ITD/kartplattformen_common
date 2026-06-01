@@ -97,6 +97,12 @@ vi settings.py
 # Or replace by link:
 ln -snf settings_debug.py settings.py
 
+cp secrets.py.template secrets_env.py
+# Set secrets
+vi secrets_env.py
+python3 -c 'import secrets; print(secrets.token_hex(100))'
+python3 -c 'from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())'
+
 cp es_config.py.test es_config.py
 cp job-example.yml job.yml
 vi job.yml: kontrollera url till filserver
@@ -115,11 +121,6 @@ PYTHONUNBUFFERED=1
 Annars:
 DJANGO_SETTINGS_MODULE=settings;PYTHONUNBUFFERED=1
 
-cp secrets.py.template secrets_env.py
-# Set secrets
-vi secrets_env.py
-python3 -c 'import secrets; print(secrets.token_hex(100))'
-python3 -c 'from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())'
 # Set restApiRecordUrl = 'https://garm-test.isof.se/folkeservice/api/records/'
 # Set host = 'saga-test.isof.se:9200'
 
@@ -154,7 +155,7 @@ scp perla331@garm-test.isof.se:/var/www/django/TradarkAdmin/TradarkAdmin/require
 scp perla331@garm-test.isof.se:/etc/httpd/conf-ssl.d/garm-test/TradarkAdmin.conf wsgi/TradarkAdmin.conf
 
 # --------------------------
-# Install Accessionsregister (not yet verified)
+# Install Accessionsregister
 # --------------------------
 Dev:
 cd ~/dev/server
@@ -292,6 +293,7 @@ allowed_host = 'garm-test.isof.se'
 
 cd /var/www/django/folkeservice/sagenkarta_rest_api
 cp config_prod.py config.py
+Byt till AKTUELL-SERVER.isof.se  i config.py
 cp secrets_env.py.template secrets_env.py
 OR get config from old server!
 scp perla331@garm.isof.se:/var/www/django/sagendatabas/sagenkarta_rest_api/secrets_env.py .
