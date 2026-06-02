@@ -383,36 +383,41 @@ scp * perla331@garm-test.isof.se:/var/www/isof/importdata/folke
 
 # media-data:
 # Persons for folke
-du /var/www/django/media/personer/ --block-size=1M
+du /var/www/django/media/personer/ --block-size=1k
+garm+ull-test 2026-07-02:
+1164	/var/www/django/media/personer/
 /var/www/django/media/personer/
 #media for signbank/Teckenlistan
 du /var/www/django/media/glossvideo/ --block-size=1M
+garm+ull-test 2026-07-02:
+3389	/var/www/django/media/glossvideo/
 /var/www/django/media/glossvideo/
 
 # Copy:
 cd temp/media
-scp -rp perla331@frigg.isof.se:/var/www/django/media/
-scp * perla331@garm-test.isof.se:/var/www/django/media
+scp -rp perla331@garm.isof.se:/var/www/django/media/
+scp -r * perla331@ull-test.isof.se:/var/www/django/media
 
 # Kartskikt/GIS-data:
 cd temp/data
-# General data store (seems only data for snabbkarta?)
-scp -rp perla331@frigg.isof.se:/var/www/django/static/data/
-scp * perla331@garm-test.isof.se:/?
+# OLD: General data store (seems only data for snabbkarta?)
+#scp -rp perla331@frigg.isof.se:/var/www/django/static/data/
+#scp * perla331@garm-test.isof.se:/?
 # Data snabbkarta
-scp perla331@frigg.isof.se:/var/www/django/static/js-apps/snabbkarta/data/* .
-scp *.geojson perla331@garm-test.isof.se:/?
+#scp perla331@frigg.isof.se:/var/www/django/static/js-apps/snabbkarta/data/* .
+#scp *.geojson perla331@garm-test.isof.se:/?
+# End OLD
 
-# snabbkarta:
-scp perla331@frigg-test.isof.se:/var/www/django/static/data/olandskartan/* .
-scp * perla331@garm-test.isof.se:/var/www/data/olandskartan
+# data snabbkartor:
+scp perla331@garm.isof.se:/var/www/data/olandskartan/* .
+scp * perla331@ull-test.isof.se:/var/www/data/olandskartan
 
 # OBS: Kan ta lång tid: Fråga UU-drift att göra det?
-scp perla331@frigg-test.isof.se:/var/www/django/static/data/ortnamn-teckensprak/* .
-scp * perla331@garm-test.isof.se:/var/www/data/ortnamn-teckensprak
+scp perla331@garm.isof.se:/var/www/data/ortnamn-teckensprak/* .
+scp * perla331@ull-test.isof.se:/var/www/data/ortnamn-teckensprak
 
-scp perla331@frigg-test.isof.se:/var/www/django/static/js-apps/snabbkarta/data/* .
-scp * perla331@garm-test.isof.se:/var/www/data/sifferkartan
+scp perla331@garm.isof.se:/var/www/data/sifferkartan/* .
+scp * perla331@ull-test.isof.se:/var/www/data/sifferkartan
 
 # Check configuration:
 # In TradarkAdmin
