@@ -338,6 +338,7 @@ scp perla331@garm-test.isof.se:/var/www/django/folkeservice/sagendatabas_es_api/
 mv gitupdate.log gitupdate-garm-test.log
 scp gitupdate* perla331@ull-test.isof.se:/var/www/django/folkeservice/sagendatabas_es_api
 chmod a+x gitupdate.*
+chmod g+w gitupdate.*
 
 # fatal: detected dubious ownership in repository at '/var/www/django/folkeservice/kartplattformen_common'
 git config --global --add safe.directory /var/www/django/folkeservice/kartplattformen_common
@@ -384,12 +385,15 @@ scp * perla331@garm-test.isof.se:/var/www/isof/importdata/folke
 # media-data:
 # Persons for folke
 du /var/www/django/media/personer/ --block-size=1k
-garm+ull-test 2026-07-02:
+garm+ull-test 2026-06-02:
+1164	/var/www/django/media/personer/
+garm+ull 2026-06-09:
 1164	/var/www/django/media/personer/
 /var/www/django/media/personer/
 #media for signbank/Teckenlistan
 du /var/www/django/media/glossvideo/ --block-size=1M
-garm+ull-test 2026-07-02:
+garm+ull-test 2026-06-02:
+garm+ull 2026-06-09:
 3389	/var/www/django/media/glossvideo/
 /var/www/django/media/glossvideo/
 
@@ -472,8 +476,8 @@ Finns EJ???:
 Kopiera från annat repo:
 cp /var/www/django/TradarkAdmin/TradarkAdmin/gitupdate.sh .
 
-scp perla331@frigg-test.isof.se:/var/www/django/react/PublikUtforska-GUI/gitupdate.* .
-scp gitupdate.* perla331@garm-test.isof.se:/var/www/react/PublikUtforska-GUI
+scp perla331@garm-test.isof.se:/var/www/react/PublikUtforska-GUI/gitupdate.* .
+scp gitupdate.* perla331@ull-test.isof.se:/var/www/react/PublikUtforska-GUI
 
 scp perla331@frigg-test.isof.se:/var/www/django/static/js-apps/sagenkarta/svn_www_update.* .
 scp svn_www_update.* perla331@garm-test.isof.se:/var/www/react/Sagenkarta-GUI
@@ -502,8 +506,8 @@ scp svn_www_update.* perla331@garm-test.isof.se:/var/www/react/Folkmusikkarta-GU
 ping hittafolkmusiken-test.isof.se
 
 -- Prod:
-scp perla331@frigg.isof.se:/var/www/react/PublikUtforska-GUI/gitupdate.* .
-scp gitupdate.* perla331@garm.isof.se:/var/www/react/PublikUtforska-GUI
+scp perla331@garm.isof.se:/var/www/react/PublikUtforska-GUI/gitupdate.* .
+scp gitupdate.* perla331@ull.isof.se:/var/www/react/PublikUtforska-GUI
 
 scp perla331@frigg.isof.se:/var/www/django/static/js-apps/sagenkarta/svn_www_update.* .
 scp svn_www_update.* perla331@garm.isof.se:/var/www/react/Sagenkarta-GUI
