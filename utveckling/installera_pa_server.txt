@@ -476,60 +476,57 @@ Finns EJ???:
 Kopiera från annat repo:
 cp /var/www/django/TradarkAdmin/TradarkAdmin/gitupdate.sh .
 
-scp perla331@garm-test.isof.se:/var/www/react/PublikUtforska-GUI/gitupdate.* .
-scp gitupdate.* perla331@ull-test.isof.se:/var/www/react/PublikUtforska-GUI
+Konfigurera appar för miljö och loggning uppdateringar:
+OBS: För produktion: Ta bort "-test"
 
-scp perla331@frigg-test.isof.se:/var/www/django/static/js-apps/sagenkarta/svn_www_update.* .
-scp svn_www_update.* perla331@garm-test.isof.se:/var/www/react/Sagenkarta-GUI
+scp perla331@garm-test.isof.se:/var/www/react/PublikUtforska-GUI/gitupdate* .
+scp gitupdate* perla331@ull-test.isof.se:/var/www/react/PublikUtforska-GUI
+
+scp perla331@garm-test.isof.se:/var/www/react/Sagenkarta-GUI/gitupdate.* .
+scp gitupdate* perla331@ull-test.isof.se:/var/www/react/Sagenkarta-GUI
 ping sagenkartan-test.isof.se
-cp /var/www/react/PublikUtforska-GUI/switch-api.sh .
+chmod u+x /var/www/django/folkeservice/kartplattformen_common/utveckling/switch2newAPI.sh
+chmod g+x /var/www/django/folkeservice/kartplattformen_common/utveckling/switch2newAPI.sh
+Change to prod if needed:
+vi /var/www/django/folkeservice/kartplattformen_common/utveckling/switch2newAPI.sh
+cp /var/www/django/folkeservice/kartplattformen_common/utveckling/switch2newAPI.sh .
+find www -name '*.js' | xargs grep -l 'garm-test.isof'
+./switch2newAPI.sh
 
-scp perla331@frigg-test.isof.se:/var/www/django/static/js-apps/sagenkarta/switch-* .
-scp switch-* perla331@garm-test.isof.se:/var/www/react/Sagenkarta-GUI
+# Old:
+# scp perla331@frigg-test.isof.se:/var/www/django/static/js-apps/sagenkarta/switch-* .
+# scp switch-* perla331@garm-test.isof.se:/var/www/react/Sagenkarta-GUI
+cp /var/www/django/folkeservice/kartplattformen_common/utveckling/switch2newAPI.sh .
+./switch2newAPI.sh
 
-scp perla331@frigg-test.isof.se:/var/www/django/static/js-apps/sagenkarta-norsk/svn_www_update.* .
-scp svn_www_update.* perla331@garm-test.isof.se:/var/www/react/Norsk-Sagenkarta-GUI
+scp perla331@garm-test.isof.se:/var/www/react/Norsk-Sagenkarta-GUI/gitupdate.* .
+scp gitupdate* perla331@ull-test.isof.se:/var/www/react/Norsk-Sagenkarta-GUI
 ping sagenkartan-norsk-test.isof.se
-cp /var/www/react/Sagenkarta-GUI/switch-api.sh .
+cp /var/www/django/folkeservice/kartplattformen_common/utveckling/switch2newAPI.sh .
+Change to from older server frigg if needed:
+vi switch2newAPI.sh
+./switch2newAPI.sh
 
-scp perla331@frigg-test.isof.se:/var/www/django/static/js-apps/dialektkartan/svn_www_update.* .
-scp svn_www_update.* perla331@garm-test.isof.se:/var/www/react/Dialektkarta-GUI
+scp perla331@garm-test.isof.se:/var/www/react/Dialektkarta-GUI/gitupdate* .
+scp gitupdate* perla331@ull-test.isof.se:/var/www/react/Dialektkarta-GUI
 ping dialektkartan-test.isof.se
-cp /var/www/react/Sagenkarta-GUI/switch-api.sh .
+cp /var/www/django/folkeservice/kartplattformen_common/utveckling/switch2newAPI.sh .
+./switch2newAPI.sh
 
-scp perla331@frigg-test.isof.se:/var/www/django/static/js-apps/matkartan/svn_www_update.* .
-scp svn_www_update.* perla331@garm-test.isof.se:/var/www/react/Matkarta-GUI
+scp perla331@garm-test.isof.se:/var/www/react/Matkarta-GUI/svn_www_update* .
+scp gitupdate* perla331@ull-test.isof.se:/var/www/react/Matkarta-GUI
 ping matkartan-test.isof.se
+cp /var/www/django/folkeservice/kartplattformen_common/utveckling/switch2newAPI.sh .
+./switch2newAPI.sh
 
-scp perla331@frigg-test.isof.se:/var/www/django/static/js-apps/folkmusikkartan/svn_www_update.* .
-scp svn_www_update.* perla331@garm-test.isof.se:/var/www/react/Folkmusikkarta-GUI
+scp perla331@garm-test.isof.se:/var/www/react/Folkmusikkarta-GUI/gitupdate* .
+scp gitupdate* perla331@ull-test.isof.se:/var/www/react/Folkmusikkarta-GUI
 ping hittafolkmusiken-test.isof.se
-
--- Prod:
-scp perla331@garm.isof.se:/var/www/react/PublikUtforska-GUI/gitupdate.* .
-scp gitupdate.* perla331@ull.isof.se:/var/www/react/PublikUtforska-GUI
-
-scp perla331@frigg.isof.se:/var/www/django/static/js-apps/sagenkarta/svn_www_update.* .
-scp svn_www_update.* perla331@garm.isof.se:/var/www/react/Sagenkarta-GUI
-
-scp perla331@frigg.isof.se:/var/www/django/static/js-apps/publikutforska-to-delete/switch-* .
-scp switch-* perla331@garm.isof.se:/var/www/react/PublikUtforska-GUI
-
-scp perla331@frigg.isof.se:/var/www/django/static/js-apps/sagenkarta-norsk/svn_www_update.* .
-scp svn_www_update.* perla331@garm.isof.se:/var/www/react/Norsk-Sagenkarta-GUI
-
-scp perla331@frigg.isof.se:/var/www/django/static/js-apps/dialektkartan/svn_www_update.* .
-scp svn_www_update.* perla331@garm.isof.se:/var/www/react/Dialektkarta-GUI
-
-scp perla331@frigg.isof.se:/var/www/django/static/js-apps/matkartan/svn_www_update.* .
-scp svn_www_update.* perla331@garm.isof.se:/var/www/react/Matkarta-GUI
-
-scp perla331@frigg.isof.se:/var/www/django/static/js-apps/folkmusikkartan/svn_www_update.* .
-scp svn_www_update.* perla331@garm.isof.se:/var/www/react/Folkmusikkarta-GUI
+cp /var/www/django/folkeservice/kartplattformen_common/utveckling/switch2newAPI.sh .
+./switch2newAPI.sh
 
 # Korrigera api urler:
 cp /var/www/react/PublikUtforska-GUI/switch-api.sh .
 
 # Check om app används:
 tail /etc/httpd/logs/ssl_access_log | grep app.js
-
