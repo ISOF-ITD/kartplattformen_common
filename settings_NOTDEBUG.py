@@ -101,6 +101,14 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+# if settings.REVPROXY["QUOTE_SPACES_AS_PLUS"]:
+# File "/var/www/django/folkeservice/current_venv/lib64/python3.12/site-packages/django/conf/__init__.py", line 83, in __getattr__
+# AttributeError: 'Settings' object has no attribute 'REVPROXY'
+# Seems to be needed:
+REVPROXY = {
+    "QUOTE_SPACES_AS_PLUS": True,
+}
+
 ROOT_URLCONF = 'kartplattformen_common.urls'
 
 TEMPLATES = [
