@@ -428,12 +428,13 @@ scp * perla331@ull-test.isof.se:/var/www/data/sifferkartan
 ./folke-konfigureringslogg.sh
 
 # ###########################
-# Snabbkarta
+# ISOF-Snabbkarta appar
 # ###########################
 EJ: Installera på js-apps ENKLAST, då alla inte har domäner
-Installera på react/ och alla appar får subdomäner
 mkdir js-apps
 cd js-apps/
+
+Installera på react/ och alla appar baserade på snabbkarta får subdomäner
 git clone https://github.com/ISOF-ITD/ISOF-Snabbkarta.git snabbkarta
 scp -rp perla331@frigg.isof.se:/var/www/django/static/js-apps/snabbkarta/data/sifferkartor_* .
 scp * perla331@garm-test.isof.se:/var/www/django/static/js-apps/snabbkarta/data
@@ -443,14 +444,23 @@ https://garm-test.isof.se/static/js-apps/snabbkarta/index.html?config=sifferkart
 cd /var/www/react/
 git clone https://github.com/ISOF-ITD/ISOF-Snabbkarta.git
 
-# Switch environment test-prod:
+scp perla331@garm-test.isof.se:/var/www/react/ISOF-Snabbkarta/gitupdate* .
+mv gitupdate.log gitupdate-garm-test.log
+scp gitupdate* perla331@ull-test.isof.se:/var/www/react/ISOF-Snabbkarta
+cp /var/www/django/folkeservice/kartplattformen_common/utveckling/switch2newAPI.sh .
+Change to from older server frigg if needed:
+vi switch2newAPI.sh
+./switch2newAPI.sh
+
+
+# VID BEHOV: Switch environment test-prod:
 cd /var/react/ISOF-Snabbkarta
 cp /var/www/react/Sagenkarta-GUI/switch-* .
 #Lägg in:
 find . -name '*.json' | xargs grep -l 'olandskartan.isof.se' | xargs sed -i.bak s/olandskartan.isof.se/olandskartan-test.isof.se/g
 
 # ###########################
-# Kartappar övrigt
+# Kartappar övriga
 # ###########################
 Check github ssh access:
 https://docs.github.com/en/authentication/troubleshooting-ssh/using-ssh-over-the-https-port
