@@ -513,6 +513,11 @@ scp perla331@garm-test.isof.se:/var/www/react/Norsk-Sagenkarta-GUI/gitupdate.* .
 scp gitupdate* perla331@ull-test.isof.se:/var/www/react/Norsk-Sagenkarta-GUI
 ping sagenkartan-norsk-test.isof.se
 cp /var/www/django/folkeservice/kartplattformen_common/utveckling/switch2newAPI.sh .
+Update old config in old build:
+Change api from sagendatabas/api to folkeservice/api
+./switch2newAPI.sh
+Change type to sagenkartan,tryckt:
+./switch-arkiv-2-sagenkartan.sh
 Change to from older server frigg if needed:
 vi switch2newAPI.sh
 ./switch2newAPI.sh
