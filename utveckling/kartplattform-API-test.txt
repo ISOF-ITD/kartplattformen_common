@@ -79,7 +79,7 @@ curl -X POST "https://garm-test.isof.se/folkeservice/api/feedback/" -F json='
 	"from_name":"PerTest",
 	"subject":"localhost:8080: ContributeInfo",
 	"recordid":"02212:4_63249",
-	"message":"Uppteckning: null\n/records/02212:4_63249\n\nFrån: test (test@test)\n\ntest"
+	"message":"Uppteckning: null\n/records/02212:4_63249\n\nFrån: ull-test (test@test)\n\ntest"
 }'
 
 Calls:
