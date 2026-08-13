@@ -310,7 +310,7 @@ curl -X POST "http://localhost:8000/api/transcribecancel/" -F json='
 # USED:
 curl -X POST "http://localhost:8000/api/transcribestart/" -F json='
 {
-  "recordid": "10637_27773_1"
+  "recordid": "ifgh00700_195384"
 }'
 
 # transcribesave: transcribe save and continue transcribe
@@ -324,6 +324,34 @@ curl -X POST "http://localhost:8000/api/transcribe/" -F json='
   "from_email":"pertest@isof.se",
   "from_name":"pertest",
   "message":"I Kinnekulle berg fanns .. TESTPER 2024-11-19",
+  "messageComment":"Svår att tolka"
+}'
+
+# transcribe on record with segment
+curl -X POST "http://localhost:8001/api/transcribe/" -F json='
+{
+  "recordid": "ifgh00700_195384",
+  "page": "uppteckningar/ifgh_00700-00799/ifgh00700_0008.jpg",
+  "transcribesession": "2026-08-12 17:06:49.979",
+  "from_email":"pertest@isof.se",
+  "from_name":"pertest",
+  "recordtitle":"E visa",
+  "informantName":"Josef Johansson",
+  "informantBirthDate":"1842",
+  "informantBirthPlace":"Svedals-Ryd Dalsl",
+  "informantInformation":"",
+  "message":"Jag minns när jag va liten .. TESTPER 2026-08-12",
+  "messageComment":"Svår att tolka"
+}'
+
+curl -X POST "http://localhost:8001/api/transcribe/" -F json='
+{
+  "recordid": "ifgh00700_195384",
+  "page": "uppteckningar/ifgh_00700-00799/ifgh00700_0009.jpg",
+  "transcribesession": "2025-08-13 13:48:11.234",
+  "from_email":"pertest@isof.se",
+  "from_name":"pertest",
+  "message":"min moder hon lades på bår .. TESTPER 2026-08-12",
   "messageComment":"Svår att tolka"
 }'
 
