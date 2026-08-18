@@ -377,9 +377,17 @@ curl -X POST "http://localhost:8001/api/transcribe/" -F json='
   "message":"Om ett barn föddes i detsamma som .. TESTPER 2026-08-18",
   "messageComment":"Svår tolkad"
 }'
-ifgh00799_0004.jpg
+ifgh00799_0002.jpg
   "page": "uppteckningar/ifgh_00700-00799/ifgh00799_0002.jpg",
   "message":"vi skulle slänga pengar i badvattnet .. TESTPER 2026-08-18",
+ifgh00799_0005.jpg
+  "informantName":"Maja-Stina Andreasson",
+  "informantBirthDate":"1853",
+  "informantBirthPlace":"Lekåsa",
+  "informantInformation":"",
+  "recordtitle":"barnsjukdom, kyrkogång",
+  "page": "uppteckningar/ifgh_00700-00799/ifgh00799_0005.jpg",
+  "message":"Samla 'mågesa' bota engelska sjukan .. TESTPER 2026-08-18",
 ifgh00799_0004.jpg
   "informantName":"Anna-Stina Johansson (-Kvick)",
   "informantBirthDate":"1845",
