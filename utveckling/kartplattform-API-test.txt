@@ -378,12 +378,15 @@ curl -X POST "http://localhost:8001/api/transcribe/" -F json='
   "messageComment":"Svår tolkad"
 }'
 ifgh00799_0004.jpg
+  "page": "uppteckningar/ifgh_00700-00799/ifgh00799_0002.jpg",
+  "message":"vi skulle slänga pengar i badvattnet .. TESTPER 2026-08-18",
+ifgh00799_0004.jpg
   "informantName":"Anna-Stina Johansson (-Kvick)",
   "informantBirthDate":"1845",
   "informantBirthPlace":"Slåttensby",
   "informantInformation":"",
   "recordtitle":"spädbarn",
-  "page": "uppteckningar/ifgh_00700-00799/ifgh00799_0001.jpg",
+  "page": "uppteckningar/ifgh_00700-00799/ifgh00799_0004.jpg",
   "message":"Det håret som barnet hade .. TESTPER 2026-08-18",
 
 curl -X POST "http://localhost:8001/api/transcribe/" -F json='
