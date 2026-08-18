@@ -331,18 +331,60 @@ curl -X POST "http://localhost:8000/api/transcribe/" -F json='
 curl -X POST "http://localhost:8001/api/transcribe/" -F json='
 {
   "recordid": "ifgh00700_195384",
-  "page": "uppteckningar/ifgh_00700-00799/ifgh00700_0008.jpg",
-  "transcribesession": "2026-08-12 17:06:49.979",
+  "transcribesession": "2026-08-18 11:49:52.616",
   "from_email":"pertest@isof.se",
   "from_name":"pertest",
   "recordtitle":"E visa",
+  "informantName":"Sofia Andersson",
+  "informantBirthDate":"",
+  "informantBirthPlace":"Blixerud Högsbyn",
+  "informantInformation":"",
+  "page": "uppteckningar/ifgh_00700-00799/ifgh00700_0022.jpg",
+  "message":"Siri, siri dotra min .. TESTPER 2026-08-18",
+  "messageComment":"Svår att tolka"
+}'
+# Fler test
   "informantName":"Josef Johansson",
   "informantBirthDate":"1842",
   "informantBirthPlace":"Svedals-Ryd Dalsl",
+  "page": "uppteckningar/ifgh_00700-00799/ifgh00700_0008.jpg",
+  "page": "uppteckningar/ifgh_00700-00799/ifgh00700_0010.jpg",
+    # s 22 - 32
+  "informantName":"Sofia Andersson",
+  "informantBirthPlace":"Blixerud Högsbyn",
+  Ingen övrig informant-info
+  "page": "uppteckningar/ifgh_00700-00799/ifgh00700_0022.jpg",
+  "message":"Siri, siri dotra min .. TESTPER 2026-08-18",
+  "page": "uppteckningar/ifgh_00700-00799/ifgh00700_0023.jpg",
+  "message":" Siri du har så lite .. TESTPER 2026-08-18",
+  "page": "uppteckningar/ifgh_00700-00799/ifgh00700_0024.jpg",
+  "message":"Å petter han kom .. TESTPER 2026-08-18",
+  "page": "uppteckningar/ifgh_00700-00799/ifgh00700_0031.jpg",
+  "message":"Det var en lördagsafton jag .. TESTPER 2026-08-18",
+# ifgh00799_195950
+curl -X POST "http://localhost:8001/api/transcribe/" -F json='
+{
+  "recordid": "ifgh00799_195950",
+  "transcribesession": "2026-08-18 15:54:23.270",
+  "from_email":"pertest@isof.se",
+  "from_name":"pertest",
+  "informantName":"Inga-Stina Johansson",
+  "informantBirthDate":"1860",
+  "informantBirthPlace":"Fåglum",
   "informantInformation":"",
-  "message":"Jag minns när jag va liten .. TESTPER 2026-08-12",
-  "messageComment":"Svår att tolka"
+  "recordtitle":"spädbarn",
+  "page": "uppteckningar/ifgh_00700-00799/ifgh00799_0001.jpg",
+  "message":"Om ett barn föddes i detsamma som .. TESTPER 2026-08-18",
+  "messageComment":"Svår tolkad"
 }'
+ifgh00799_0004.jpg
+  "informantName":"Anna-Stina Johansson (-Kvick)",
+  "informantBirthDate":"1845",
+  "informantBirthPlace":"Slåttensby",
+  "informantInformation":"",
+  "recordtitle":"spädbarn",
+  "page": "uppteckningar/ifgh_00700-00799/ifgh00799_0001.jpg",
+  "message":"Det håret som barnet hade .. TESTPER 2026-08-18",
 
 curl -X POST "http://localhost:8001/api/transcribe/" -F json='
 {
