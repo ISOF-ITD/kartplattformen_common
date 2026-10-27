@@ -368,13 +368,13 @@ curl -X POST "http://localhost:8001/api/transcribe/" -F json='
   "transcribesession": "2026-08-18 15:54:23.270",
   "from_email":"pertest@isof.se",
   "from_name":"pertest",
-  "informantName":"Inga-Stina Johansson",
-  "informantBirthDate":"1860",
-  "informantBirthPlace":"Fåglum",
+  "informantName":"Maja-Stina Andreasson",
+  "informantBirthDate":"1853",
+  "informantBirthPlace":"Lekåsa",
   "informantInformation":"",
-  "recordtitle":"spädbarn",
-  "page": "uppteckningar/ifgh_00700-00799/ifgh00799_0001.jpg",
-  "message":"Om ett barn föddes i detsamma som .. TESTPER 2026-08-18",
+  "recordtitle":"barnsjukdom, kyrkogång",
+  "page": "uppteckningar/ifgh_00700-00799/ifgh00799_0005.jpg",
+  "message":"Samla 'mågesa' bota engelska sjukan .. TESTPER 2026-08-18",
   "messageComment":"Svår tolkad"
 }'
 ifgh00799_0002.jpg
