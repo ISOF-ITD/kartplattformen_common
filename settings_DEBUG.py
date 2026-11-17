@@ -249,6 +249,13 @@ LOGGING = {
             'level': 'WARNING',  # or INFO, WARNING, etc.
             'propagate': False,
         },
+        # Suppress template logging, example:
+        # django.template.base.VariableDoesNotExist: Failed lookup for key [name] in <URLResolver <module 'sagendatabas_es_api.urls' from '/var/www/django/folkeservice/sagendatabas_es_api/urls.py'> (api-es:api-es) 'api/es/'>
+        'django.template': {
+            'handlers': ['console'],
+            'level': 'WARNING',
+            'propagate': False,
+        },
         # Root logger
         '': {
             'handlers': ['console'],
